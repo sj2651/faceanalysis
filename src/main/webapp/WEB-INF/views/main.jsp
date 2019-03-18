@@ -42,7 +42,7 @@
 <body class="">
 
 <!-- Add your content of header -->
-<div class="background-color-layer" style="max-width:100%; height:auto;background-image: url('images/img-01.jpg') "
+<div class="background-color-layer" style="background-image: url('images/img-01.jpg') "
 ></div>
 <main class="content-wrapper">
   <header class="white-text-container section-container">

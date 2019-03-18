@@ -31,6 +31,6 @@
 	</bean>
 
 	<context:component-scan base-package="kr.co.faceanalysis.persistence" />
-	<context:component-scan base-package="kr.co.faceanalysis" />
+
 	
 </beans>
