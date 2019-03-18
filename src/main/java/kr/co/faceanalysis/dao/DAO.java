@@ -1,4 +1,4 @@
-package kr.co.faceanalysis.persistence;
+package kr.co.faceanalysis.dao;
 
 import java.util.List;
 

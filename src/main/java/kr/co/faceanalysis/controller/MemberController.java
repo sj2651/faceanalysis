@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.co.faceanalysis.dao.DAO;
 import kr.co.faceanalysis.dto.MemberDTO;
-import kr.co.faceanalysis.persistence.DAO;
 
 @Controller
 public class MemberController {
