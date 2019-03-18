@@ -1,104 +1,116 @@
 package kr.co.faceanalysis.vo;
 
 public class ProductVO {
-	private int PNo;
-	private int MNo;	
-	private String PBrand;
-	private String PName;
-	private String PImg;
-	private String PDetail;
-	private String PIngredient;
-	private String PGrade;
-	private String PRed;
+	private int p_no;
+	private int m_no;	
+	private String p_brand;
+	private String p_cate;
+	private String p_name;
+	private String p_img;
+	private String p_detail;
+	private String p_ingredient;
+	private String p_grade;
+	private String p_reg;
 	
-	//전부입력
-	public ProductVO(int pNo, int mNo, String pBrand, String pName, String pImg, String pDetail, String pIngredient,
-			String pGrade, String pRed) {
-		PNo = pNo;
-		MNo = mNo;
-		PBrand = pBrand;
-		PName = pName;
-		PImg = pImg;
-		PDetail = pDetail;
-		PIngredient = pIngredient;
-		PGrade = pGrade;
-		PRed = pRed;
+	public ProductVO() {
+		// TODO Auto-generated constructor stub
 	}
 
-	//get, setter
-	public int getPNo() {
-		return PNo;
+	public ProductVO(int p_no, int m_no, String p_brand, String p_cate, String p_name, String p_img, String p_detail,
+			String p_ingredient, String p_grade, String p_reg) {
+		super();
+		this.p_no = p_no;
+		this.m_no = m_no;
+		this.p_brand = p_brand;
+		this.p_cate = p_cate;
+		this.p_name = p_name;
+		this.p_img = p_img;
+		this.p_detail = p_detail;
+		this.p_ingredient = p_ingredient;
+		this.p_grade = p_grade;
+		this.p_reg = p_reg;
 	}
 
-	public void setPNo(int pNo) {
-		PNo = pNo;
+	public int getP_no() {
+		return p_no;
 	}
 
-	public int getMNo() {
-		return MNo;
+	public void setP_no(int p_no) {
+		this.p_no = p_no;
 	}
 
-	public void setMNo(int mNo) {
-		MNo = mNo;
+	public int getM_no() {
+		return m_no;
 	}
 
-	public String getPBrand() {
-		return PBrand;
+	public void setM_no(int m_no) {
+		this.m_no = m_no;
 	}
 
-	public void setPBrand(String pBrand) {
-		PBrand = pBrand;
+	public String getP_brand() {
+		return p_brand;
 	}
 
-	public String getPName() {
-		return PName;
+	public void setP_brand(String p_brand) {
+		this.p_brand = p_brand;
 	}
 
-	public void setPName(String pName) {
-		PName = pName;
+	public String getP_cate() {
+		return p_cate;
 	}
 
-	public String getPImg() {
-		return PImg;
+	public void setP_cate(String p_cate) {
+		this.p_cate = p_cate;
 	}
 
-	public void setPImg(String pImg) {
-		PImg = pImg;
+	public String getP_name() {
+		return p_name;
 	}
 
-	public String getPDetail() {
-		return PDetail;
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
 	}
 
-	public void setPDetail(String pDetail) {
-		PDetail = pDetail;
+	public String getP_img() {
+		return p_img;
 	}
 
-	public String getPIngredient() {
-		return PIngredient;
+	public void setP_img(String p_img) {
+		this.p_img = p_img;
 	}
 
-	public void setPIngredient(String pIngredient) {
-		PIngredient = pIngredient;
+	public String getP_detail() {
+		return p_detail;
 	}
 
-	public String getPGrade() {
-		return PGrade;
+	public void setP_detail(String p_detail) {
+		this.p_detail = p_detail;
 	}
 
-	public void setPGrade(String pGrade) {
-		PGrade = pGrade;
+	public String getP_ingredient() {
+		return p_ingredient;
 	}
 
-	public String getPRed() {
-		return PRed;
+	public void setP_ingredient(String p_ingredient) {
+		this.p_ingredient = p_ingredient;
 	}
 
-	public void setPRed(String pRed) {
-		PRed = pRed;
+	public String getP_grade() {
+		return p_grade;
+	}
+
+	public void setP_grade(String p_grade) {
+		this.p_grade = p_grade;
+	}
+
+	public String getP_reg() {
+		return p_reg;
+	}
+
+	public void setP_reg(String p_reg) {
+		this.p_reg = p_reg;
 	}
 	
-
 	
 
 }

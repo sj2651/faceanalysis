@@ -2,62 +2,72 @@ package kr.co.faceanalysis.vo;
 
 public class CommentVO {
 	
-	private int CNo;
-	private int ANo;
-	private int RCNo;
-	private String CContent;
-	private String CReg;
+	private int c_no;
+	private int a_no;
+	private int rc_no;
+	private String c_content;
+	private String c_reg;
+	
+	public CommentVO() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	//전부
-	public CommentVO(int cNo, int aNo, int rCNo, String cContent, String cReg) {
+
+	public CommentVO(int c_no, int a_no, int rc_no, String c_content, String c_reg) {
 		super();
-		CNo = cNo;
-		ANo = aNo;
-		RCNo = rCNo;
-		CContent = cContent;
-		CReg = cReg;
+		this.c_no = c_no;
+		this.a_no = a_no;
+		this.rc_no = rc_no;
+		this.c_content = c_content;
+		this.c_reg = c_reg;
 	}
-
+	
 	//get set
-	public int getCNo() {
-		return CNo;
+
+	public int getC_no() {
+		return c_no;
 	}
 
-	public void setCNo(int cNo) {
-		CNo = cNo;
+	public void setC_no(int c_no) {
+		this.c_no = c_no;
 	}
 
-	public int getANo() {
-		return ANo;
+	public int getA_no() {
+		return a_no;
 	}
 
-	public void setANo(int aNo) {
-		ANo = aNo;
+	public void setA_no(int a_no) {
+		this.a_no = a_no;
 	}
 
-	public int getRCNo() {
-		return RCNo;
+	public int getRc_no() {
+		return rc_no;
 	}
 
-	public void setRCNo(int rCNo) {
-		RCNo = rCNo;
+	public void setRc_no(int rc_no) {
+		this.rc_no = rc_no;
 	}
 
-	public String getCContent() {
-		return CContent;
+	public String getC_content() {
+		return c_content;
 	}
 
-	public void setCContent(String cContent) {
-		CContent = cContent;
+	public void setC_content(String c_content) {
+		this.c_content = c_content;
 	}
 
-	public String getCReg() {
-		return CReg;
+	public String getC_reg() {
+		return c_reg;
 	}
 
-	public void setCReg(String cReg) {
-		CReg = cReg;
+	public void setC_reg(String c_reg) {
+		this.c_reg = c_reg;
 	}
+	
+
+	
+	
 	
 	
 
