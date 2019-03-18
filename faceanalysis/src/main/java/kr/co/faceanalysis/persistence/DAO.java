@@ -6,6 +6,6 @@ import kr.co.faceanalysis.dto.MemberDTO;
 
 public interface DAO {
 	public List<MemberDTO> member_selectAll();
-	
+	 
 
 }
