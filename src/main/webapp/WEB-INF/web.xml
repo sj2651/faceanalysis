@@ -17,12 +17,12 @@
 	</servlet>
 
 	<!-- Map all requests to the DispatcherServlet for handling -->
-	<servlet-mapping>
+<!-- 	<servlet-mapping>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-
+ -->
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -44,10 +44,10 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-		
+ 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
 	<!-- 한글설정 -->
