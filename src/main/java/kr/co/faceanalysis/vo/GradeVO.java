@@ -1,32 +1,41 @@
 package kr.co.faceanalysis.vo;
 
 public class GradeVO {
-	private String GName;
-	private String GGrade;
+	private String g_name;
+	private int g_grade;
 	
+	public GradeVO() {
+		// TODO Auto-generated constructor stub
+	}
 	//전부
-	public GradeVO(String gName, String gGrade) {
+	
+	public GradeVO(String g_name, int g_grade) {
 		super();
-		GName = gName;
-		GGrade = gGrade;
+		this.g_name = g_name;
+		this.g_grade = g_grade;
 	}
 
+	
 	//get set
-	public String getGName() {
-		return GName;
+	public String getG_name() {
+		return g_name;
 	}
 
-	public void setGName(String gName) {
-		GName = gName;
+	public void setG_name(String g_name) {
+		this.g_name = g_name;
 	}
 
-	public String getGGrade() {
-		return GGrade;
+	public int getG_grade() {
+		return g_grade;
 	}
 
-	public void setGGrade(String gGrade) {
-		GGrade = gGrade;
+	public void setG_grade(int g_grade) {
+		this.g_grade = g_grade;
 	}
+	
+
+
+	
 	
 	
 	

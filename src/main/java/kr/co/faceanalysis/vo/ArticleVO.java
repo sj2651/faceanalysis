@@ -2,72 +2,80 @@ package kr.co.faceanalysis.vo;
 
 public class ArticleVO {
 	
-	private int ANo; 
-	private int MNo;
-	private int ACate;
-	private String ATitle;
-	private String AContent;
-	private String AReg;
+	private int a_no; 
+	private int m_no;
+	private int a_cate;
+	private String a_title;
+	private String a_content;
+	private String a_reg;
 	
+	public ArticleVO() {
+		// TODO Auto-generated constructor stub
+	}
 	//전부
-	public ArticleVO(int aNo, int mNo, int aCate, String aTitle, String aContent, String aReg) {
+
+	public ArticleVO(int a_no, int m_no, int a_cate, String a_title, String a_content, String a_reg) {
 		super();
-		ANo = aNo;
-		MNo = mNo;
-		ACate = aCate;
-		ATitle = aTitle;
-		AContent = aContent;
-		AReg = aReg;
+		this.a_no = a_no;
+		this.m_no = m_no;
+		this.a_cate = a_cate;
+		this.a_title = a_title;
+		this.a_content = a_content;
+		this.a_reg = a_reg;
 	}
 	
-	//get setter
-	public int getANo() {
-		return ANo;
+	// get setter
+
+	public int getA_no() {
+		return a_no;
 	}
 
-	public void setANo(int aNo) {
-		ANo = aNo;
+	public void setA_no(int a_no) {
+		this.a_no = a_no;
 	}
 
-	public int getMNo() {
-		return MNo;
+	public int getM_no() {
+		return m_no;
 	}
 
-	public void setMNo(int mNo) {
-		MNo = mNo;
+	public void setM_no(int m_no) {
+		this.m_no = m_no;
 	}
 
-	public int getACate() {
-		return ACate;
+	public int getA_cate() {
+		return a_cate;
 	}
 
-	public void setACate(int aCate) {
-		ACate = aCate;
+	public void setA_cate(int a_cate) {
+		this.a_cate = a_cate;
 	}
 
-	public String getATitle() {
-		return ATitle;
+	public String getA_title() {
+		return a_title;
 	}
 
-	public void setATitle(String aTitle) {
-		ATitle = aTitle;
+	public void setA_title(String a_title) {
+		this.a_title = a_title;
 	}
 
-	public String getAContent() {
-		return AContent;
+	public String getA_content() {
+		return a_content;
 	}
 
-	public void setAContent(String aContent) {
-		AContent = aContent;
+	public void setA_content(String a_content) {
+		this.a_content = a_content;
 	}
 
-	public String getAReg() {
-		return AReg;
+	public String getA_reg() {
+		return a_reg;
 	}
 
-	public void setAReg(String aReg) {
-		AReg = aReg;
+	public void setA_reg(String a_reg) {
+		this.a_reg = a_reg;
 	}
+	
+	
+
 	
 	
 
