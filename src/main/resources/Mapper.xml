@@ -7,6 +7,22 @@
 	<select id="selectAllMember" resultType="mvo">
 		SELECT * FROM MEMBER
 	</select>
+	<select id="selectAllLog" resultType="lvo">
+		SELECT * FROM LOG
+	</select>
+	<select id="selectAllGrade" resultType="gvo">
+		SELECT * FROM GRADE
+	</select>
+	<select id="selectAllComment" resultType="cvo">
+		SELECT * FROM COMMENT
+	</select>
+	<select id="selectAllArticle" resultType="avo">
+		SELECT * FROM ARTICLE
+	</select>
+	<select id="selectAllProducts" resultType="pvo">
+		SELECT * FROM PRODUCTS
+	</select>
+	
 	
 	
 </mapper>
