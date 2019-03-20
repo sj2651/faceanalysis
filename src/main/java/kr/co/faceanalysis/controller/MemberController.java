@@ -2,6 +2,9 @@ package kr.co.faceanalysis.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,10 +27,13 @@ public class MemberController {
 	@RequestMapping(value="/mlist.do")
 	public String mlist(Model model) {
 		List<MemberVO> list = dao.member_selectAll();
-		System.out.println(list);
+		//System.out.println(list);
+		
 		model.addAttribute("m_list", list);
 		
 		return "m_listpage";
 	}
+	
+	
 
 }

@@ -22,7 +22,23 @@ public class MemberDAO implements Member_imple{
 	public List<MemberVO> member_selectAll() {
 		return ss.selectList("selectAllMember");
 	}
-	
+
+	@Override
+	public int member_check(String m_id, String m_pwd) {
+		System.out.println("dao 시작");
+		System.out.println("m_id : " + m_id);
+		System.out.println("m_pwd : " + m_pwd);
+		
+		MemberVO vo = new MemberVO();
+		vo.setM_id(m_id);
+		vo.setM_pwd(m_pwd);		
+		
+		System.out.println(vo.getM_id());
+		
+		return ss.selectOne("selectMember", vo);
+	}
+
+
 	
 	
 }

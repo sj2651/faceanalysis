@@ -9,7 +9,7 @@
 </head>
 <body>
 	<c:forEach var="m" items="${m_list }">
-	
+		
 		<div>${m.m_no }</div>
 		<div>${m.m_name }</div> 
 	</c:forEach>

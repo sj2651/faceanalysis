@@ -8,7 +8,14 @@
 		SELECT * FROM MEMBER
 	</select>
 	
+	<select id="selectMember" parameterType="mvo" resultType="int">
+		SELECT * FROM MEMBER WHERE M_ID=#{m_id} AND M_PWD=#{m_pwd}
+	</select>
+	
+	<insert id="insertMember" parameterType="mvo">
+		
+	
+	</insert>
+	
 	
 </mapper>
-
-

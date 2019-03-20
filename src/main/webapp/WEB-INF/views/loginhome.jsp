@@ -26,29 +26,6 @@
   <link rel="stylesheet" type="text/css" href="./design/css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="./design/css/demo.css" />
   <link rel="stylesheet" type="text/css" href="./design/css/component.css" />
-  
-  
-  <!-- 상단 드롭바 -->
-  <link rel="shortcut icon" href="../favicon.ico"> 
-  <link rel="stylesheet" type="text/css" href="./design/dropbar/css/style2.css" />
-  <link rel="stylesheet" type="text/css" href="./design/dropbar/css/style.css" />
-  <script src="./design/dropbar/js/modernizr.custom.63321.js"></script>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script type="text/javascript" src="./design/dropbar/js/jquery.dropdown.js"></script>
-		<script type="text/javascript">
-			
-			$( function() {
-				
-				$( '#cd-dropdown' ).dropdown( {
-					gutter : 5,
-					delay : 100,
-					random : true
-				} );
-
-			});
-
-  </script>
-  
   <!-- Main Action -->
 
 
@@ -65,22 +42,10 @@
 <body class="">
 
 <!-- Add your content of header -->
-<div class="background-color-layer" style="max-width:100%; height:auto; background-image: url('images/img-01.jpg') "></div>
+<div class="background-color-layer" style="max-width:100%; height:auto;background-image: url('images/img-01.jpg') "
+></div>
 <main class="content-wrapper">
   <header class="white-text-container section-container">
-	  <header class="clearfix">
-	  		<section class="main clearfix">
-				<div class="fleft" style="float: right; width: 33%;">
-					<select id="cd-dropdown" class="cd-select">
-						<option value="-1" selected>a</option>
-						<option value="1" class="icon-Desert">bb</option>
-						<option value="2" class="icon-facebook">cc</option>
-						<option value="3" class="icon-twitter">dd</option>
-						<option value="4" class="icon-github">ee</option>
-					</select>
-				</div>
-			</section>
-	  </header>
     <div class="text-center">
       <img src="./images/mainlogo2.png" style="max-width:100%; height:auto;">
       
@@ -127,28 +92,7 @@
             <span>2012</span>
             <span>Walnut, Pineapple</span>
           </div>
-          <div class="box">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-              <line class="top" x1="0" y1="0" x2="900" y2="0"/>
-              <line class="left" x1="0" y1="460" x2="0" y2="-920"/>
-              <line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
-              <line class="right" x1="300" y1="0" x2="300" y2="1380"/>
-            </svg>
-            <h3>I</h3>
-            <span>2013</span>
-            <span>Curry, Beancurd</span>
-          </div>
-          <div class="box">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-              <line class="top" x1="0" y1="0" x2="900" y2="0"/>
-              <line class="left" x1="0" y1="460" x2="0" y2="-920"/>
-              <line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
-              <line class="right" x1="300" y1="0" x2="300" y2="1380"/>
-            </svg>
-            <h3>C</h3>
-            <span>2014</span>
-            <span>Lettuce, Asparagus</span>
-          </div>
+          
         </div><!-- /grid -->
       </section>
       <!-- =================================================================================================== -->
