@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace=" ">
+	<select id="findAllProduct" resultType="pvo">
+		SELECT p_no, p_brand, p_cate, p_name, p_img, p_grade FROM PRODUCTS
+		ORDER BY ASC
+		LIMIT 6
+	</select>
+	
+	<select id="findByBrand" resultType="pvo">
+		SELECT p_no, p_brand, p_cate, p_name, p_img, p_grade FROM PRODUCTS
+		WHERE p_brand = #{p_brand}
+		ORDER BY p_no ASC
+		LIMIT 6
+	</select>
+	
+	<select id="findByCate" resultType="pvo">
+		SELECT p_no, p_brand, p_cate, p_name, p_img, p_grade FROM PRODUCTS
+		WHERE p_cate = #{p_cate}
+		ORDER BY p_no ASC
+		LIMIT 10
+	</select>
+	
+	<select id="findByName" resultType="pvo">
+		SELECT p_no, p_brand, p_cate, p_name, p_img, p_grade FROM ProductS
+		WHERE p_name = #{p_name}
+		ORDER BY ASC
+		LIMIT 6
+	</select>
+	
+	
+	
+</mapper>

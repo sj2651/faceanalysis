@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+ 
+<configuration>
+	<typeAliases>
+		 <typeAlias type="kr.co.faceanalysis.vo.MemberVO" alias="mvo"/>
+		 <typeAlias type="kr.co.faceanalysis.vo.ProductVO" alias="pvo"/>
+	</typeAliases>
+	
+ 	<mappers> <!--  자바 파일이 아닌 파일을 찾아갈 때 -->
+  		<mapper resource="kr/co/faceanalysis/mapper/ProductMapper.xml" />
+  		<mapper resource="kr/co/faceanalysis/mapper/Mapper.xml" />
+  	</mappers> 
+</configuration>

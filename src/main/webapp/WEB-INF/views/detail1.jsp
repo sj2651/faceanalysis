@@ -23,9 +23,9 @@
 				<!-- Intro -->
 					<div id="intro">
 					<img src="./images/mainlogo2.png">
-						<ul class="actions">
+						<!--<ul class="actions">
 							<li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
+						</ul> -->
 					</div>
 
 				<!-- Header -->
@@ -36,9 +36,9 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="detail1.html">Brand</a></li>
-							<li><a href="detail2.html">Category</a></li>
-							<li><a href="detail3.html">Q/A</a></li>
+							<li class="active"><a href="detail1.do">Brand</a></li>
+							<li><a href="detail2.do">Category</a></li>
+							<li><a href="detail3.do">Q/A</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -54,8 +54,9 @@
 						<!-- Featured Post -->
 							<article class="post featured">
 								<header class="major">
-									<span class="date">April 25, 2017</span>
-									<h2><a href="#">And this is a<br />
+									<span class="date">Brand name</span>
+										
+									<!--<h2><a href="#">And this is a<br />
 									massive headline</a></h2>
 									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
 									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
@@ -64,6 +65,13 @@
 								<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
 								<ul class="actions">
 									<li><a href="#" class="button big">Full Story</a></li>
+								</ul>-->
+				
+								<ul class="actions">
+									<li><a href="./AromaList.do"><img src="./images/aroma.png" style="width:280px; height:200px; float=left;"></a></li>
+									<li><a href="./AprilList.do"><img src="./images/april.png" style="width:280px; height:200px; float=left;"></a></li>
+									<li><a href="./MiliList.do"><img src="./images/mili.png" style="width:280px; height:200px; float=left;"></a></li>
+									<li><a href="./BbiaList.do"><img src="./images/bbia.png" style="width:280px; height:200px; float=left;"></a></li>
 								</ul>
 							</article>
 
