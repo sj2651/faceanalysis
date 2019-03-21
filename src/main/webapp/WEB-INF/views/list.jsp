@@ -9,7 +9,6 @@
 </head>
 <body>
 	  <div class="container">
-	  	<c:forEach var="product" items="${ products }">
 	  		<table style="border:1px solid black">
 		  		<tr>
 		  			<td>${product.p_no}</td>
@@ -19,7 +18,6 @@
 		  			<td>${product.p_img}</td>
 		  		</tr>
 	  		</table>
-	  	</c:forEach>
 	  </div>
 </body>
 
@@ -37,8 +35,8 @@
 		<link rel="stylesheet" href="design/css/list.css" />
 	</head>
 	<body>
-
 		<!-- Header -->
+		
 			<header id="header" class="alt">
 				<div class="inner">
 					<h1>Epilogue</h1>
@@ -47,66 +45,30 @@
 			</header>
 
 		<!-- Wrapper -->
+
 			<div id="wrapper">
-
-				<!-- Banner -->
-					<section id="intro" class="main">
-						<span class="icon fa-diamond major"></span>
-						<h2>Magna porta maximus</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae<br />
-						malesuada turpis. Nam pellentesque in ac aliquam. Aliquam tempor<br />
-						mi porta egestas maximus lorem ipsum dolor.</p>
-						<ul class="actions">
-							<li><a href="#" class="button big">Learn More</a></li>
-						</ul>
-					</section>
-
+			
 				<!-- Items -->
-				<c:forEach var="product" items="${ products }">
-					<section class="main items">
-						<article class="item">
-							<header>
-								<a href="#"><img src="${product.p_img}" alt="" /></a>
-								<h3>Feugiat et faucibus</h3>
-							</header>
-							<p>Fusce malesuada efficitur venenatis. Pellentesque tempor leo sed massa hendrerit hendrerit. In sed feugiat est, eu congue elit. Ut porta magna vel felis sodales vulputate. Donec faucibus dapibus lacus non ornare.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</article>
-						<article class="item">
-							<header>
-								<a href="#"><img src="images/p02.jpg" alt="" /></a>
-								<h3>Blandit adipiscing</h3>
-							</header>
-							<p>Fusce malesuada efficitur venenatis. Pellentesque tempor leo sed massa hendrerit hendrerit. In sed feugiat est, eu congue elit. Ut porta magna vel felis sodales vulputate. Donec faucibus dapibus lacus non ornare.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</article>
-						<article class="item">
-							<header>
-								<a href="#"><img src="images/p03.jpg" alt="" /></a>
-								<h3>Lorem massa nulla</h3>
-							</header>
-							<p>Fusce malesuada efficitur venenatis. Pellentesque tempor leo sed massa hendrerit hendrerit. In sed feugiat est, eu congue elit. Ut porta magna vel felis sodales vulputate. Donec faucibus dapibus lacus non ornare.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</article>
-						<article class="item">
-							<header>
-								<a href="#"><img src="images/p04.jpg" alt="" /></a>
-								<h3>Ipsum sed tempus</h3>
-							</header>
-							<p>Fusce malesuada efficitur venenatis. Pellentesque tempor leo sed massa hendrerit hendrerit. In sed feugiat est, eu congue elit. Ut porta magna vel felis sodales vulputate. Donec faucibus dapibus lacus non ornare.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</article>
-					</section>
-				</c:forEach>
+					<section class="main items"">
+			<c:forEach var="product" items="${ products }">
+				<article class="item">
+					<header>
+						<a href="#"><img src="${product.p_img}" alt="" width=100%;
+							height=100%; /></a>
+						<h3 style="margin: 10%;">${product.p_name}</h3>
+					</header>
+					<h4 style="margin-right: 23%;font-weight:bold">Brand Name</h4>
+					<h4 style="margin-right: 23%;">${product.p_brand}</h4>
+					<h4 style="margin-right: 23%;font-weight:bold">Category</h4> 
+					<h4 style="margin-right: 25%;">${product.p_cate}</h4>
+					<ul class="actions">
+						<li style="margin-right: 25%;"><a href="#" class="button">More</a></li>
+					</ul>
+				</article>
+			</c:forEach>
+		</section>
 				<!-- CTA -->
+			
 					<section id="cta" class="main special">
 						<h2>Etiam veroeros lorem</h2>
 						<p>Phasellus ac augue ac magna auctor tempus proin<br />
@@ -116,7 +78,7 @@
 							<li><a href="#" class="button big">Get Started</a></li>
 						</ul>
 					</section>
-
+				-->
 				<!-- Main -->
 				<!--
 					<section id="main" class="main">
