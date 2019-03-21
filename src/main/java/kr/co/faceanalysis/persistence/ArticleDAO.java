@@ -24,6 +24,14 @@ public class ArticleDAO implements Ariticle_imple{
 		return ss.selectList("selectAllArticle");
 	}
 	
+	public ArticleVO article_selectOne(int a_no) {
+		return ss.selectOne("selectOneArticle",a_no);
+	}
 	
-	
+	//insertOneArticle
+	public void article_insertOne(ArticleVO vo) {
+		ss.insert("insertOneArticle",vo);
+		
+	}
+		
 }
