@@ -8,8 +8,12 @@
 	<typeAliases>
 		 <typeAlias type="kr.co.faceanalysis.vo.MemberVO" alias="mvo"/>
 		 <typeAlias type="kr.co.faceanalysis.vo.ProductVO" alias="pvo"/>
+		 <typeAlias type="kr.co.faceanalysis.vo.ArticleVO" alias="avo"/>
+		 <typeAlias type="kr.co.faceanalysis.vo.CommentVO" alias="cvo"/>
+		 <typeAlias type="kr.co.faceanalysis.vo.GradeVO" alias="gvo"/>
+		 <typeAlias type="kr.co.faceanalysis.vo.LogVO" alias="lvo"/>
+		 <typeAlias type="kr.co.faceanalysis.vo.ProductVO" alias="pvo"/>
 	</typeAliases>
-	
  	<mappers> <!--  자바 파일이 아닌 파일을 찾아갈 때 -->
   		<mapper resource="kr/co/faceanalysis/mapper/ProductMapper.xml" />
   		<mapper resource="kr/co/faceanalysis/mapper/Mapper.xml" />
