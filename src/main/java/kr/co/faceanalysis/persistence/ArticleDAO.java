@@ -31,7 +31,11 @@ public class ArticleDAO implements Ariticle_imple{
 	//insertOneArticle
 	public void article_insertOne(ArticleVO vo) {
 		ss.insert("insertOneArticle",vo);
-		
 	}
-		
+	public void article_deleteOne(int a_no) {
+		ss.delete("deleteOneArticle", a_no);
+	}	
+	public void article_UpdateOne(ArticleVO vo) {
+		ss.update("updateOneArticle", vo);
+	}	
 }

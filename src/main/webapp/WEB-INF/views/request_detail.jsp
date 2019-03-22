@@ -14,6 +14,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="design/css/detail.css" />
 		<noscript><link rel="stylesheet" href="design/css/noscript.css" /></noscript>
+		
+		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#modify").click(function(){
+			document.frm.action = '<c:url value="requestModify.do" ></c:url>';
+			document.frm.submit();
+		});
+		$("#delete").click(function(){
+			document.frm.action = '<c:url value="requestDeleteOK.do" ></c:url>';
+			document.frm.submit();
+		});
+	});
+</script>
 	</head>
 	<body class="is-loading">
 
@@ -52,6 +67,11 @@
 								</header>
 								
 								<p>${RBVo.a_content}</p>
+								<form action="" name="frm">
+								<input value="${RBVo.a_no}" name="articleNo" hidden="hidden">
+								</form>
+								<input type="button" value="변경" id="modify" />
+								<input type="button" value="삭제" id="delete"/>
 								
 							</section>
 

@@ -21,7 +21,7 @@
 <script type="text/javascript">
 	$(function(){
 		$("#submitbtn").click(function(){
-			document.frm.action = '<c:url value="requestAddOK.do" ></c:url>';
+			document.frm.action = '<c:url value="requestModifyOK.do" ></c:url>';
 			document.frm.submit();
 		});
 	});
@@ -71,19 +71,19 @@
 				<table>
 					<tr>
 						<th>제목</th>
-						<td> <input type="text" id="title" name="title"/> </td>
+						<td> <input type="text" id="title" name="title" value="${requestBoardVo.a_title}"/> </td>
 					</tr>
 					<tr>
 						<th>작성자</th>
-						<td> <!-- 로그인한 사람의 이름 --> </td>
+						<td> ${requestBoardVo.m_name} </td>
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td> <textarea rows="20" cols="50" id="content" name="content" ></textarea> </td>
+						<td> <textarea rows="20" cols="50" id="content" name="content" value="${requestBoardVo.a_content}" ></textarea> </td>
 					</tr>
 				</table>
 				
-				<input type="button" value="글작성" id="submitbtn"/>
+				<input type="button" value="글 수정" id="submitbtn"/>
 			</form>
 
 		</div>
