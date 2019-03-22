@@ -32,6 +32,7 @@ public class MemberController {
 		model.addAttribute("m_list", list);
 		
 		return "m_listpage";
+		
 	}
 	
 	

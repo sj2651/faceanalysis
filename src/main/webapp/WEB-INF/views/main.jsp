@@ -14,7 +14,6 @@
   <meta content="Mashup templates have been developped by Orson.io team" name="author">
 
 
-
   <!-- Main Action -->
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
@@ -67,8 +66,44 @@
 
   <title>Title page</title>  
 
-<link href="./design/css/main.css" rel="stylesheet"></head>
+<link href="./design/css/main.css" rel="stylesheet">
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+</head>
+<!-- 네이버 로그인 API -->
+<script type="text/javascript">
+	var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "tWNkNBFwqs68ASroV6HO",
+			callbackUrl: "http://localhost:8080/faceanalysis/main.do",
+			isPopup: false,
+			callbackHandle: false
+		}
+	);
 
+	naverLogin.init();
+	
+	naverLogin.getLoginStatus(function (status) {
+		if (status) {
+			var name = naverLogin.user.getName();
+			var email = naverLogin.user.getEmail();
+			var profileImage = naverLogin.user.getProfileImage();
+			var birthday = naverLogin.user.getBirthday();			var uniqId = naverLogin.user.getId();
+			var age = naverLogin.user.getAge();
+			
+			console.log("email : " + email);
+			console.log("name : " + name);
+			console.log("profileImage : " + profileImage);
+			console.log("birthday : " + birthday);
+			console.log("uniqId : " + uniqId);
+			console.log("age : " + age)
+		} else {
+			console.log("AccessToken이 올바르지 않습니다.");
+		}
+	});
+
+
+</script>
+<!-- 네이버 로그인 API 끝 -->
 <body class="">
 
 <!-- Add your content of header -->

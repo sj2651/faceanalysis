@@ -81,7 +81,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/drop.do", method = RequestMethod.GET)
 	public String drop(Locale locale, Model model) {
-		//logger.info("Welcome home! The client locale is {}.", locale);
+		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -106,5 +106,92 @@ public class HomeController {
 		
 		return "loginhome";
 	}
+	@RequestMapping(value = "/detail1.do", method = RequestMethod.GET)
+	public String detail1(Locale locale, Model model) {
+		//logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "detail1";
+	}
+	
+	@RequestMapping(value = "/detail2.do", method = RequestMethod.GET)
+	public String detail2(Locale locale, Model model) {
+		//logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "detail2";
+	}
+	
+	@RequestMapping(value = "/detail3.do", method = RequestMethod.GET)
+	public String detail3(Locale locale, Model model) {
+		//logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "detail3";
+	}
+	
+	@RequestMapping(value = "/productdetail.do", method = RequestMethod.GET)
+	public String productdetail(Locale locale, Model model) {
+		//logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "productdetail";
+	}
+	
+	@RequestMapping("test.do")
+	public String fbtest() {
+		return "facebooklogin";
+		
+	}
+	
+	@RequestMapping("boot.do")
+	public String boot() {
+		return "boottest";		
+	}
+	
+	@RequestMapping("kakao.do")
+	public String kakao() {
+		return "kakao";
+	}
+	
+	@RequestMapping("naver.do")
+	public String naver() {
+		return "naverlogin";
+	}
+	
+	@RequestMapping("naver_ok.do")
+	public String naver_ok() {
+		return "naver_ok";
+	}
+	
+	@RequestMapping("signup.do")
+	public String signUp() {
+		return "signUp";
+	}
+	
 	
 }
