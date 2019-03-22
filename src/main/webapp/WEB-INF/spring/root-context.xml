@@ -30,6 +30,22 @@
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
 	</bean>
+	
+	<!-- Facebook 소셜 로그인 연결 설정 -->
+ 
+    <bean id="connectionFactory"
+        class="org.springframework.social.facebook.connect.FacebookConnectionFactory">
+        <constructor-arg value="2099826656733122" />
+        <constructor-arg value="60a14214f704f6b63cc79fa8734d7e9e" />
+    </bean>
+ 
+    <bean id="oAuth2Parameters"
+        class="org.springframework.social.oauth2.OAuth2Parameters">
+        <property name="scope" value="email" />
+        <property name="redirectUri" value="http://localhost:9090/faceanalysis/login.do" />
+    </bean>
+    <!-- Facebook 연결 end -->
+	
 
 	<context:component-scan base-package="kr.co.faceanalysis.persistence" />
 	<!-- <context:component-scan base-package="">
