@@ -11,4 +11,5 @@ public interface Product_impl  {
 	List<ProductVO> findByBrand(String p_brand);
 	List<ProductVO> findByCate(String p_cate);
 	List<ProductVO> findByName(String p_name);
+	ProductVO findById(int p_no);
 }
