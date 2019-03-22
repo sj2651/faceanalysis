@@ -27,6 +27,9 @@
 		ORDER BY p_no ASC
 	</select>
 	
-	
+	<select id="findById" resultType="pvo">
+		SELECT * FROM products
+		WHERE p_no = #{p_no}
+	</select>
 	
 </mapper>

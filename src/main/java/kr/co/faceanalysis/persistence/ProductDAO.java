@@ -40,6 +40,12 @@ public class ProductDAO implements Product_impl{
 	public List<ProductVO> findByName(String p_name) {
 		// TODO Auto-generated method stub
 		return ss.selectList("findByName", p_name);
+	}
+
+	@Override
+	public ProductVO findById(int p_no) {
+		// TODO Auto-generated method stub
+		return ss.selectOne("findById", p_no);
 	}	
 	
 }
