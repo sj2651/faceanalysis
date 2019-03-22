@@ -15,7 +15,6 @@ public interface Product_impl {
 	List<ProductVO> findByCate(String p_cate);
 
 	List<ProductVO> findByName(String p_name);
-
 	ProductVO findById(int p_no);
 
 	//Option[] searchBy = { new Option(0, "검색 없음"), new Option(1, "브랜드명"), new Option(2, "카테고리명")};

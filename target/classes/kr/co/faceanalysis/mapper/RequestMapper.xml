@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="RequestMapper">
+
+	<select id="selectRequstBoardAll" resultType="kr.co.faceanalysis.vo.RequestBoardVO" parameterType="int" >
+		SELECT A_NO, A_TITLE, M_NAME, A_REG, A_CONTENT
+		FROM article,member
+		WHERE A_CATE = 5 <!-- 요청게시판 카테고리번호를 5로 설정 -->
+		LIMIT #{pageNo}, 10
+	</select>
+	
+	<select id="selectRequstBoardOne" resultType="kr.co.faceanalysis.vo.RequestBoardVO" parameterType="int" >
+		SELECT A_NO, A_TITLE, M_NAME, A_REG, A_CONTENT
+		FROM article,member
+		WHERE A_NO = #{_A_NO}
+	</select>
+	
+		<insert id="insertOneArticle" parameterType="avo" >
+		INSERT INTO article(M_NO,A_CATE,A_TITLE,A_CONTENT,A_REG)
+		VALUES(
+			#{m_no},
+			#{a_cate},
+			#{a_title},
+			#{a_content},
+			SYSDATE()
+		)
+	</insert>
+	
+	<update id="deleteOneArticle" parameterType="int" >
+		DELETE FROM article
+		WHERE a_no = #{_a_no}
+	</update>
+	
+	<update id="updateOneArticle" parameterType="avo">
+		UPDATE article 
+		SET a_title = #{a_title}, a_content = #{a_content}, a_reg = SYSDATE()
+	</update>
+
+</mapper>

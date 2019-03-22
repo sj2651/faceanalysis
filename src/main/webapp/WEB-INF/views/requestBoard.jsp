@@ -9,20 +9,14 @@
 -->
 <html>
 <head>
-<title>요청글추가</title>
+<title>Generic Page - Massively by HTML5 UP</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="design/css/detail.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-	$(function(){
-		$("#submitbtn").click(function(){
-			document.frm.action = '<c:url value="requestAddOK.do" ></c:url>';
-			document.frm.submit();
-		});
-	});
-</script>
+<noscript>
+	<link rel="stylesheet" href="design/css/noscript.css" />
+</noscript>
 </head>
 <body class="is-loading">
 
@@ -58,30 +52,32 @@
 			<!-- Post -->
 			<section class="post">
 				<header class="major">
-					<span class="date">요청글추가</span>
+					<span class="date">요청게시판</span>
 				</header>
 			</section>
-						
-			<!-- 확인 후 method post로 변경 -->
-			<!-- http://localhost:9090/faceanalysis/requestAddOK.do -->
-			<form action="" method="get" name="frm"  >
-				<table>
+			<table>
+				<tr>
+					<th>게시글 번호</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>날짜</th>
+				</tr>
+
+				<c:forEach items="${requestList}" var="requestArticleList">
 					<tr>
-						<th>제목</th>
-						<td> <input type="text" id="title" name="title"/> </td>
+						<td>${requestArticleList.a_no}</td>
+						<td><a href="request_detail.do?articleNo=${requestArticleList.a_no}">${requestArticleList.a_title}</a></td>
+						<td>${requestArticleList.m_name}</td>
+						<td>${requestArticleList.a_reg}</td>
 					</tr>
-					<tr>
-						<th>작성자</th>
-						<td> <!-- 로그인한 사람의 이름 --> </td>
-					</tr>
-					<tr>
-						<th>내용</th>
-						<td> <textarea rows="20" cols="50" id="content" name="content" ></textarea> </td>
-					</tr>
-				</table>
+				</c:forEach>
 				
-				<input type="button" value="글작성" id="submitbtn"/>
-			</form>
+			</table>
+			<div>
+				<a href="<c:url value="/request_add.do"/>">글 작성</a>
+			</div>
+			<a href="requestBoard.do?pageNo=1">1</a>
+			게시글 넘기기용 번호(예정)
 
 		</div>
 
