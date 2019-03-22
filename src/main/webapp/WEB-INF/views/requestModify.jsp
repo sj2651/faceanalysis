@@ -79,7 +79,7 @@
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td> <textarea rows="20" cols="50" id="content" name="content" value="${requestBoardVo.a_content}" ></textarea> </td>
+						<td> <textarea rows="20" cols="50" id="content" name="content" >${requestBoardVo.a_content}</textarea> </td>
 					</tr>
 				</table>
 				

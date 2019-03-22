@@ -13,10 +13,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="design/css/detail.css" />
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 	</head>
 	<body class="is-loading">
 
