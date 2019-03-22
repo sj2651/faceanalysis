@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +50,13 @@
   </script>
   
   <!-- Main Action -->
-
+  <script type="text/javascript">
+	$(function(){
+		$("#brand").click(function(){
+			document.location.href="detail1.do"
+		});
+	});
+  </script>
 
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
@@ -152,7 +159,7 @@
        <!--  <h2>Color animation</h2> -->
         <div class="grid">
           <div class="box">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <svg id="brand" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
               <line class="top" x1="0" y1="0" x2="900" y2="0"/>
               <line class="left" x1="0" y1="460" x2="0" y2="-920"/>
               <line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
