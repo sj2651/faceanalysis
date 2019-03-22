@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace=" ">
+	<select id="selectAllMember" resultType="mvo">
+		SELECT * FROM MEMBER
+	</select>
+	<select id="selectAllLog" resultType="lvo">
+		SELECT * FROM LOG
+	</select>
+	<select id="selectAllGrade" resultType="gvo">
+		SELECT * FROM GRADE
+	</select>
+	<select id="selectAllComment" resultType="cvo">
+		SELECT * FROM COMMENT
+	</select>
+	<select id="selectAllArticle" resultType="avo">
+		SELECT * FROM ARTICLE
+	</select>
+	<select id="selectAllProducts" resultType="pvo">
+		SELECT * FROM PRODUCTS
+	</select>
+	
+	
+	<select id="selectMember" parameterType="mvo" resultType="int">
+		SELECT * FROM MEMBER WHERE M_ID=#{m_id} AND M_PWD=#{m_pwd}
+	</select>
+	
+	<insert id="insertMember" parameterType="mvo">
+		
+	
+	</insert>
+	
+	
+	
+		<select id="selectRequstBoardAll" resultType="kr.co.faceanalysis.vo.RequestBoardVO" parameterType="int" >
+		SELECT A_NO, A_TITLE, M_NAME, A_REG, A_CONTENT
+		FROM ARTICLE,MEMBER
+		WHERE A_CATE = #{_A_Cate} <!-- 임시로 요청게시판의 번호를 5로 설정 -->
+	</select>
+	
+	<select id="selectRequstBoardOne" resultType="kr.co.faceanalysis.vo.RequestBoardVO" parameterType="int" >
+		SELECT A_NO, A_TITLE, M_NAME, A_REG, A_CONTENT
+		FROM ARTICLE,MEMBER
+		WHERE A_NO = #{_A_NO}
+	</select>
+	
+		<select id="selectArticleFromA_CATE" resultType="avo" parameterType="int">
+		SELECT * FROM ARTICLE WHERE A_CATE = #{_A_CATE}
+	</select>
+	
+	<insert id="insertOneArticle" parameterType="avo" >
+		INSERT INTO ARTICLE 
+		VALUES(
+			#{a_no}, 
+			#{m_no},
+			#{a_cate},
+			#{a_title},
+			#{a_content},
+			SYSDATE()
+		)
+	</insert>
+	
+	
+	<select id="selectOneArticle" resultType="avo" parameterType="int">
+		SELECT * FROM ARTICLE WHERE A_NO = #{_A_NO}
+	</select>
+	
+	
+	<select id="selectOneMember" resultType="mvo" parameterType="int">
+		SELECT * FROM MEMBER WHERE M_NO=#{_MNO}
+	</select>
+	
+</mapper>
+
+

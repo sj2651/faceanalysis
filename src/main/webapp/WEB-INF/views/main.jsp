@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,6 @@
   <meta content="description" name="description">
   <meta name="google" content="notranslate" />
   <meta content="Mashup templates have been developped by Orson.io team" name="author">
-
 
 
   <!-- Main Action -->
@@ -50,7 +50,13 @@
   </script>
   
   <!-- Main Action -->
-
+  <script type="text/javascript">
+	$(function(){
+		$("#brand").click(function(){
+			document.location.href="detail1.do"
+		});
+	});
+  </script>
 
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
@@ -60,8 +66,44 @@
 
   <title>Title page</title>  
 
-<link href="./design/css/main.css" rel="stylesheet"></head>
+<link href="./design/css/main.css" rel="stylesheet">
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+</head>
+<!-- 네이버 로그인 API -->
+<script type="text/javascript">
+	var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "tWNkNBFwqs68ASroV6HO",
+			callbackUrl: "http://localhost:8080/faceanalysis/main.do",
+			isPopup: false,
+			callbackHandle: false
+		}
+	);
 
+	naverLogin.init();
+	
+	naverLogin.getLoginStatus(function (status) {
+		if (status) {
+			var name = naverLogin.user.getName();
+			var email = naverLogin.user.getEmail();
+			var profileImage = naverLogin.user.getProfileImage();
+			var birthday = naverLogin.user.getBirthday();			var uniqId = naverLogin.user.getId();
+			var age = naverLogin.user.getAge();
+			
+			console.log("email : " + email);
+			console.log("name : " + name);
+			console.log("profileImage : " + profileImage);
+			console.log("birthday : " + birthday);
+			console.log("uniqId : " + uniqId);
+			console.log("age : " + age)
+		} else {
+			console.log("AccessToken이 올바르지 않습니다.");
+		}
+	});
+
+
+</script>
+<!-- 네이버 로그인 API 끝 -->
 <body class="">
 
 <!-- Add your content of header -->
@@ -117,7 +159,7 @@
        <!--  <h2>Color animation</h2> -->
         <div class="grid">
           <div class="box">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <svg id="brand" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
               <line class="top" x1="0" y1="0" x2="900" y2="0"/>
               <line class="left" x1="0" y1="460" x2="0" y2="-920"/>
               <line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
