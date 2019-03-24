@@ -10,10 +10,10 @@ import kr.co.faceanalysis.vo.ProductVO;
 
 @Repository
 public class ProductDAO implements Product_impl{
-	
+
 	@Autowired
 	private SqlSession ss;
-	
+
 	public void setSs(SqlSession ss) {
 		this.ss = ss;
 	}
@@ -46,6 +46,21 @@ public class ProductDAO implements Product_impl{
 	public ProductVO findById(int p_no) {
 		// TODO Auto-generated method stub
 		return ss.selectOne("findById", p_no);
-	}	
-	
+	}
+
+	@Override
+	public void insert(ProductVO productVO) {
+		ss.insert("insert", productVO);
+	}
+
+	@Override
+	public void update(ProductVO productVO) {
+		ss.update("update", productVO);
+	}
+
+	@Override
+	public void delete(int p_no) {
+		ss.delete("delete", p_no);
+	}
+
 }

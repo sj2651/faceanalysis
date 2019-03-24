@@ -11,6 +11,7 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
+
 /* Nav */
 #nav {
 	color: #ffffff;
@@ -204,8 +205,7 @@ table {
 }
 
 body {
-	-webkit-text-size-adjust: none;
-<<<<<<< HEAD
+	/*-webkit-text-size-adjust: none;*/
 	background-image: linear-gradient(180deg, #ff0060 0, #ff6975);
 }
 
@@ -218,8 +218,6 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 	-webkit-transition: none !important;
 	-ms-transition: none !important;
 	transition: none !important;
-=======
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 }
 
 /* Box Model */
@@ -228,8 +226,8 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
-/* Basic */
+/*
+ Basic 
 @
 -ms-viewport {
 	width: device-width;
@@ -248,8 +246,39 @@ body {
 body {
 	background: #f4f4f4;
 }
-<<<<<<< HEAD
+*/
+/* Basic */
+@
+-ms-viewport {
+	width: device-width;
+}
 
+body {
+	-ms-overflow-style: scrollbar;
+}
+
+@media screen and (max-width: 480px) {
+	html, body {
+		min-width: 320px;
+	}
+}
+
+body {
+	background-image: linear-gradient(180deg, #ff0060 0, #ff6975);
+}
+
+body.is-loading *, body.is-loading *:before, body.is-loading *:after {
+	-moz-animation: none !important;
+	-webkit-animation: none !important;
+	-ms-animation: none !important;
+	animation: none !important;
+	-moz-transition: none !important;
+	-webkit-transition: none !important;
+	-ms-transition: none !important;
+	transition: none !important;
+}
+
+/*wrapper*/
 #wrapper {
 	-moz-transition: opacity 0.5s ease;
 	-webkit-transition: opacity 0.5s ease;
@@ -314,8 +343,6 @@ body.is-loading #wrapper.fade-in:before {
 		background-size: auto, auto, auto 175%;
 	}
 }
-=======
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 
 body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 	-moz-animation: none !important;
@@ -329,10 +356,11 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 }
 
 /* Type */
+/*
 body {
 	background-color: #f4f4f4;
 	color: #666666;
-}
+}*/
 
 body, input, select, textarea {
 	font-family: "Source Sans Pro", Helvetica, sans-serif;
@@ -636,11 +664,8 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 
 input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active,
 	button:active, .button:active {
-<<<<<<< HEAD
 	background-color: rgba(239, 100, 128, 0.15);
-=======
 	background-color: rgba(212, 244, 250, 0.15);
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 }
 
 input[type="submit"].icon:before, input[type="reset"].icon:before, input[type="button"].icon:before,
@@ -1020,11 +1045,8 @@ ul.actions {
 
 ul.actions li {
 	display: inline-block;
-<<<<<<< HEAD
 	padding: 0 2em 0 1em;
-=======
 	padding: 0 1em 0 0;
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 	vertical-align: middle;
 }
 
@@ -1388,54 +1410,6 @@ table.alt tbody tr td {
 	}
 }
 
-/* Wrapper */
-#wrapper {
-	width: 64em;
-	margin: 0 auto;
-	max-width: calc(100% - 4em);
-	padding: 4em 0 2em 0;
-<<<<<<< HEAD
-	-moz-transition: opacity 0.5s ease;
-	-webkit-transition: opacity 0.5s ease;
-	-ms-transition: opacity 0.5s ease;
-	transition: opacity 0.5s ease;
-	position: relative;
-	z-index: 1;
-	overflow: hidden;
-	
-=======
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
-}
-
-#wrapper>.main {
-	margin-bottom: 4em;
-<<<<<<< HEAD
-	width: 100%;
-=======
-	width: 90%;
-	margin: 8%;
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
-}
-
-@media screen and (max-width: 980px) {
-	#wrapper {
-		padding: 2em 0 2em 0;
-	}
-	#wrapper>.main {
-		margin-bottom: 2em;
-	}
-}
-
-@media screen and (max-width: 736px) {
-	#wrapper {
-		max-width: calc(100% - 2em);
-		padding: 1em 0 0.1em 0;
-	}
-	#wrapper>.main {
-		margin-bottom: 1em;
-	}
-}
-
 /* Header */
 #header {
 	background-color: #444;
@@ -1596,24 +1570,171 @@ body.is-loading #header.alt .inner {
 
 /* Main */
 #main {
-	padding: 4em 4em 2em 4em;
 	background-color: #ffffff;
-	border-radius: 4px;
+	position: relative;
+	margin: 0 auto;
+	width: calc(100% - 4rem);
+	max-width: 72rem;
+	z-index: 2;
 }
 
-#main>header:first-child {
+#main>* {
+	padding: 4rem 4rem 2rem 4rem;
+	border-top: solid 2px #eeeeee;
+	margin: 0;
+}
+
+#main>*:first-child {
+	border-top: 0;
+}
+
+#main>footer {
 	text-align: center;
 }
 
+#main>.post {
+	padding: 8rem 8rem 6rem 8rem;
+}
+
+#main>.post header.major>.date {
+	margin-top: -2rem;
+}
+
+#main>.post header.major>h1, #main>.post header.major h2 {
+	font-size: 4rem;
+	line-height: 1.1;
+	margin: 0 0 2rem 0;
+}
+
+#main>.post.featured {
+	text-align: center;
+}
+
+@media screen and (max-width: 1280px) {
+	#main>.post {
+		padding: 6rem 4rem 4rem 4rem;
+	}
+}
+
 @media screen and (max-width: 736px) {
-	#main {
-		padding: 2em 2em 0.1em 2em;
+	#main>.post {
+		padding: 4rem 2rem 2rem 2rem;
+	}
+	#main>.post header.major>.date {
+		margin-top: -1rem;
+		margin-bottom: 2rem;
+	}
+	#main>.post header.major>h1, #main>.post header.major h2 {
+		font-size: 2.5rem;
+		line-height: 1.2;
+		margin: 0 0 1.5rem 0;
+	}
+}
+
+#main>.posts {
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	-moz-flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-moz-align-items: stretch;
+	-webkit-align-items: stretch;
+	-ms-align-items: stretch;
+	align-items: stretch;
+	text-align: center;
+	width: 100%;
+	padding: 0;
+}
+
+#main>.posts>* {
+	-moz-flex-shrink: 1;
+	-webkit-flex-shrink: 1;
+	-ms-flex-shrink: 1;
+	flex-shrink: 1;
+	-moz-flex-grow: 0;
+	-webkit-flex-grow: 0;
+	-ms-flex-grow: 0;
+	flex-grow: 0;
+}
+
+#main>.posts>* {
+	width: 50%;
+}
+
+#main>.posts>* {
+	padding: 4rem;
+	width: 50%;
+}
+
+#main>.posts>article {
+	border-color: #eeeeee;
+	border-left-width: 2px;
+	border-style: solid;
+	border-top-width: 2px;
+	text-align: center;
+}
+
+#main>.posts>article>:last-child {
+	margin-bottom: 0;
+}
+
+#main>.posts>article:nth-child(2n - 1) {
+	border-left-width: 0;
+}
+
+#main>.posts>article:nth-child(-n + 2) {
+	border-top-width: 0;
+}
+
+@media screen and (max-width: 980px) {
+	#main>.posts>* {
+		width: 50%;
+	}
+	#main>.posts>* {
+		padding: 2.5rem;
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	#main>.posts>* {
+		width: 100%;
+	}
+	#main>.posts>* {
+		padding: 2rem;
+		width: 100%;
+	}
+	#main>.posts>article:nth-child(2n - 1) {
+		border-left-width: 2px;
+	}
+	#main>.posts>article:nth-child(-n + 2) {
+		border-top-width: 2px;
+	}
+	#main>.posts>article:nth-child(n) {
+		border-left-width: 0;
+	}
+	#main>.posts>article:nth-child(-n + 1) {
+		border-top-width: 0;
+	}
+	#main>.posts>article .image {
+		max-width: 25rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	#main>* {
+		padding: 2rem 2rem 0.1rem 2rem;
 	}
 }
 
 @media screen and (max-width: 480px) {
 	#main {
-		padding: 2em 1em 0.1em 1em;
+		width: 100%;
 	}
 }
 

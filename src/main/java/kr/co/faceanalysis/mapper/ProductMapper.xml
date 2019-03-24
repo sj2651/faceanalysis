@@ -6,7 +6,7 @@
 <mapper namespace="ProductMapper">
 	<select id="findAllProduct" resultType="pvo">
 		SELECT p_no, p_brand, p_cate, p_name, p_img, p_grade FROM products
-		ORDER BY p_no ASC
+		ORDER BY p_no DESC
 	</select>
 	
 	<select id="findByBrand" resultType="pvo">
@@ -38,5 +38,28 @@
 		SELECT * FROM products
 		WHERE p_no = #{p_no}
 	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="p_no">
+		INSERT products (M_NO, P_BRAND, P_CATE, P_NAME, P_IMG, P_DETAIL, P_GRADE, P_REG)
+		VALUES (9999, #{p_brand}, #{p_cate}, #{p_name}, #{p_img}, #{p_detail}, #{p_grade}, SYSDATE())
+	</insert>
+	
+	<update id="update">
+    UPDATE products SET 
+      P_BRAND = #{p_brand}, 
+      P_CATE = #{p_cate}, 
+      P_NAME = #{p_name},
+      P_IMG = #{p_img},
+      P_DETAIL = #{p_detail},
+      P_GRADE =  #{p_grade},
+      P_REG = SYSDATE() 
+    WHERE P_NO = #{p_no}
+  </update>
+  
+  <delete id="delete">
+    DELETE FROM products WHERE P_NO = #{p_no}
+  </delete>
+  
+	
 	
 </mapper>
