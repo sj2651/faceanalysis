@@ -8,14 +8,14 @@
 	<select id="selectRequstBoardAll" resultType="kr.co.faceanalysis.vo.RequestBoardVO" parameterType="int" >
 		SELECT A_NO, A_TITLE, M_NAME, A_REG, A_CONTENT
 		FROM article,member
-		WHERE A_CATE = 5 <!-- 요청게시판 카테고리번호를 5로 설정 -->
+		WHERE A_CATE = 5 AND article.M_NO = member.M_NO <!-- 요청게시판 카테고리번호를 5로 설정 -->
 		LIMIT #{pageNo}, 10
 	</select>
 	
 	<select id="selectRequstBoardOne" resultType="kr.co.faceanalysis.vo.RequestBoardVO" parameterType="int" >
 		SELECT A_NO, A_TITLE, M_NAME, A_REG, A_CONTENT
 		FROM article,member
-		WHERE A_NO = #{_A_NO}
+		WHERE A_NO = #{_A_NO} AND article.M_NO = member.M_NO
 	</select>
 	
 		<insert id="insertOneArticle" parameterType="avo" >
@@ -38,5 +38,29 @@
 		UPDATE article 
 		SET a_title = #{a_title}, a_content = #{a_content}, a_reg = SYSDATE()
 	</update>
-
+	
+	<select id="countRowRequest" resultType="int">
+		SELECT COUNT(*)
+		FROM article
+		where a_cate = 5
+	</select>
+	
+	<!-- 댓글 가져오기 -->
+	<select id="selectAllOfThisArticlesComment" resultType="cvo" parameterType="int">
+		SELECT *
+		FROM comment
+		WHERE a_no = #{_a_no}
+	</select>
+	
+	<!-- 댓글 입력 -->
+	<insert id="insertOneComment" parameterType="cvo">
+	INSERT INTO comment(a_no,c_content,c_reg)
+	VALUES(#{a_no}, #{c_content}, SYSDATE() )
+	</insert>
+	<!-- 대댓글 입력 -->
+	<insert id="insertOneRecomment" parameterType="cvo">
+	INSERT INTO comment(a_no,rc_no,c_content,c_reg)
+	VALUES(#{a_no}, #{rc_no}, #{c_content}, SYSDATE() )
+	</insert>
+	
 </mapper>

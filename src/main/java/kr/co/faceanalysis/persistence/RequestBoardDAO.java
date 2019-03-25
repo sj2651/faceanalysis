@@ -29,5 +29,10 @@ public class RequestBoardDAO {
 	public RequestBoardVO selectOne(int ano){
 		return ss.selectOne("selectRequstBoardOne",ano);
 	}
-
+	
+	public int countRowOfRequestBoard() {
+		int countRow = ss.selectOne("countRowRequest");
+		return countRow; 
+	}
+		
 }
