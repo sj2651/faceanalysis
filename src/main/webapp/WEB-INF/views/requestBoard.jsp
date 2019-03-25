@@ -17,6 +17,7 @@
 <noscript>
 	<link rel="stylesheet" href="design/css/noscript.css" />
 </noscript>
+
 </head>
 <body class="is-loading">
 
@@ -73,11 +74,23 @@
 				</c:forEach>
 				
 			</table>
+
 			<div>
-				<a href="<c:url value="/request_add.do"/>">글 작성</a>
+				<a href="<c:url value="/request_add.do"/>">
+					<div id = "make">
+						글 작성
+					</div>
+				</a>
+			<p>
+				<c:forEach items="${pageList}" var="pageNo">
+					<a href="requestBoard.do?pageNo=${pageNo}">${pageNo}</a>
+		
+				</c:forEach>
+			</p>
 			</div>
-			<a href="requestBoard.do?pageNo=1">1</a>
-			게시글 넘기기용 번호(예정)
+
+		
+			
 
 		</div>
 
