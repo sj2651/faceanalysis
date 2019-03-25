@@ -400,8 +400,8 @@ img.img-full-width {
 section {
 	padding: 40px 0;
 	background-color:white;
-	width : 100%;
-	
+	width: calc(100% - 4rem);
+    max-width: 72rem;
 	margin :0 auto;
 }
 #nino-slider .nino-sectionHeading {
@@ -847,6 +847,10 @@ section {
 footer {
 	padding-top: 50px;
 	background: #f8f8f8;
+	width: calc(100% - 4rem);
+    max-width: 72rem;
+    text-align: center;
+    margin: 0 auto;
 }
 footer .nino-colHeading {
 	margin: 0 0 25px;

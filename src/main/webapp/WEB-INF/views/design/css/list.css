@@ -1261,7 +1261,7 @@ ul.alt li {
 }
 
 table {
-	margin: 0 0 2em 0;
+	margin: 0 0 0 0;
 	width: 100%;
 }
 
@@ -1637,7 +1637,7 @@ table.alt tbody tr td {
 #header.alt {
 	height: 20em;
 	min-height: 20em;
-	min-height: 75vh;
+	text-align: center;
 }
 
 #header.alt:before {
