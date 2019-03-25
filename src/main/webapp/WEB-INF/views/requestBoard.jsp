@@ -18,27 +18,6 @@
 	<link rel="stylesheet" href="design/css/noscript.css" />
 </noscript>
 
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-	$(function() {
-		$("#modify").click(function() {
-			document.frm.action = '<c:url value="requestModify.do" ></c:url>';
-			document.frm.submit();
-		});
-		$("#delete")
-				.click(
-						function() {
-							document.frm.action = '<c:url value="requestDeleteOK.do" ></c:url>';
-							document.frm.submit();
-						});
-		$("#makeCommentButton").click(function() {
-			document.frm.action = '<c:url value="CommentOK.do" ></c:url>';
-			document.frm.submit();
-		});
-	});
-</script>
 </head>
 <body class="is-loading">
 
@@ -54,9 +33,9 @@
 		<!-- Nav -->
 		<nav id="nav">
 			<ul class="links">
-				<li><a href="detail1.html">Brand</a></li>
-				<li class="active"><a href="detail2.html">Category</a></li>
-				<li><a href="detail3.html">Q/A</a></li>
+				<li><a href="detail1.do">Brand</a></li>
+				<li class="active"><a href="detail2.do">Category</a></li>
+				<li><a href="detail3.do">Q/A</a></li>
 			</ul>
 			<ul class="icons">
 				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -74,42 +53,44 @@
 			<!-- Post -->
 			<section class="post">
 				<header class="major">
-					<span class="date">April 25, 2017</span>
-					<h1>${RBVo.a_title}</h1>
-					<p>${RBVo.m_name}</p>
+					<span class="date">요청게시판</span>
 				</header>
-
-				<p>${RBVo.a_content}</p>
-
-				<form action="" name="frm" method="post">
-					<input value="${RBVo.a_no}" name="articleNo" hidden="hidden">
-					<div>
-						<input type="button" value="변경" id="modify" /> 
-						<input type="button" value="삭제" id="delete" />
-					</div>
-					<br/>
-					<div>
-						<table>
-							<c:forEach items="${commentList}" var="commentVo">
-								<tr>
-									<td>
-										${commentVo.c_content}
-									</td>
-									<td>
-										${commentVo.c_reg}
-									</td>
-								</tr>
-							</c:forEach>
-						</table>
-					</div>
-
-					<br /> 
-					<input type="hidden" name="commentArticleNo" value="${RBVo.a_no}" hidden="hidden" /> 
-					<input type="text" name="commentContent" />
-					<div id="makeCommentButton">댓글작성</div>
-				</form>
-
 			</section>
+			<table>
+				<tr>
+					<th>게시글 번호</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>날짜</th>
+				</tr>
+
+				<c:forEach items="${requestList}" var="requestArticleList">
+					<tr>
+						<td>${requestArticleList.a_no}</td>
+						<td><a href="request_detail.do?articleNo=${requestArticleList.a_no}">${requestArticleList.a_title}</a></td>
+						<td>${requestArticleList.m_name}</td>
+						<td>${requestArticleList.a_reg}</td>
+					</tr>
+				</c:forEach>
+				
+			</table>
+
+			<div>
+				<a href="<c:url value="/request_add.do"/>">
+					<div id = "make">
+						글 작성
+					</div>
+				</a>
+			<p>
+				<c:forEach items="${pageList}" var="pageNo">
+					<a href="requestBoard.do?pageNo=${pageNo}">${pageNo}</a>
+		
+				</c:forEach>
+			</p>
+			</div>
+
+		
+			
 
 		</div>
 

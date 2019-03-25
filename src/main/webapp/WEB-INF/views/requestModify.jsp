@@ -9,7 +9,7 @@
 -->
 <html>
 <head>
-<title>Generic Page - Massively by HTML5 UP</title>
+<title>요청글추가</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -17,24 +17,11 @@
 <noscript>
 	<link rel="stylesheet" href="design/css/noscript.css" />
 </noscript>
-
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-		$("#modify").click(function() {
-			document.frm.action = '<c:url value="requestModify.do" ></c:url>';
-			document.frm.submit();
-		});
-		$("#delete")
-				.click(
-						function() {
-							document.frm.action = '<c:url value="requestDeleteOK.do" ></c:url>';
-							document.frm.submit();
-						});
-		$("#makeCommentButton").click(function() {
-			document.frm.action = '<c:url value="CommentOK.do" ></c:url>';
+	$(function(){
+		$("#submitbtn").click(function(){
+			document.frm.action = '<c:url value="requestModifyOK.do" ></c:url>';
 			document.frm.submit();
 		});
 	});
@@ -54,9 +41,9 @@
 		<!-- Nav -->
 		<nav id="nav">
 			<ul class="links">
-				<li><a href="detail1.html">Brand</a></li>
-				<li class="active"><a href="detail2.html">Category</a></li>
-				<li><a href="detail3.html">Q/A</a></li>
+				<li><a href="detail1.do">Brand</a></li>
+				<li class="active"><a href="detail2.do">Category</a></li>
+				<li><a href="detail3.do">Q/A</a></li>
 			</ul>
 			<ul class="icons">
 				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -74,42 +61,31 @@
 			<!-- Post -->
 			<section class="post">
 				<header class="major">
-					<span class="date">April 25, 2017</span>
-					<h1>${RBVo.a_title}</h1>
-					<p>${RBVo.m_name}</p>
+					<span class="date">요청글추가</span>
 				</header>
-
-				<p>${RBVo.a_content}</p>
-
-				<form action="" name="frm" method="post">
-					<input value="${RBVo.a_no}" name="articleNo" hidden="hidden">
-					<div>
-						<input type="button" value="변경" id="modify" /> 
-						<input type="button" value="삭제" id="delete" />
-					</div>
-					<br/>
-					<div>
-						<table>
-							<c:forEach items="${commentList}" var="commentVo">
-								<tr>
-									<td>
-										${commentVo.c_content}
-									</td>
-									<td>
-										${commentVo.c_reg}
-									</td>
-								</tr>
-							</c:forEach>
-						</table>
-					</div>
-
-					<br /> 
-					<input type="hidden" name="commentArticleNo" value="${RBVo.a_no}" hidden="hidden" /> 
-					<input type="text" name="commentContent" />
-					<div id="makeCommentButton">댓글작성</div>
-				</form>
-
 			</section>
+						
+			<!-- 확인 후 method post로 변경 -->
+			<!-- http://localhost:9090/faceanalysis/requestAddOK.do -->
+			<form action="" method="post" name="frm"  >
+			<input type="hidden" name="articleNo" value ="${requestBoardVo.a_no}"/>
+				<table>
+					<tr>
+						<th>제목</th>
+						<td> <input type="text" id="title" name="title" value="${requestBoardVo.a_title}"/> </td>
+					</tr>
+					<tr>
+						<th>작성자</th>
+						<td> ${requestBoardVo.m_name} </td>
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td> <textarea rows="20" cols="50" id="content" name="content" >${requestBoardVo.a_content}</textarea> </td>
+					</tr>
+				</table>
+				
+				<input type="button" value="글 수정" id="submitbtn"/>
+			</form>
 
 		</div>
 

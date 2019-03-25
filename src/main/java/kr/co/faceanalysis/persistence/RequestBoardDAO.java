@@ -2,6 +2,8 @@ package kr.co.faceanalysis.persistence;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,12 +22,17 @@ public class RequestBoardDAO {
 	}
 	
 	//요청 게시판 번호 = 5(임시)
-	public List<RequestBoardVO> selectAll(){
-		return ss.selectList("selectRequstBoardAll",5);
+	public List<RequestBoardVO> selectAll(int pageNo){
+		return ss.selectList("selectRequstBoardAll",pageNo);
 	}
 	
 	public RequestBoardVO selectOne(int ano){
 		return ss.selectOne("selectRequstBoardOne",ano);
 	}
-
+	
+	public int countRowOfRequestBoard() {
+		int countRow = ss.selectOne("countRowRequest");
+		return countRow; 
+	}
+		
 }
