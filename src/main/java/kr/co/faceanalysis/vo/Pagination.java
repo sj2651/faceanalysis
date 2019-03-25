@@ -5,7 +5,7 @@ import java.net.URLEncoder;
 
 public class Pagination {
 	int pg = 1; // 현재 페이지
-	int sz = 8; // 페이지 당 레코드 수
+	int sz = 9; // 페이지 당 레코드 수
 	int sb;
 	int ob;
 	String st; // search text
@@ -40,7 +40,7 @@ public class Pagination {
 	public int getOb() {
 		return ob;
 	}
-	
+
 	public int getPg() {
 		return pg;
 	}
