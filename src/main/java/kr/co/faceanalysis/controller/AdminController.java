@@ -31,7 +31,7 @@ public class AdminController {
 
 	@RequestMapping(value="ProductAllList.do")
 	public String ProductAllList(Model model, Pagination pagination) {
-		List<ProductVO> products = dao.findAllProduct();
+		List<ProductVO> products = dao.findAllProduct(pagination);
 		model.addAttribute("products", products);
 		model.addAttribute("orderBy", dao.orderBy);
         model.addAttribute("searchBy", dao.searchBy);

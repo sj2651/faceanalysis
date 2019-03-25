@@ -12,6 +12,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="design/css/list.css" />
 <!--<link rel="stylesheet" href="design/css/detail.css" />-->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	setTimeout(function() {
+		$("body").removeClass("is-loading");
+	}, 1000);		
+</script>
 </head>
 <body class="is-loading">
 	<div id="wrapper" class="fade-in">
@@ -40,7 +47,7 @@
 			</ul>
 		</nav>
 		<!-- Main -->
-		
+
 		<div id="main">
 			<!-- Items -->
 			<section class="main items">
@@ -101,13 +108,8 @@
 					Images: <a href="https://unsplash.com">Unsplash</a>.
 				</p>
 			</footer>
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 		</div>
 	</div>
-<<<<<<< HEAD
-</div>
-=======
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 	<!-- Scripts -->
 	<script src="design/js/jquery.min.js"></script>
 	<script src="design/js/skel.min.js"></script>

@@ -106,6 +106,7 @@
 				</p>
 			</footer>
 		</div>
+		<a href="../detail1.do">기본 페이지로 이동</a>
 	</div>
 	<!-- Scripts -->
 	<script src="../design/js/jquery.min.js"></script>
