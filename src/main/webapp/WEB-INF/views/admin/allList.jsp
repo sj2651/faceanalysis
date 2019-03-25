@@ -10,8 +10,7 @@
 <title>Epilogue by TEMPLATED</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="design/css/list.css" />
-<!--<link rel="stylesheet" href="design/css/detail.css" />-->
+<link rel="stylesheet" href="../design/css/list.css" />
 </head>
 <body class="is-loading">
 	<!-- Wrapper -->
@@ -20,16 +19,16 @@
 			<div class="inner">
 				<!--  <h1>Epilogue</h1>
 					<p>A free responsive site template by <a href="https://templated.co">TEMPLATED</a></p>-->
-				<img class="logo" src="./images/mainlogo.png"
+				<img class="logo" src="../images/mainlogo.png"
 					style="max-width: 100%; height: auto;">
 			</div>
 		</header>
 		<!-- Nav -->
 		<nav id="nav">
 			<ul class="links">
-				<li><a href="detail1.do">Brand</a></li>
-				<li><a href="detail2.do">Category</a></li>
-				<li><a href="detail3.do">Q/A</a></li>
+				<li><a href="../detail1.do">Brand</a></li>
+				<li><a href="../detail2.do">Category</a></li>
+				<li><a href="../detail3.do">Q/A</a></li>
 			</ul>
 			<ul class="icons">
 				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -46,11 +45,16 @@
 			<section class="main items">
 				<form:form method="get" modelAttribute="pagination">
 					<form:hidden path="pg" value="1" />
+					<form:select path="ob" class="" itemValue="value" itemLabel="label"
+						items="${ orderBy }" />
+					<form:select path="sb" class="" itemValue="value" itemLabel="label"
+						items="${ searchBy }" />
+					<form:input path="st" class="" placeholder="검색문자열" />
 				</form:form>
 				<c:forEach var="product" items="${ products }">
 					<article class="item">
 						<header>
-							<a href="detail.do?p_no=${product.p_no}"><img
+							<a href="ProductEdit.do?p_no=${product.p_no}"><img
 								src="${product.p_img}" alt="" width=100%; height=100%; /></a>
 							<h3 style="margin: 10%;">${product.p_name}</h3>
 						</header>
@@ -104,10 +108,10 @@
 		</div>
 	</div>
 	<!-- Scripts -->
-	<script src="design/js/jquery.min.js"></script>
-	<script src="design/js/skel.min.js"></script>
-	<script src="design/js/util.js"></script>
-	<script src="design/js/main.js"></script>
+	<script src="../design/js/jquery.min.js"></script>
+	<script src="../design/js/skel.min.js"></script>
+	<script src="../design/js/util.js"></script>
+	<script src="../design/js/main.js"></script>
 
 </body>
 </html>
