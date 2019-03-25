@@ -105,11 +105,11 @@
 						</h2>
 
 						<div class="sectionContent">		
-						<%-- 	<c:forEach items=${outputIngredient } var="i">
-							${i. }
+						<c:forEach items=${outputIngredient } var="i">
+							<c:out value="${outputIngredient }"></c:out>
 							
-							</c:forEach>  --%>
-						<c:out value="${outputIngredient }"></c:out>
+							
+							</c:forEach>  
 							
 							<table class="rwd-table">
 							  <tr>
