@@ -183,6 +183,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 
 body {
 	line-height: 1;
+	background-color:#4375DB;
 }
 
 ol, ul {
@@ -231,7 +232,7 @@ body {
 }
 
 body {
-	background: #f4f4f4;
+	background: #4375DB;
 }
 
 body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -247,7 +248,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 
 /* Type */
 body {
-	background-color: #f4f4f4;
+	background-color: #4375DB;
 	color: #666666;
 }
 
@@ -1249,7 +1250,7 @@ table.alt tbody tr td {
 
 .items .item {
 	margin: 2em 0 0 2em;
-	width: calc(45% - 15em);
+	width: calc(60% - 15em);
 }
 
 @media screen and (max-width: 980px) {
@@ -1299,16 +1300,16 @@ table.alt tbody tr td {
 
 /* Wrapper */
 #wrapper {
-	width: 64em;
+	width: calc(100% - 4em);
 	margin: 0 auto;
-	max-width: calc(100% - 4em);
-	padding: 4em 0 2em 0;
+	max-width: 72rem;
+	padding: 0;
 }
 
 #wrapper>.main {
 	margin-bottom: 4em;
 	width: 90%;
-	margin: 8%;
+	margin-left: 5%;
 }
 
 @media screen and (max-width: 980px) {
@@ -1332,7 +1333,7 @@ table.alt tbody tr td {
 
 /* Header */
 #header {
-	background-color: #444;
+	background: transparent;
 	color: rgba(255, 255, 255, 0.75);
 	display: -moz-flex;
 	display: -webkit-flex;
@@ -1351,7 +1352,6 @@ table.alt tbody tr td {
 	-ms-flex-direction: column;
 	flex-direction: column;
 	padding: 8em 0 6em 0;
-	background-image: url("../../images/banner.jpg");
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -1401,8 +1401,7 @@ table.alt tbody tr td {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.25);
-	background-image: url("images/overlay.png");
+	
 }
 
 #header h1 {
@@ -1489,10 +1488,13 @@ body.is-loading #header.alt .inner {
 }
 
 /* Main */
-#main {
+#container {
 	padding: 4em 4em 2em 4em;
-	background-color: #ffffff;
+	background-color: #F6F6F6;
 	border-radius: 4px;
+	max-width: 72rem;
+    width: calc(100% - 4rem);
+    margin: 0 auto;
 }
 
 #main>header:first-child {
@@ -1558,7 +1560,7 @@ body.is-loading #header.alt .inner {
 /* Footer */
 #footer {
 	text-align: center;
-	margin-top: 4em;
+	
 }
 
 #footer a {

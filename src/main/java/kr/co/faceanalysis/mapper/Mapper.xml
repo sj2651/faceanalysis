@@ -10,8 +10,8 @@
 	<select id="selectAllLog" resultType="lvo">
 		SELECT * FROM LOG
 	</select>
-	<select id="selectAllGrade" resultType="gvo">
-		SELECT * FROM GRADE
+	<select id="selectAllIngredient" resultType="ivo">
+		SELECT * FROM ingredient
 	</select>
 	<select id="selectAllComment" resultType="cvo">
 		SELECT * FROM COMMENT

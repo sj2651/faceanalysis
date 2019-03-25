@@ -21,20 +21,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="design/css/list.css" />
 	<link rel="stylesheet" href="design/css/template.css" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-			<script>
-			
-			$(document).ready(function(){
-					var name = '<c:out value="${product.p_brand }"/>';
-					console.log(name);
-
-					if(name=="aromatica"){
-						$('#wrapper #nino-story').css("background-color","#f5f5f5");
-						$('#wrapper #nino-services').css("background-color","#f5f5f5");
-					}
-				 });
-				
-			</script>
 </head>
 <body>
 
@@ -74,21 +60,45 @@
 				<section id="nino-story">
 							<div class="container">
 								<h2 class="nino-sectionHeading">
-									<span class="nino-subHeading">${product.p_brand }</span>
-									${product.p_name }
+									<span class="nino-subHeading">What we do</span>
+									Story about us
 								</h2>
-								
+								<p class="nino-sectionDesc"></p>
 								<div class="sectionContent">
-
 									<div class="row nino-hoverEffect">
-									<img alt="" src="${product.p_img }">
-										
-										
-											
-											
-												
-											
-									
+										<div class="col-md-4 col-sm-4">
+											<div class="item1">
+												<a class="overlay" href="#">
+													<span class="content">
+														<i class="mdi mdi-account-multiple nino-icon"></i>
+														super team
+													</span>
+													<img src="images/story/img-1.jpg" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4">
+											<div class="item1">
+												<a class="overlay" href="#">
+													<span class="content">
+														<i class="mdi mdi-image-filter-center-focus-weak nino-icon"></i>
+														Creativity
+													</span>
+													<img src="images/story/img-2.jpg" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4">
+											<div class="item1">
+												<a class="overlay" href="#">
+													<span class="content">
+														<i class="mdi mdi-airplay nino-icon"></i>
+														Digital
+													</span>
+													<img src="images/story/img-3.jpg" alt="">
+												</a>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>		
@@ -103,37 +113,63 @@
 							<span class="nino-subHeading">Ingredient</span>
 							상세성분
 						</h2>
-
-						<div class="sectionContent">		
-						<%-- 	<c:forEach items=${outputIngredient } var="i">
-							${i. }
-							
-							</c:forEach>  --%>
-						<c:out value="${outputIngredient }"></c:out>
-							
-							<table class="rwd-table">
-							  <tr>
-							    <th rowspan="" ><img alt="" src="https://static.ewg.org/skindeep/img/draw_score/score_image1__1_.png"></th>
-							    <th>Genre</th>
-							    <th>Year</th>
-							    <th>Gross</th>
-							  </tr>
-							 
-							 
-							  <tr>
-							    <td data-th="Movie Title">Star Wars</td>
-							    <td data-th="Genre">Adventure, Sci-fi</td>
-							    <td data-th="Year">1977</td>
-							    <td data-th="Gross">$460,935,665</td>
-							  </tr>
-							  <tr>
-							    <td data-th="Movie Title">Howard The Duck</td>
-							    <td data-th="Genre">"Comedy"</td>
-							    <td data-th="Year">1986</td>
-							    <td data-th="Gross">$16,295,774</td>
-							  </tr>
-							
-							</table>
+						<div class="sectionContent">			
+							<div class="fw" layout="row">
+								<div class="col-md-4 col-sm-6 item1 ">
+									<div layout="row">
+										<i class="mdi mdi-apple-keyboard-command nino-icon fsr"></i>
+										<div>
+											<h4 class="nino-serviceTitle">Photography</h4>
+											<p>Photography is the science, art and practice of creating durable images by recording light or other electromagnetic radiation</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-6 item1 ">
+									<div layout="row">
+										<i class="mdi mdi-blender nino-icon fsr"></i>
+										<div>
+											<h4 class="nino-serviceTitle">Web Design</h4>
+											<p>Web design encompasses many different skills and disciplines in the production and maintenance of websites.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-6 item1 ">
+									<div layout="row">
+										<i class="mdi mdi-bookmark-plus-outline nino-icon fsr"></i>
+										<div>
+											<h4 class="nino-serviceTitle">Creativity</h4>
+											<p>Creativity is a phenomenon whereby something new and somehow valuable is formed. The created item1 may be intangible or a physical object.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-6 item1 ">
+									<div layout="row">
+										<i class="mdi mdi-buffer nino-icon fsr"></i>
+										<div>
+											<h4 class="nino-serviceTitle">seo</h4>
+											<p>Search engine optimization (SEO) is the process of affecting the visibility of a website or a web page in a web search engine's unpaid results.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-6 item1 ">
+									<div layout="row">
+										<i class="mdi mdi-desktop-mac nino-icon fsr"></i>
+										<div>
+											<h4 class="nino-serviceTitle">Css/Html</h4>
+											<p>HyperText Markup Language, commonly abbreviated as HTML, is the standard markup language used to create web pages. </p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-6 item1 ">
+									<div layout="row">
+										<i class="mdi mdi-diamond nino-icon fsr"></i>
+										<div>
+											<h4 class="nino-serviceTitle">digital</h4>
+											<p>With digital signals, system noise, provided it is not too great, will not change the quantification whereas with signals handled using analog processing.</p>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 			    	</div>
 			    </section><!--/#nino-services-->
@@ -192,7 +228,7 @@
 			</footer>
 	
 		</div>
- 
+
 	<!-- Scripts -->
 	<script src="design/js/jquery.min.js"></script>
 	<script src="design/js/skel.min.js"></script>
@@ -200,4 +236,5 @@
 	<script src="design/js/main.js"></script>
 
 </body>
+</html>
 </html>

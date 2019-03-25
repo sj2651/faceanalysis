@@ -7,6 +7,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+
 <html>
 	<head>
 		<title>Generic Page - Massively by HTML5 UP</title>
@@ -15,6 +16,7 @@
 		<link rel="stylesheet" href="design/css/detail.css" />
 		<link rel="stylesheet" href="design/css/template.css" />
 		<noscript><link rel="stylesheet" href="design/css/noscript.css" /></noscript>
+	
 	</head>
 	<body class="is-loading">
 

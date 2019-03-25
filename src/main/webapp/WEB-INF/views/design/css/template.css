@@ -99,7 +99,7 @@ ul, ul li {
 /* =============== DEFAULT HTML - IMAGES STYLES =============== */
 img {
 	border: none;
-	max-width: 100%;
+	max-width: 60%;
 }
 img.image-left {
 	float: left;
@@ -141,15 +141,15 @@ img.img-full-width {
 }
 .verticalStretch {
 	-ms-flex-align: stretch;
-	-webkit-align-items: stretch;
+	-webkit-align-item1s: stretch;
 	-webkit-box-align: stretch;
-	align-items: stretch;
+	align-item1s: stretch;
 }
 .verticalCenter {
 	-ms-flex-align: center;
-	-webkit-align-items: center;
+	-webkit-align-item1s: center;
 	-webkit-box-align: center;
-	align-items: center;
+	align-item1s: center;
 }
 .nino-btn {
 	display: inline-block;
@@ -171,11 +171,11 @@ img.img-full-width {
 .nino-hoverEffect {
 	text-align: center;
 }
-.nino-hoverEffect .item {
+.nino-hoverEffect .item1 {
 	background: #95e1d3;
 	display: inline-block;
 }
-.nino-hoverEffect .item .overlay {
+.nino-hoverEffect .item1 .overlay {
 	display: block;
 	position: relative;
 	left: 0;
@@ -186,7 +186,7 @@ img.img-full-width {
 		-ms-transition: all .3s ease-in-out;
 			transition: all .3s ease-in-out;
 }
-.nino-hoverEffect .item .overlay:before {
+.nino-hoverEffect .item1 .overlay:before {
 	content: "";
 	position: absolute;
 	left: 0;
@@ -204,11 +204,11 @@ img.img-full-width {
 	background: -o-linear-gradient(top, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9));
 	background: linear-gradient(to bottom, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-.nino-hoverEffect .item:hover .overlay {
+.nino-hoverEffect .item1:hover .overlay {
 	left: -10px;
 	top: -10px;
 }
-.nino-hoverEffect .item:hover .overlay:before {
+.nino-hoverEffect .item1:hover .overlay:before {
 	opacity: 1;	
 }
 .nino-hoverEffect .content {
@@ -227,7 +227,7 @@ img.img-full-width {
 		-ms-transform: translateY(-50%);
 			transform: translateY(-50%);
 }
-.nino-hoverEffect .item:hover .content {
+.nino-hoverEffect .item1:hover .content {
 	opacity: 1;
 }
 /* =============== LAYOUT - HEADER AREA =============== */
@@ -259,7 +259,7 @@ img.img-full-width {
 #nino-slider .carousel-inner {
 	height: 386px;
 }
-#nino-slider .carousel-inner > .item {
+#nino-slider .carousel-inner > .item1 {
 	text-align: center;
 	color: #fff;
 }
@@ -336,7 +336,7 @@ img.img-full-width {
 	border-color: #fce38a;
 	background: none;
 }
-#nino-navbar .nino-menuItem {
+#nino-navbar .nino-menuitem1 {
 	float: right;
 }
 #nino-navbar .nino-iconsGroup li a {
@@ -399,9 +399,9 @@ img.img-full-width {
 /* =============== LAYOUT - CONTENT AREA =============== */
 section {
 	padding: 40px 0;
-	background-color:#f5f5f5;
-	width : calc(100% - 4rem);
-	max-width :72rem;
+	background-color:white;
+	width : 100%;
+	
 	margin :0 auto;
 }
 #nino-slider .nino-sectionHeading {
@@ -420,7 +420,7 @@ section {
 	line-height: 1;
 	position: relative;
 	padding-bottom: 20px;
-	margin-bottom: 30px;
+	
 	text-align: center;
 	color: #333;
 }
@@ -466,12 +466,12 @@ section {
 	text-transform: uppercase;
 	font-size: 25px;
 }
-#nino-counting .item {
+#nino-counting .item1 {
 	width: 20%;
 	padding: 60px 5px;
 	border-right: 1px solid rgba(255, 255, 255, 0.35);
 }
-#nino-counting .item:first-child {
+#nino-counting .item1:first-child {
 	border-left: 1px solid rgba(255, 255, 255, 0.35);
 }
 #nino-counting .number {
@@ -489,7 +489,7 @@ section {
 	margin-right: 20px;
 	color: #95e1d3;
 }
-#nino-services .item:not(:nth-last-child(-n+3)) {
+#nino-services .item1:not(:nth-last-child(-n+3)) {
 	border-bottom: 1px solid #e5e5e5;
 	margin-bottom: 50px;
 	padding-bottom: 40px;
@@ -651,27 +651,27 @@ section {
 #nino-portfolio {
 	padding-bottom: 0;
 }
-#nino-portfolio .nino-portfolioItems {
+#nino-portfolio .nino-portfolioitem1s {
 	position: relative;
 	margin: 0;
 	padding: 0;
 }
-#nino-portfolio .nino-portfolioItems li {
+#nino-portfolio .nino-portfolioitem1s li {
 	float: left;
 	width: 25%;
 	background: #fff;
 	position: relative;
 }
-#nino-portfolio .nino-portfolioItems li a,
-#nino-portfolio .nino-portfolioItems li a img {
+#nino-portfolio .nino-portfolioitem1s li a,
+#nino-portfolio .nino-portfolioitem1s li a img {
 	display: block;
 	position: relative;
 }
-#nino-portfolio .nino-portfolioItems li a {
+#nino-portfolio .nino-portfolioitem1s li a {
 	overflow: hidden;
 	color: #fff;
 }
-#nino-portfolio .nino-portfolioItems li .overlay {
+#nino-portfolio .nino-portfolioitem1s li .overlay {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -681,7 +681,7 @@ section {
 	background: -o-linear-gradient(top, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9));
 	background: linear-gradient(to bottom, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-#nino-portfolio .nino-portfolioItems li .content {
+#nino-portfolio .nino-portfolioitem1s li .content {
 	position: absolute;
 	left: 0 !important;
 	top: 50% !important;
@@ -692,15 +692,15 @@ section {
 		-ms-transform: translateY(-50%);
 			transform: translateY(-50%);
 }
-#nino-portfolio .nino-portfolioItems li .nino-icon {
+#nino-portfolio .nino-portfolioitem1s li .nino-icon {
 	font-size: 30px;
 }
-#nino-portfolio .nino-portfolioItems li .title {
+#nino-portfolio .nino-portfolioitem1s li .title {
 	color: #fff;
 	font-size: 14px;
 	margin: 5px 0 5px;
 }
-#nino-portfolio .nino-portfolioItems li .desc {
+#nino-portfolio .nino-portfolioitem1s li .desc {
 	font-style: italic;
 	font-size: 12px;
 }
@@ -733,7 +733,7 @@ section {
 #nino-happyClient {
 	background: url(../images/happy-client/bg-happy-client.jpg) no-repeat center center / cover;
 }
-#nino-happyClient .item {
+#nino-happyClient .item1 {
 	margin-bottom: 30px;
 }
 #nino-happyClient .nino-avatar {
@@ -1063,14 +1063,14 @@ div.pp_default .pp_social {
 	#nino-counting {
 		font-size: 10px;
 	}
-	#nino-counting .item {
+	#nino-counting .item1 {
 		padding: 35px 5px;
 	}
 	#nino-counting .number {
 		font-size: 50px;
 	}
 	/* =============== SECTION SERVICES =============== */
-	#nino-services .item:not(:nth-last-child(-n+2)) {
+	#nino-services .item1:not(:nth-last-child(-n+2)) {
 		border-bottom: 1px solid #e5e5e5;
 		margin-bottom: 30px;
     	padding-bottom: 20px;
@@ -1119,7 +1119,7 @@ div.pp_default .pp_social {
 @media (max-width: 768px) {
 	
 	/* =============== HOVER EFFECT =============== */
-	.nino-hoverEffect .item {
+	.nino-hoverEffect .item1 {
 		margin-bottom: 15px;
 	}
 	/* =============== MAIN SLIDER =============== */
@@ -1147,7 +1147,7 @@ div.pp_default .pp_social {
 		margin: 0 0 20px;
 	}
 	/* =============== SECTION OUR WORK =============== */
-	#nino-portfolio .nino-portfolioItems li {
+	#nino-portfolio .nino-portfolioitem1s li {
 		width: 50%;
 	}
 	/* =============== SECTION LATEST BLOG =============== */
@@ -1179,7 +1179,7 @@ div.pp_default .pp_social {
 	#nino-navbar .navbar-nav > .active > a:hover {
 		border-color: transparent;
 	}
-	#nino-navbar .nino-menuItem,
+	#nino-navbar .nino-menuitem1,
 	#nino-navbar .navbar-collapse {
 		width: 100%;
 	}
@@ -1204,7 +1204,7 @@ div.pp_default .pp_social {
 		padding: 15px 0 5px;
 	}
 	/* =============== SECTION SERVICES =============== */
-	#nino-services .item:not(:nth-last-child(-n+1)) {
+	#nino-services .item1:not(:nth-last-child(-n+1)) {
 		border-bottom: 1px solid #e5e5e5;
 		margin-bottom: 20px;
 		padding-bottom: 10px;
@@ -1217,7 +1217,7 @@ div.pp_default .pp_social {
 	}
 	.nino-sectionHeading {
 		font-size: 20px;
-		margin-bottom: 20px;
+		
 	}
 	.nino-sectionHeading .nino-subHeading {
 		font-size: 16px;
@@ -1240,7 +1240,7 @@ div.pp_default .pp_social {
 		display: none;
 	}
 	/* =============== SECTION COUNTING =============== */
-	#nino-counting .item {
+	#nino-counting .item1 {
 		padding: 20px 5px;
 	}
 	#nino-counting .number {
@@ -1317,7 +1317,7 @@ div.pp_default .pp_social {
 		display: none;
 	}
 	/* =============== SECTION OUR WORK =============== */
-	#nino-portfolio .nino-portfolioItems li {
+	#nino-portfolio .nino-portfolioitem1s li {
 		width: 100%;
 	}
 }
