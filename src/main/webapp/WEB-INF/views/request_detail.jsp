@@ -81,13 +81,13 @@
 
 				<p>${RBVo.a_content}</p>
 
-				<form action="" name="frm">
+				<form action="" name="frm" method="post">
 					<input value="${RBVo.a_no}" name="articleNo" hidden="hidden">
 					<div>
 						<input type="button" value="변경" id="modify" /> 
 						<input type="button" value="삭제" id="delete" />
 					</div>
-					<br>
+					<br/>
 					<div>
 						<table>
 							<c:forEach items="${commentList}" var="commentVo">

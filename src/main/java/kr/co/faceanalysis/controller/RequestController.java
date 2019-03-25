@@ -176,7 +176,7 @@ public class RequestController {
 		
 		a_dao.article_UpdateOne(vo);
 		
-		return "requestModify";
+		return "requestModifyOK";
 	}
 
 }

@@ -37,6 +37,7 @@
 	<update id="updateOneArticle" parameterType="avo">
 		UPDATE article 
 		SET a_title = #{a_title}, a_content = #{a_content}, a_reg = SYSDATE()
+		WHERE a_no = #{a_no}
 	</update>
 	
 	<select id="countRowRequest" resultType="int">
