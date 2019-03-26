@@ -135,9 +135,10 @@ public class RequestController {
 	//댓글작성
 	@RequestMapping("/CommentOK.do")
 	public String RequestCommentOK(HttpServletRequest hsr) {
+		System.out.println("comment");
 		int aNo;
-		if (hsr.getParameter("commentArticleNo") != null) {
-			aNo = Integer.parseInt( hsr.getParameter("commentArticleNo") );
+		if (hsr.getParameter("articleNo") != null) {
+			aNo = Integer.parseInt( hsr.getParameter("articleNo") );
 			String cContent = hsr.getParameter("commentContent");
 			
 			if(cContent != null) {
@@ -149,10 +150,33 @@ public class RequestController {
 		return "CommentOK";
 	}
 	
+	//대댓글
+	@RequestMapping("/reCommentOK.do")
+	public String RequestRecommentOK(HttpServletRequest hsr) {
+		System.out.println("Recomment");
+		int rcno = Integer.parseInt( hsr.getParameter("commentNo") );
+		int aNo;
+		if (hsr.getParameter("articleNo") != null) {
+			aNo = Integer.parseInt( hsr.getParameter("articleNo") );
+			String cContent = hsr.getParameter("reCommentContent");
+			
+			if(cContent != null) {
+				CommentVO vo = new CommentVO(0, aNo, rcno, "ㄴ"+cContent,"");
+				cDao.insertOneRecomment(vo);
+			}
+		}
+		
+		return "CommentOK";
+	}
+	
 	//글삭제
 	@RequestMapping("/requestDeleteOK.do")
 	public String RequestDeleteOK(HttpServletRequest hsr) {
+		
 		int ano = Integer.parseInt( hsr.getParameter("articleNo") );
+		//연결된 댓글 삭제
+		cDao.deleteAllCommentForArticle(ano);
+		//게시글 삭제
 		a_dao.article_deleteOne(ano);
 		
 		return "requestDeleteOK"; 

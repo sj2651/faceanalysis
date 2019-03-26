@@ -35,7 +35,7 @@
 			<ul class="links">
 				<li><a href="detail1.do">Brand</a></li>
 				<li><a href="detail2.do">Category</a></li>
-				<li><a href="detail3.do">Q/A</a></li>
+				<li><a href="requestBoard.do">Q/A</a></li>
 			</ul>
 			<ul class="icons">
 				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -58,7 +58,7 @@
 					<form:select path="sb" class="" itemValue="value" itemLabel="label"
 						items="${ searchBy }" />
 					<form:input path="st" class="" placeholder="검색문자열" />
-					<button type="submit" class="">검색</button>
+					<button type="submit" style="height:46px;vertical-align:middle;">검색</button>
 					<c:if test="${ pagination.sb > 0 || pagination.ob > 0}">
 						<a href="./${url}?pg=1"> 검색취소 </a>
 					</c:if>
@@ -76,7 +76,7 @@
 						<h4 style="margin-right: 25%; font-weight: bold; color: #0000CC;">Category</h4>
 						<h4 style="margin-right: 27%;">${product.p_cate}</h4>
 						<ul class="actions">
-							<li style="margin-right: 27%;"><a href="#" class="button">More</a></li>
+							<li style="margin-right: 27%;"><a href="detail.do?p_no=${product.p_no}" class="button">More</a></li>
 						</ul>
 					</article>
 				</c:forEach>

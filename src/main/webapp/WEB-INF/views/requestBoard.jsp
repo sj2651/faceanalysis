@@ -14,15 +14,11 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="design/css/detail.css" />
-<noscript>
-	<link rel="stylesheet" href="design/css/noscript.css" />
-</noscript>
-
 </head>
 <body class="is-loading">
 
 	<!-- Wrapper -->
-	<div id="wrapper">
+	<div id="wrapper" class="fade-in">
 
 		<!-- Header -->
 		<header id="header">
@@ -34,8 +30,8 @@
 		<nav id="nav">
 			<ul class="links">
 				<li><a href="detail1.do">Brand</a></li>
-				<li class="active"><a href="detail2.do">Category</a></li>
-				<li><a href="detail3.do">Q/A</a></li>
+				<li><a href="detail2.do">Category</a></li>
+				<li class="active"><a href="detail3.do">Q/A</a></li>
 			</ul>
 			<ul class="icons">
 				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -74,8 +70,11 @@
 				</c:forEach>
 				
 			</table>
-
 			<div>
+			<!-- 세션에 아이디가 없을시 메인으로 이동 -->
+			<c:if test="${m_id == null }">
+				<c:redirect url="/main.do"></c:redirect>
+			</c:if>
 				<a href="<c:url value="/request_add.do"/>">
 					<div id = "make">
 						글 작성

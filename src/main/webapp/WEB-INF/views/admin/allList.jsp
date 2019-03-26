@@ -11,7 +11,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="../design/css/list.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+<script type="text/javascript">
+	setTimeout(function() {
+		$("body").removeClass("is-loading");
+	}, 1000);		
+</script>
 <body class="is-loading">
 	<!-- Wrapper -->
 	<div id="wrapper" class="fade-in">
@@ -28,7 +35,7 @@
 			<ul class="links">
 				<li><a href="../detail1.do">Brand</a></li>
 				<li><a href="../detail2.do">Category</a></li>
-				<li><a href="../detail3.do">Q/A</a></li>
+				<li><a href="../requestBoard.do">Q/A</a></li>
 			</ul>
 			<ul class="icons">
 				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -50,7 +57,7 @@
 					<form:select path="sb" class="" itemValue="value" itemLabel="label"
 						items="${ searchBy }" />
 					<form:input path="st" class="" placeholder="검색문자열" />
-					<button type="submit" class="">검색</button>
+					<button type="submit" style="height:46px;vertical-align:middle;">검색</button>
 					<c:if test="${ pagination.sb > 0 || pagination.ob > 0}">
 						<a href="ProductAllList.do?pg=1"> 검색취소 </a>
 					</c:if>

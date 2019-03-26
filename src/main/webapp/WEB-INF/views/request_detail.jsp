@@ -27,15 +27,47 @@
 			document.frm.action = '<c:url value="requestModify.do" ></c:url>';
 			document.frm.submit();
 		});
-		$("#delete")
-				.click(
-						function() {
-							document.frm.action = '<c:url value="requestDeleteOK.do" ></c:url>';
-							document.frm.submit();
-						});
-		$("#makeCommentButton").click(function() {
-			document.frm.action = '<c:url value="CommentOK.do" ></c:url>';
+		$("#delete").click(function() {
+			document.frm.action = '<c:url value="requestDeleteOK.do" ></c:url>';
 			document.frm.submit();
+		});
+		$("#makeCommentButton").click(function() {
+			if ( $("#commentContent").val() != "" ) {
+				document.frm.action = '<c:url value="CommentOK.do" ></c:url>';
+				document.frm.submit();
+			}else {
+				window.alert("댓글이 공란입니다.");
+			}
+		});
+		//클릭불가
+		$(".makeReCommentButton").click(function() {
+			window.alert("대댓글.");
+			if ( $(".reCommentContent").val() != "" ) {
+				//document.frm.action = '<c:url value="CommentOK.do" ></c:url>';
+				//document.frm.submit();
+			}else {
+				window.alert("댓글이 공란입니다.");
+			}
+		});
+		
+		var changeValue = 1;
+		$(".comment").click(function() {
+			//console.log( $(this).next() );
+			//window.alert();
+			
+			if(changeValue%2 == 0){
+				//$(".reComent").attr('hidden','');
+				$(this).next(".reComment").hide('fast');
+				//$(".reComent").hide('fast');
+				//window.alert("댓글 클릭1");
+			}
+			else{
+				$(this).next(".reComment").show('fast');
+				//$(".reComent").show('fast');
+				//window.alert("댓글 클릭2");
+				
+			}
+			changeValue++;	
 		});
 	});
 </script>
@@ -77,37 +109,37 @@
 					<span class="date">April 25, 2017</span>
 					<h1>${RBVo.a_title}</h1>
 					<p>${RBVo.m_name}</p>
-				</header>
 
-				<p>${RBVo.a_content}</p>
+					<p style="text-align: left">${RBVo.a_content}</p>
+					<div style="text-align: right">
+						<input type="button" value="변경" id="modify" /> <input
+							type="button" value="삭제" id="delete" />
+					</div>
+				</header>
 
 				<form action="" name="frm" method="post">
 					<input value="${RBVo.a_no}" name="articleNo" hidden="hidden">
-					<div>
-						<input type="button" value="변경" id="modify" /> 
-						<input type="button" value="삭제" id="delete" />
-					</div>
-					<br/>
-					<div>
-						<table>
-							<c:forEach items="${commentList}" var="commentVo">
-								<tr>
-									<td>
-										${commentVo.c_content}
-									</td>
-									<td>
-										${commentVo.c_reg}
-									</td>
-								</tr>
-							</c:forEach>
-						</table>
-					</div>
+					<br />
+					<table>
+						<c:forEach items="${commentList}" var="commentVo">
+						<input type="hidden" name="commentNo" value="${commentVo.c_no}"/>
+							<tr class="comment">
+								<td >${commentVo.c_content}</td>
+								<td style="text-align: right">${commentVo.c_reg}</td>
+							</tr>
+							<tr class="reComment" hidden="hidden">
+								<td><input type="text" name="reCommentContent" class="reCommentContent" /></td>
+								<td class="makeReCommentButton">대댓글 작성</td>
+							</tr>
+						</c:forEach>
+					</table>
 
-					<br /> 
-					<input type="hidden" name="commentArticleNo" value="${RBVo.a_no}" hidden="hidden" /> 
-					<input type="text" name="commentContent" />
-					<div id="makeCommentButton">댓글작성</div>
+					<br />
+					<div>
+						<div style="width:300%"><input type="text" name="commentContent" id="commentContent" /></div> 
+					</div>
 				</form>
+				<div style="float:right" id="makeCommentButton">댓글작성</div>
 
 			</section>
 
