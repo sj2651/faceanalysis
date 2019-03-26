@@ -467,8 +467,9 @@ section {
 	font-size: 25px;
 }
 #nino-counting .item1 {
-	width: 20%;
-	padding: 60px 5px;
+	width: 30%;
+	height: 270px;
+	padding: 80px 5px;
 	border-right: 1px solid rgba(255, 255, 255, 0.35);
 }
 #nino-counting .item1:first-child {
@@ -1324,4 +1325,8 @@ div.pp_default .pp_social {
 	#nino-portfolio .nino-portfolioitem1s li {
 		width: 100%;
 	}
+}
+
+.rwd-table th {
+	vertical-align:middle;
 }

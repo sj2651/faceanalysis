@@ -1,6 +1,8 @@
 package kr.co.faceanalysis.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.mysql.fabric.xmlrpc.base.Array;
 
 import kr.co.faceanalysis.persistence.Ingredient_imple;
 import kr.co.faceanalysis.persistence.Product_impl;
@@ -96,36 +100,57 @@ public class ProductController {
 		ProductVO product = proDao.findById(p_no);
 		List<IngredientVO> ingredient = ingreDao.ingredient_selectAll();
 		ArrayList<IngredientVO> outputIngredient = new ArrayList<IngredientVO>() ;
+	
 		String str= product.getP_ingredient();
 		int index [] = new int[9];
 		
 		String[] strList = str.split(",");
+		System.out.println(str );
 		for(int i = 0;i<strList.length;i++) {
 			int j = 0;
+			
 			while(j<ingredient.size()) {
 				
-				System.out.println("성분:"+strList[i]+" 비교:"+ingredient.get(j).getI_kname());
+//				System.out.println("성분:"+strList[i]+" 비교:"+ingredient.get(j).getI_kname());
 				if(strList[i].indexOf(ingredient.get(j).getI_kname().trim())!=-1) {
-					outputIngredient.add(ingredient.get(j));
-					System.out.println("중복되는 값"+ingredient.get(j).getI_kname().trim());
+					boolean confirm = true;
+					for(IngredientVO vo : outputIngredient) {
+						if(vo.getI_kname().equals(ingredient.get(j).getI_kname())){
+							confirm = false;
+							break;
+							}
+					}
+					
+					
+					
+//					System.out.println("중복되는 값"+ingredient.get(j).getI_kname().trim());
+					System.out.println(ingredient.get(j).getI_kname()+"\t"+ingredient.get(j).getI_grade());
+					String indexSample = ingredient.get(j).getI_grade().substring(0, 1).trim();
+					if(confirm == true) {
+						outputIngredient.add(ingredient.get(j));
+						if(!indexSample.equals("-"))index[Integer.parseInt(indexSample)-1]++;
+					}
+				
 					break;
 				}
-				if(j==ingredient.size()-1) {
-					IngredientVO vo = new IngredientVO(strList[i]);
-					outputIngredient.add(vo);
-				}
+//				if(j==ingredient.size()-1) {
+//					System.out.println(strList[i]+"\t 미분류");
+//					IngredientVO vo = new IngredientVO(strList[i]);
+//					outputIngredient.add(vo);
+//					index[9]++;
+//				}
 				j++;
 			}
 		}
 		
 
-		for(int z= 0;z<outputIngredient.size();z++)System.out.println(outputIngredient.get(z).getI_kname()+outputIngredient.get(z).getI_grade()+outputIngredient.get(z).getI_content());
-
 		
 		
+		//for(int i :index)System.out.println(i);
 		
 		model.addAttribute("outputIngredient", outputIngredient);
 		model.addAttribute("product", product);
+		model.addAttribute("index", index);
 		return "listDetail";
 	}
 }

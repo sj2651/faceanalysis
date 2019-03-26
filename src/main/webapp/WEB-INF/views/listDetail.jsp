@@ -1,6 +1,8 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,69 +107,185 @@
 						</h2>
 
 						<div class="sectionContent">		
-					<%-- 	<c:forEach items=${outputIngredient } var="i">
-							<c:out value="${outputIngredient }"></c:out>
-							
-							
-							</c:forEach>   --%>
-							
-							<table class="rwd-table">
-							  <tr>
-							    <th rowspan="" ><img alt="" src="https://static.ewg.org/skindeep/img/draw_score/score_image1__1_.png"></th>
-							    <th>Genre</th>
-							    <th>Year</th>
-							    <th>Gross</th>
-							  </tr>
+
+									
+									
+									
+							<table class="rwd-table" >
+							<c:set var="url" value="1"/>
+
+							<c:forEach var="j" items="${index }">
+								
+								<c:if test="${j>0 }">
+								
+							    
+							  		<tr>
+							    
+							  			<th rowspan="${j+1 }" width="150px" style="padding: 0 auto; text-align: center;" >
+							  				 <c:if test="${url<=9 }"> <img alt="" src=<c:url value='https://static.ewg.org/skindeep/img/draw_score/score_image${url }__1_.png'/>></c:if>
+							   <c:if test="${url==10 }"> <div style="font-size: 20px">미분류등급</div></c:if>
+							    		</th>
+									
+								   	 	<th colspan="3"> ${url } 등급 </th>
+								    	
+									
+							  		</tr>
 							 
-							 
-							  <tr>
-							    <td data-th="Movie Title">Star Wars</td>
-							    <td data-th="Genre">Adventure, Sci-fi</td>
-							    <td data-th="Year">1977</td>
-							    <td data-th="Gross">$460,935,665</td>
-							  </tr>
-							  <tr>
-							    <td data-th="Movie Title">Howard The Duck</td>
-							    <td data-th="Genre">"Comedy"</td>
-							    <td data-th="Year">1986</td>
-							    <td data-th="Gross">$16,295,774</td>
-							  </tr>
 							
-							</table>
+							<c:forEach items="${outputIngredient }" var="Ingredient"> 
+						
+								<c:if test="${fn:substring(Ingredient.i_grade, 0, 1)==url}">
+								<tr>
+							
+							
+									<th style="width: 15%;">  ${Ingredient.i_kname }</th>
+									<th>  ${Ingredient.i_ename }</th>
+									<th>  ${Ingredient.i_content }</th> 
+							
+								</tr>
+								</c:if>
+							 </c:forEach>
+
+							  </c:if>
+							  
+								
+							
+						<c:set var="url" value="${url + 1}"/>
+					</c:forEach> 
+					</table>
+					
 						</div>
 			    	</div>
 			    </section><!--/#nino-services-->
 								  
-					  
+					  <!-- 결과 카운트 라인 -->
 					  <section id="nino-counting">
 				    	<div class="container">
 				    		<div layout="row" class="verticalStretch">
-				    			<div class="item1">
-				    				<div class="text">유해성분</div>
-				    				<div class="number">A</div>
-
-				    			</div>
-				    			<div class="item1">
-				    				<div class="text">알레르기성분</div>
-				    				<div class="number">B</div>
-
-				    			</div>
-				    			<div class="item1">
-				    				<div class="text">천연성분</div>
-				    				<div class="number">C</div>
-				    				
-				    			</div>
+				    		<c:set var="noxiousset" value="0"/>
+				    		<c:set var="allergyset" value="0"/>
+				    		<c:set var="natureset" value="0"/>
+				    		<c:set var="nature" value="추출"/>
+				    		<c:set var="false" value="-1"/>
+				    		<c:forEach items="${outputIngredient }" var="Ingredient">
+				    		
+					    		<c:if test="${Ingredient.i_noxious==1 }">
+					    		<c:set var="noxiousset" value="1"/>
+					    		<c:set var="noxiousname" value="${Ingredient.i_ename}"/>
+					    		</c:if>
+					    		<c:if test="${Ingredient.i_allergy==1 }">
+					    		<c:set var="allergyset" value="1"/>
+					    		<c:set var="allergyname" value="${Ingredient.i_ename}"/>
+					    		</c:if>
+					    		
+					    		<c:if test="${fn:indexOf(Ingredient.i_kname,nature)!=-1}">
+					    		<c:set var="natureset" value="${natureset+1 }"/>
+					    		
+					    		</c:if>
+							</c:forEach> 
+				    			
+				    		<c:choose>
+								<c:when test="${noxiousset==1 }">
+									<div class="item1" style="padding: 60px 5px;" >
+							    				<div class="text">유해성분</div>
+							    				<img style="width: 40%; text-align: center; margin: 5px 0 auto" alt="" src="./images/noxious.png">
+												<div>${noxiousname }</div>
+							    			</div>
+								</c:when>
+								<c:otherwise>
+									<div class="item1">
+							    				<div class="text">유해성분</div>
+							    				<div class="number"style="font-size: 40px">없음</div>
+			
+							    			</div>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${allergyset==1 }">
+								<div class="item1" style="padding: 60px 5px;">
+							    				<div class="text">알레르기성분</div>
+							    				<img style="width: 40%; text-align: center; margin: 5px 0 auto" alt="" src="./images/allergy.png">
+												<div>${allergyname }</div>
+							    			</div>
+							    			
+								</c:when>
+								<c:otherwise>
+								<div class="item1">
+							    				<div class="text">알레르기성분</div>
+							    				<div class="number" style="font-size: 40px">없음</div>
+			
+							    			</div>
+								</c:otherwise>
+							</c:choose>
+						
+							<c:choose>
+								<c:when test="${natureset<=1 }">
+									<div class="item1">
+					    				<div class="text">천연성분</div>
+					    				<div class="number">D</div>	
+					    			</div>
+								</c:when>
+								<c:when test="${natureset<=5 ||natureset>1 }">
+									<div class="item1">
+					    				<div class="text">천연성분</div>
+					    				<div class="number">C</div>	
+					    			</div>
+								</c:when>
+									<c:when test="${natureset<=7 ||natureset>5 }">
+									<div class="item1">
+					    				<div class="text">천연성분</div>
+					    				<div class="number">B</div>	
+					    			</div>
+								</c:when>
+								<c:when test="${natureset>7 }">
+									<div class="item1">
+					    				<div class="text">천연성분</div>
+					    				<div class="number">A</div>	
+					    			</div>
+								</c:when>
+							</c:choose>
+							
+				    			
 				    			<div class="item1">
 				    				<div class="text">리뷰점수</div>
-				    				<div class="number">3.5</div>
+				    				<div class="number" style="font-size: 40px">베타테스트</div>
 				    				
 				    			</div>
+				    		
+				    		<c:choose>
+								<c:when test="${noxiousset==0&&allergyset==0&&natureset>5 }">
+				    			
+				    			<div class="item1">
+				    				<div class="tex
+				    				t finalGrade"  >전체등급</div>
+				    				<div class="number finalGrade">A</div>
+				    			</div>
+				    			</c:when>
+				    					    		
+				    			<c:when test="${allergyset==1}">
+				    			
 				    			<div class="item1">
 				    				<div class="tex
 				    				t finalGrade"  >전체등급</div>
 				    				<div class="number finalGrade">C</div>
-				    				
 				    			</div>
+				    			</c:when>
+				    			<c:when test="${noxiousset==1}">
+				    			
+				    			<div class="item1">
+				    				<div class="tex
+				    				t finalGrade"  >전체등급</div>
+				    				<div class="number finalGrade">D</div>
+				    			</div>
+				    			</c:when>
+				    			<c:otherwise>
+				    				<div class="item1">
+				    				<div class="tex
+				    				t finalGrade"  >전체등급</div>
+				    				<div class="number finalGrade">B</div>
+				    			</div>
+				    			</c:otherwise>
+				    		</c:choose>
 				    		</div>
 				    	</div>
 				    </section><!--/#nino-counting-->
