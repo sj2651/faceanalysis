@@ -10,7 +10,7 @@
 		 <typeAlias type="kr.co.faceanalysis.vo.ProductVO" alias="pvo"/>
 		 <typeAlias type="kr.co.faceanalysis.vo.ArticleVO" alias="avo"/>
 		 <typeAlias type="kr.co.faceanalysis.vo.CommentVO" alias="cvo"/>
-		 <typeAlias type="kr.co.faceanalysis.vo.GradeVO" alias="gvo"/>
+		 <typeAlias type="kr.co.faceanalysis.vo.IngredientVO" alias="ivo"/>
 		 <typeAlias type="kr.co.faceanalysis.vo.LogVO" alias="lvo"/>
 		 <typeAlias type="kr.co.faceanalysis.vo.ProductVO" alias="pvo"/>
 	</typeAliases>

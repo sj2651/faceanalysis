@@ -5,9 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
-import kr.co.faceanalysis.vo.Option;
 import kr.co.faceanalysis.vo.Pagination;
 import kr.co.faceanalysis.vo.ProductVO;
 
@@ -15,7 +13,7 @@ import kr.co.faceanalysis.vo.ProductVO;
 public class ProductDAO implements Product_impl{
 
 	@Autowired
-	private SqlSession ss; 
+	private SqlSession ss;
 
 	public void setSs(SqlSession ss) {
 		this.ss = ss;
@@ -107,14 +105,15 @@ public class ProductDAO implements Product_impl{
 	}
 
 	@Override
-	public List<ProductVO> findByName(String p_name) {
+	public ProductVO findByName(String p_name) {
 		// TODO Auto-generated method stub
-		return ss.selectList("findByName", p_name);
+		return ss.selectOne("findByName", p_name);
 	}
 
 	@Override
 	public ProductVO findById(int p_no) {
 		// TODO Auto-generated method stub
 		return ss.selectOne("findById", p_no);
-	}	
+	}
+
 }

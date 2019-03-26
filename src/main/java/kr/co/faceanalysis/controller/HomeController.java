@@ -118,7 +118,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "productdetail";
+		return "productdetail33";
 	}
 	
 	@RequestMapping("test.do")
