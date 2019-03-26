@@ -74,13 +74,13 @@
 								</ul>-->
 
 					<ul class="actions">
-						<li><a href="./AromaList.do"><img
+						<li><a href="./AromaList.do?${ paginationQuery }"><img
 								src="./images/aroma.png" style="width: 280px; height: 200px;"></a></li>
-						<li><a href="./AprilList.do"><img
+						<li><a href="./AprilList.do?${ paginationQuery }"><img
 								src="./images/april.png" style="width: 280px; height: 200px;"></a></li>
-						<li><a href="./MiliList.do"><img src="./images/mili.png"
+						<li><a href="./MiliList.do?${ paginationQuery }"><img src="./images/mili.png"
 								style="width: 280px; height: 200px;"></a></li>
-						<li><a href="./BbiaList.do"><img src="./images/bbia.png"
+						<li><a href="./BbiaList.do?${ paginationQuery }"><img src="./images/bbia.png"
 								style="width: 280px; height: 200px;"></a></li>
 					</ul>
 			</article>

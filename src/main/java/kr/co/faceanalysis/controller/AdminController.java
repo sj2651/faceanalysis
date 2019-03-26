@@ -28,7 +28,6 @@ public class AdminController {
 		this.dao = dao;
 	}
 
-
 	@RequestMapping(value="ProductAllList.do")
 	public String ProductAllList(Model model, Pagination pagination) {
 		List<ProductVO> products = dao.findAllProduct(pagination);

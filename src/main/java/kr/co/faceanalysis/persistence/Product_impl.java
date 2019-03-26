@@ -39,5 +39,7 @@ public interface Product_impl {
 	List<ProductVO> findBySkincare(Pagination pagination);
 
 	Option[] searchBy = { new Option(0, "검색 없음"), new Option(1, "브랜드명"), new Option(2, "카테고리명"), new Option(3, "제품명") };
+	Option[] searchByBrand = { new Option(0, "검색 없음"), new Option(1, "브랜드명"), new Option(3, "제품명") };
+	Option[] searchByCate = { new Option(0, "검색 없음"), new Option(2, "카테고리명"), new Option(3, "제품명") };
 	Option[] orderBy = { new Option(0, "최근 글"), new Option(1, "오래된 글") };
 }
