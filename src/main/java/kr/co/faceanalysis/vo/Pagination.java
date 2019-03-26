@@ -5,29 +5,18 @@ import java.net.URLEncoder;
 
 public class Pagination {
 	int pg = 1; // 현재 페이지
-	int sz = 8; // 페이지 당 레코드 수
-	int sb;
+	int sz = 9; // 페이지 당 레코드 수
 	int ob;
+	int sb;
 	String st; // search text
 	int recordCount;
 
-	/*
+	
 	public String getQueryString() {
 		String url = null;
 		try {
 			String temp = (st == null) ? "" : URLEncoder.encode(st, "UTF-8");
 			url = String.format("pg=%d&sz=%d&ob=%d&sb=%d&st=%s", pg, sz, ob, sb, temp);
-		} catch (UnsupportedEncodingException e) {
-		}
-		return url;
-	}
-	*/
-
-	public String getQueryString() {
-		String url = null;
-		try {
-			String temp = (st == null) ? "" : URLEncoder.encode(st, "UTF-8");
-			url = String.format("pg=%d&sz=%d", pg, sz);
 		} catch (UnsupportedEncodingException e) {
 		}
 		return url;
@@ -40,7 +29,7 @@ public class Pagination {
 	public int getOb() {
 		return ob;
 	}
-	
+
 	public int getPg() {
 		return pg;
 	}

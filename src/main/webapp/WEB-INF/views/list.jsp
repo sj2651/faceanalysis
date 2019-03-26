@@ -12,6 +12,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="design/css/list.css" />
 <!--<link rel="stylesheet" href="design/css/detail.css" />-->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	setTimeout(function() {
+		$("body").removeClass("is-loading");
+	}, 1000);		
+</script>
 </head>
 <body class="is-loading">
 	<div id="wrapper" class="fade-in">
@@ -40,12 +47,21 @@
 			</ul>
 		</nav>
 		<!-- Main -->
-		
+
 		<div id="main">
 			<!-- Items -->
 			<section class="main items">
 				<form:form method="get" modelAttribute="pagination">
 					<form:hidden path="pg" value="1" />
+					<form:select path="ob" class="" itemValue="value" itemLabel="label"
+						items="${ orderBy }" />
+					<form:select path="sb" class="" itemValue="value" itemLabel="label"
+						items="${ searchBy }" />
+					<form:input path="st" class="" placeholder="검색문자열" />
+					<button type="submit" style="height:46px;vertical-align:middle;">검색</button>
+					<c:if test="${ pagination.sb > 0 || pagination.ob > 0}">
+						<a href="./${url}?pg=1"> 검색취소 </a>
+					</c:if>
 				</form:form>
 				<c:forEach var="product" items="${ products }">
 					<article class="item">
@@ -54,13 +70,13 @@
 								src="${product.p_img}" alt="" width=100%; height=100%; /></a>
 							<h3 style="margin: 10%;">${product.p_name}</h3>
 						</header>
-						<h4 style="margin-right: 23%; font-weight: bold; color: #0000CC;">Brand
+						<h4 style="margin-right: 25%; font-weight: bold; color: #0000CC;">Brand
 							Name</h4>
-						<h4 style="margin-right: 23%;">${product.p_brand}</h4>
-						<h4 style="margin-right: 23%; font-weight: bold; color: #0000CC;">Category</h4>
-						<h4 style="margin-right: 25%;">${product.p_cate}</h4>
+						<h4 style="margin-right: 27%;">${product.p_brand}</h4>
+						<h4 style="margin-right: 25%; font-weight: bold; color: #0000CC;">Category</h4>
+						<h4 style="margin-right: 27%;">${product.p_cate}</h4>
 						<ul class="actions">
-							<li style="margin-right: 25%;"><a href="#" class="button">More</a></li>
+							<li style="margin-right: 27%;"><a href="#" class="button">More</a></li>
 						</ul>
 					</article>
 				</c:forEach>
@@ -101,13 +117,8 @@
 					Images: <a href="https://unsplash.com">Unsplash</a>.
 				</p>
 			</footer>
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 		</div>
 	</div>
-<<<<<<< HEAD
-</div>
-=======
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 	<!-- Scripts -->
 	<script src="design/js/jquery.min.js"></script>
 	<script src="design/js/skel.min.js"></script>

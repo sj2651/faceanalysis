@@ -35,10 +35,13 @@ public class ProductController {
 
 
 	// 화장품 리스트
-	@RequestMapping(value="AromaList.do", method=RequestMethod.GET)
+	@RequestMapping(value="AromaList.do")
 	public String AromaList(Model model, Pagination pagination) {
 		List<ProductVO> products = proDao.findByAroma(pagination);
 		model.addAttribute("products", products);
+		model.addAttribute("orderBy", proDao.orderBy);
+        model.addAttribute("searchBy", proDao.searchByCate);
+        model.addAttribute("url", "AromaList.do");
 		return "list";
 	}
 
@@ -46,6 +49,9 @@ public class ProductController {
 	public String AprilList(Model model, Pagination pagination) {
 		List<ProductVO> products = proDao.findByApril(pagination);
 		model.addAttribute("products", products);
+		model.addAttribute("orderBy", proDao.orderBy);
+        model.addAttribute("searchBy", proDao.searchByCate);
+        model.addAttribute("url", "AprilList.do");
 		return "list";
 	}
 
@@ -53,6 +59,9 @@ public class ProductController {
 	public String BbiaList(Model model, Pagination pagination) {
 		List<ProductVO> products = proDao.findByBbia(pagination);
 		model.addAttribute("products", products);
+		model.addAttribute("orderBy", proDao.orderBy);
+        model.addAttribute("searchBy", proDao.searchByCate);
+        model.addAttribute("url", "BbiaList.do");
 		return "list";
 	}
 
@@ -61,6 +70,9 @@ public class ProductController {
 	public String MiliList(Model model, Pagination pagination) {
 		List<ProductVO> products = proDao.findByMili(pagination);
 		model.addAttribute("products", products);
+		model.addAttribute("orderBy", proDao.orderBy);
+        model.addAttribute("searchBy", proDao.searchByCate);
+        model.addAttribute("url", "MiliList.do");
 		return "list";
 	}
 
@@ -69,6 +81,9 @@ public class ProductController {
 	public String BaseList(Model model, Pagination pagination) {
 		List<ProductVO> products = proDao.findByBase(pagination);
 		model.addAttribute("products", products);
+		model.addAttribute("orderBy", proDao.orderBy);
+        model.addAttribute("searchBy", proDao.searchByBrand);
+        model.addAttribute("url", "baseList.do");
 		return "list";
 	}
 
@@ -76,6 +91,9 @@ public class ProductController {
 	public String makeupList(Model model, Pagination pagination) {
 		List<ProductVO> products = proDao.findByMakeup(pagination);
 		model.addAttribute("products", products);
+		model.addAttribute("orderBy", proDao.orderBy);
+        model.addAttribute("searchBy", proDao.searchByBrand);
+        model.addAttribute("url", "makeList.do");
 		return "list";
 	}
 
@@ -83,6 +101,9 @@ public class ProductController {
 	public String hairbodyList(Model model, Pagination pagination) {
 		List<ProductVO> products = proDao.findByHairbody(pagination);
 		model.addAttribute("products", products);
+		model.addAttribute("orderBy", proDao.orderBy);
+        model.addAttribute("searchBy", proDao.searchByBrand);
+        model.addAttribute("url", "hairList.do");
 		return "list";
 	}
 
@@ -90,6 +111,9 @@ public class ProductController {
 	public String skinList(Model model, Pagination pagination) {
 		List<ProductVO> products = proDao.findBySkincare(pagination);
 		model.addAttribute("products", products);
+		model.addAttribute("orderBy", proDao.orderBy);
+        model.addAttribute("searchBy", proDao.searchByBrand);
+        model.addAttribute("url", "skinList.do");
 		return "list";
 	}
 

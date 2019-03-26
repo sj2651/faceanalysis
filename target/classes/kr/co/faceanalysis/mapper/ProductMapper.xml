@@ -8,13 +8,13 @@
 	<select id="findAllProduct" resultType="pvo">
 		<bind name="start" value="(pg - 1) * sz" />
 		SELECT p_no, p_brand, p_cate, p_name, p_img, p_grade FROM products
-		<if test="sb == 1"> AND p_brand = #{st}) > 0 </if>
-		<if test="sb == 2"> AND INSTR(p_cate, #{st}) > 0</if>
-		<if test="sb == 3"> AND INSTR(p_name, #{st}) > 0</if>
+		<if test="sb == 1"> WHERE INSTR(p_brand, #{st}) > 0 </if>
+		<if test="sb == 2"> WHERE INSTR(p_cate, #{st}) > 0 </if>
+		<if test="sb == 3"> WHERE INSTR(p_name, #{st}) > 0 </if>
 		ORDER BY
 		<choose>
-			<when test="ob == 1">p_no</when>
-			<otherwise>p_no DESC</otherwise>
+			<when test="ob == 0">p_no DESC</when>
+			<when test="ob == 1">p_no ASC</when>
 		</choose>
 		LIMIT ${start}, ${sz}
 	</select>
@@ -22,9 +22,9 @@
 	<select id="count" resultType="int">
 		SELECT COUNT(p_no)
 		FROM products
-		<if test="sb == 1"> AND p_brand = #{st}) > 0 </if>
-		<if test="sb == 2"> AND INSTR(p_cate, #{st}) > 0</if>
-		<if test="sb == 3"> AND INSTR(p_name, #{st}) > 0</if>
+		<if test="sb == 1"> WHERE INSTR(p_brand, #{st}) > 0 </if>
+		<if test="sb == 2"> WHERE INSTR(p_cate, #{st}) > 0 </if>
+		<if test="sb == 3"> WHERE INSTR(p_name, #{st}) > 0 </if>
 	</select>
 
 	<select id="findByAroma" resultType="pvo">
@@ -32,34 +32,58 @@
 		SELECT p_no, p_brand,
 		p_cate, p_name, p_img, p_grade FROM products
 		WHERE p_brand = 'aromatica'
-		ORDER BY p_no ASC
+		<if test="sb == 2"> AND INSTR(p_cate, #{st}) > 0 </if>
+		<if test="sb == 3"> AND INSTR(p_name, #{st}) > 0 </if>
+		ORDER BY
+		<choose>
+			<when test="ob == 0">p_no DESC</when>
+			<when test="ob == 1">p_no ASC</when>
+		</choose>
 		LIMIT ${start}, ${sz}
 	</select>
-	
+
 	<select id="findByApril" resultType="pvo">
 		<bind name="start" value="(pg - 1) * sz" />
 		SELECT p_no, p_brand,
 		p_cate, p_name, p_img, p_grade FROM products
 		WHERE p_brand = 'aprilskin'
-		ORDER BY p_no ASC
+		<if test="sb == 2"> AND INSTR(p_cate, #{st}) > 0 </if>
+		<if test="sb == 3"> AND INSTR(p_name, #{st}) > 0 </if>
+		ORDER BY
+		<choose>
+			<when test="ob == 0">p_no DESC</when>
+			<when test="ob == 1">p_no ASC</when>
+		</choose>
 		LIMIT ${start}, ${sz}
 	</select>
-	
+
 	<select id="findByBbia" resultType="pvo">
 		<bind name="start" value="(pg - 1) * sz" />
 		SELECT p_no, p_brand,
 		p_cate, p_name, p_img, p_grade FROM products
 		WHERE p_brand = 'bbia'
-		ORDER BY p_no ASC
+		<if test="sb == 2"> AND INSTR(p_cate, #{st}) > 0 </if>
+		<if test="sb == 3"> AND INSTR(p_name, #{st}) > 0 </if>
+		ORDER BY
+		<choose>
+			<when test="ob == 0">p_no DESC</when>
+			<when test="ob == 1">p_no ASC</when>
+		</choose>
 		LIMIT ${start}, ${sz}
 	</select>
-	
+
 	<select id="findByMili" resultType="pvo">
 		<bind name="start" value="(pg - 1) * sz" />
 		SELECT p_no, p_brand,
 		p_cate, p_name, p_img, p_grade FROM products
 		WHERE p_brand = 'milimage'
-		ORDER BY p_no ASC
+		<if test="sb == 2"> AND INSTR(p_cate, #{st}) > 0 </if>
+		<if test="sb == 3"> AND INSTR(p_name, #{st}) > 0 </if>
+		ORDER BY
+		<choose>
+			<when test="ob == 0">p_no DESC</when>
+			<when test="ob == 1">p_no ASC</when>
+		</choose>
 		LIMIT ${start}, ${sz}
 	</select>
 
@@ -77,38 +101,58 @@
 		SELECT p_no, p_brand, p_cate,
 		p_name, p_img, p_grade FROM products
 		WHERE p_cate = 'base'
+		<if test="sb == 1"> AND INSTR(p_brand, #{st}) > 0 </if>
+		<if test="sb == 3"> AND INSTR(p_name, #{st}) > 0 </if>
 		ORDER BY
-		p_no ASC
+		<choose>
+			<when test="ob == 0">p_no DESC</when>
+			<when test="ob == 1">p_no ASC</when>
+		</choose>
 		LIMIT ${start}, ${sz}
 	</select>
-	
+
 	<select id="findByMakeup" resultType="pvo">
 		<bind name="start" value="(pg - 1) * sz" />
 		SELECT p_no, p_brand, p_cate,
 		p_name, p_img, p_grade FROM products
 		WHERE p_cate = 'makeup'
+		<if test="sb == 1"> AND INSTR(p_brand, #{st}) > 0 </if>
+		<if test="sb == 3"> AND INSTR(p_name, #{st}) > 0 </if>
 		ORDER BY
-		p_no ASC
+		<choose>
+			<when test="ob == 0">p_no DESC</when>
+			<when test="ob == 1">p_no ASC</when>
+		</choose>
 		LIMIT ${start}, ${sz}
 	</select>
-	
+
 	<select id="findByHairbody" resultType="pvo">
 		<bind name="start" value="(pg - 1) * sz" />
 		SELECT p_no, p_brand, p_cate,
 		p_name, p_img, p_grade FROM products
 		WHERE p_cate = 'hairbody'
+		<if test="sb == 1"> AND INSTR(p_brand, #{st}) > 0 </if>
+		<if test="sb == 3"> AND INSTR(p_name, #{st}) > 0 </if>
 		ORDER BY
-		p_no ASC
+		<choose>
+			<when test="ob == 0">p_no DESC</when>
+			<when test="ob == 1">p_no ASC</when>
+		</choose>
 		LIMIT ${start}, ${sz}
 	</select>
-	
+
 	<select id="findBySkincare" resultType="pvo">
 		<bind name="start" value="(pg - 1) * sz" />
 		SELECT p_no, p_brand, p_cate,
 		p_name, p_img, p_grade FROM products
 		WHERE p_cate = 'skincare'
+		<if test="sb == 1"> AND INSTR(p_brand, #{st}) > 0 </if>
+		<if test="sb == 3"> AND INSTR(p_name, #{st}) > 0 </if>
 		ORDER BY
-		p_no ASC
+		<choose>
+			<when test="ob == 0">p_no DESC</when>
+			<when test="ob == 1">p_no ASC</when>
+		</choose>
 		LIMIT ${start}, ${sz}
 	</select>
 
