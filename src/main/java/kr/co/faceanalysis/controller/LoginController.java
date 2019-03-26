@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import kr.co.faceanalysis.persistence.Member_imple;
 import kr.co.faceanalysis.vo.MemberVO;
+import sun.nio.cs.HistoricallyNamedCharset;
 
 @SessionAttributes("m_id")
 @Controller
@@ -59,15 +61,15 @@ public class LoginController {
 			
 			model.addAttribute("m_id", mvo.getM_id());
 			
-			
-			
-			return "main";
+			return "historyback";
 			
 			
 		}else {
 			return "loginhome";
 		}
 	}
+	
+	
 	
 	
 	/*@RequestMapping(value="/member_check.do")
@@ -124,6 +126,21 @@ public class LoginController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+	}
+	
+	@RequestMapping(value="/logout.do", method=RequestMethod.GET)
+	public void logout(HttpServletResponse resp,SessionStatus sessionStatus, Model model) {
+		
+		
+		sessionStatus.setComplete(); 
+			
+		
+		try {
+			resp.getWriter().print(true);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	

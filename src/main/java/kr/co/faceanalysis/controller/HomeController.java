@@ -165,5 +165,11 @@ public class HomeController {
 	public String signUp() {
 		return "signUp";
 	}
+	
+	@RequestMapping("navitest.do")
+	public String navitest() {
+		
+		return "naviindex";
+	}
 
 }
