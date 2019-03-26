@@ -1,5 +1,6 @@
 package kr.co.faceanalysis.persistence;
 
+import java.io.Console;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -24,18 +25,36 @@ public class MemberDAO implements Member_imple{
 	}
 
 	@Override
-	public int member_check(String m_id, String m_pwd) {
-		System.out.println("dao 시작");
-		System.out.println("m_id : " + m_id);
-		System.out.println("m_pwd : " + m_pwd);
+	public boolean member_check(MemberVO mvo) {
 		
-		MemberVO vo = new MemberVO();
-		vo.setM_id(m_id);
-		vo.setM_pwd(m_pwd);		
+		System.out.println(mvo.getM_id());
+		System.out.println(mvo.getM_pwd());
 		
-		System.out.println(vo.getM_id());
+		if(ss.selectOne("selectMember", mvo) != null) {
+			return true;
+			
+		}else {
+			return false;
+		}
 		
-		return ss.selectOne("selectMember", vo);
+	}
+
+	@Override
+	public void insertMember(MemberVO mvo) {
+		ss.insert("insertMember", mvo);
+		
+	}
+
+	@Override
+	public boolean idDuple(String m_id) {
+		
+		boolean result = false;
+		
+		if(ss.selectOne("idDuple", m_id) != null) {
+			result = true;
+		}
+			
+		return result;
 	}
 
 

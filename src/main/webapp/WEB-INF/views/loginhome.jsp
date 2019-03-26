@@ -51,92 +51,117 @@
   
 
   <title>Title page</title>  
+  
+  <!-- 네이버 로그인 -->
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  	$(function(){
+  		$("#naverIdLogin #naverIdLogin_loginButton img").addClass("btn btn-lg btn-facebook btn-block text-uppercase");	
+  		$("#naverIdLogin #naverIdLogin_loginButton img").css({'width':'100%', 'padding-top':'4px', 'padding-bottom':'4px', 'padding-left':'0', 'padding-right':'0'});
+  	    /* width: 100%;
+  	    padding-top: 4px;
+  	    padding-bottom: 4px;
+  	    padding-left: 0;
+  	    padding-right: 0px; */
+  	    
+  	    
+  	    
+  	    
+  	});
+  </script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script type="text/javascript">
+  	function login(){
+  		var id = document.getElementById("inputID").value;
+  		var pass = document.getElementById("inputPassword").value;
+  		console.log(id);
+  		console.log(pass);
+  		member_check(id, pass);
+  		function member_check(id, pass){
+	  		$.ajax({
+	  			type:'get',
+	  			url: "ajaxMember_check.do",
+	  			data:{"m_id": id, "m_pwd":pass},
+	  			success: function(data){
+	  				
+	  				
+	  				/* console.log("??"); */
+	  				console.log("리턴된 결과값 : "+data);
+	  				if(data == 'true'){
+	  					m_id = id;
+	  			  		m_pwd = pass;
+	  			  		
+	  			  		var form = document.createElement("form");
 
+	  			        form.setAttribute("charset", "UTF-8");
+	  			        form.setAttribute("method", "Post");  //Post 방식
+	  			        form.setAttribute("action", "signin.do"); //요청 보낼 주소
+	  			 
+	  			        hiddenField = document.createElement("input");
+	  			        hiddenField.setAttribute("type", "hidden");
+	  			        hiddenField.setAttribute("name", "m_id");
+	  			        hiddenField.setAttribute("value", m_id);
+	  			        form.appendChild(hiddenField);
+	  			        
+	  			        hiddenField = document.createElement("input");
+	  			        hiddenField.setAttribute("type", "hidden");
+	  			        hiddenField.setAttribute("name", "m_pwd");
+	  			        hiddenField.setAttribute("value", m_pwd);
+	  			        form.appendChild(hiddenField);
+	  			 
+	  			        document.body.appendChild(form);
+	  			        form.submit();   
+	  				}else{
+	  					check_false();
+	  				}
+	  				
+	  				
+	  			},
+	  			fail: function(){
+	  				console.log("ajax 실패.");
+	  			}
+	  		});
+  			
+  		}
+  		
+  		function check_false(){
+  			alert("아이디와 패스워드를 다시 확인하세요.");
+  			document.getElementById("inputID").focus();
+  			document.getElementById("inputPassword").value = "";
+  		}
+  		
+  		
+  		/* m_id = id.value;
+  		m_pwd = pass.value;
+  		
+  		var form = document.createElement("form");
+
+        form.setAttribute("charset", "UTF-8");
+        form.setAttribute("method", "Post");  //Post 방식
+        form.setAttribute("action", "signin.do"); //요청 보낼 주소
+ 
+        hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", "m_id");
+        hiddenField.setAttribute("value", m_id);
+        form.appendChild(hiddenField);
+        
+        hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", "m_pwd");
+        hiddenField.setAttribute("value", m_pwd);
+        form.appendChild(hiddenField);
+ 
+        document.body.appendChild(form);
+        form.submit();    */
+ 		
+  	}
+  </script>
+  
+  
+  <!-- 네이버 로그인 end -->
 </head>
-<!-- 페북로그인 쿼리 -->
 
-<script>
-  // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-
-      testAPI();
-    } else {
-      // The person is not logged into your app or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
-    }
-  }
-
-
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
-
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '2099826656733122',
-      cookie     : true,  // enable cookies to allow the server to access 
-                          // the session
-      xfbml      : true,  // parse social plugins on this page
-      version    : 'v3.2' // The Graph API version to use for the call
-    });
-
-    // Now that we've initialized the JavaScript SDK, we call 
-    // FB.getLoginStatus().  This function gets the state of the
-    // person visiting this page and can return one of three states to
-    // the callback you provide.  They can be:
-    //
-    // 1. Logged into your app ('connected')
-    // 2. Logged into Facebook, but not your app ('not_authorized')
-    // 3. Not logged into Facebook and can't tell if they are logged into
-    //    your app or not.
-    //
-    // These three cases are handled in the callback function.
-
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-
-  };
-
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me',{fields: 'email,name'}, function(response) {   	
-      console.log('Successful login for: ' + response.name);
-      console.log(response);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '! ' + response.email + '! ';
-      
-      //location.href="main.do";
-      
-    });
-  }
-</script>
-<!-- 페북로그인 쿼리 끝 -->
  
 <body>
 
@@ -160,10 +185,11 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
-            <form class="form-signin">
+            <!-- <form class="form-signin"> -->
+            <div class="form-signin">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <label for="inputEmail">Email address</label>
+                <input type="email" id="inputID" class="form-control" placeholder="User ID" required autofocus>
+                <label for="inputEmail">User ID</label>
               </div>
 
               <div class="form-label-group">
@@ -175,8 +201,9 @@
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
-            </form>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" onclick="login()">Sign in</button>
+            <!-- </form> -->
+            </div>
               <hr class="my-4">
             <div class="form-signin" style="text-align: center;">
              
@@ -238,8 +265,13 @@
 							        Kakao.API.request({
 							          url: '/v2/user/me',
 							          success: function(res) {
-							            alert(JSON.stringify(res));
-							            alert(res.properties.nickname);
+							            var nick = res.properties.nickname;
+							            /* location.href="signup.do?nickname="+nickname; */
+							            /* var nickname = URLEncoder.encode(nick,'UTF-8'); */
+							            var nickname = encodeURIComponent(nick);
+							            location.href="signup.do?nickname="+nickname; 
+							        	/* alert(JSON.stringify(res));
+							            alert(res.properties.nickname); */
 							            //alert(res.kakao_account.email);
 							          },
 							          fail: function(error) {
@@ -255,8 +287,23 @@
 					  //]]>
 					</script>
 			  <!-- 카카오 로그인 API END -->
-			  
-              <button class="btn btn-lg btn-facebook btn-block text-uppercase" style="color: white; background-color: #3b5998; border-color: inherit;" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+			  <div id="naverIdLogin"></div>
+			  <!-- 네이버아디디로로그인 초기화 Script -->
+			  <script type="text/javascript">
+					var naverLogin = new naver.LoginWithNaverId(
+						{
+							clientId: "tWNkNBFwqs68ASroV6HO",
+							callbackUrl: "http://localhost:8080/faceanalysis/naver_ok.do",
+							isPopup: false, /* 팝업을 통한 연동처리 여부 */
+							loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+						}
+					);
+					naverLogin.init();
+					
+					
+		      </script>
+			  <!-- // 네이버아이디로로그인 초기화 Script -->
+              <!-- <button class="btn btn-lg btn-facebook btn-block text-uppercase" style="color: white; background-color: #3b5998; border-color: inherit;" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button> -->
             </div>
           </div>
         </div>

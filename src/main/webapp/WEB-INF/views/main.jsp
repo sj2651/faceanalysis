@@ -67,9 +67,9 @@
   <title>Title page</title>  
 
 <link href="./design/css/main.css" rel="stylesheet">
-<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 </head>
 <!-- 네이버 로그인 API -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 <script type="text/javascript">
 	var naverLogin = new naver.LoginWithNaverId(
 		{
@@ -105,7 +105,7 @@
 </script>
 <!-- 네이버 로그인 API 끝 -->
 <body class="">
-
+<h1>${m_id }</h1>
 <!-- Add your content of header -->
 <div class="background-color-layer" style="max-width:100%; height:auto; background-image: url('images/img-01.jpg') "></div>
 <main class="content-wrapper">

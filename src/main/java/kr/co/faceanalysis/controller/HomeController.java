@@ -93,7 +93,7 @@ public class HomeController {
 		return "dropbar";
 	}
 	
-	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String login(Locale locale, Model model) {
 		//logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -105,7 +105,7 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "loginhome";
-	}
+	}*/
 	
 	@RequestMapping(value = "/productdetail.do", method = RequestMethod.GET)
 	public String productdetail(Locale locale, Model model) {
