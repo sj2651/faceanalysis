@@ -11,6 +11,7 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
+
 /* Nav */
 #nav {
 	color: #ffffff;
@@ -160,6 +161,113 @@
 		display: none;
 	}
 }
+
+/* ul.pagination */
+ul.pagination {
+	display: inline-flex;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
+	list-style: none;
+	margin: 0 0 2rem 2px;
+	padding: 0;
+}
+
+ul.pagination li, ul.pagination span {
+	-moz-transition: background-color 0.2s ease-in-out, border-color 0.2s
+		ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+	-webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s
+		ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+	-ms-transition: background-color 0.2s ease-in-out, border-color 0.2s
+		ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+	transition: background-color 0.2s ease-in-out, border-color 0.2s
+		ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+	border: solid 2px;
+	display: inline-block;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 0.8rem;
+	font-weight: 900;
+	height: 3rem;
+	letter-spacing: 0.075em;
+	line-height: calc(3rem - 4px);
+	margin-left: -2px;
+	min-width: 3rem;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+ul.pagination .next, ul.pagination .previous {
+	text-decoration: none;
+	padding: 0 1.75rem;
+}
+
+ul.pagination .next:before, ul.pagination .previous:before {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-transform: none !important;
+}
+
+ul.pagination .next:before, ul.pagination .previous:before {
+	display: inline-block;
+	color: inherit !important;
+}
+
+ul.pagination .previous:before {
+	content: '\f104';
+	margin-right: 0.9375em;
+}
+
+ul.pagination .next:before {
+	content: '\f105';
+	float: right;
+	margin-left: 0.9375em;
+}
+
+@media screen and (max-width: 980px) {
+	ul.pagination li, ul.pagination span {
+		font-size: 0.9rem;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	ul.pagination .page, ul.pagination .extra {
+		display: none;
+	}
+}
+
+ul.pagination li, ul.pagination span {
+	border-color: #eeeeee;
+}
+
+ul.pagination li {
+	color: #212931 !important;
+}
+
+ul.pagination li:hover {
+	color: #18bfef !important;
+	border-color: #18bfef;
+	z-index: 1;
+}
+
+ul.pagination li:hover+a, ul.pagination li:hover+span {
+	border-left-color: #18bfef;
+}
+
+ul.pagination li.active {
+	background-color: #eeeeee;
+	margin-left: 23%;
+}
+
+ul.pagination span {
+	color: #eeeeee;
+}
 /* Reset */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
@@ -183,6 +291,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 
 body {
 	line-height: 1;
+	background-color:#4375DB;
 }
 
 ol, ul {
@@ -204,8 +313,7 @@ table {
 }
 
 body {
-	-webkit-text-size-adjust: none;
-<<<<<<< HEAD
+	/*-webkit-text-size-adjust: none;*/
 	background-image: linear-gradient(180deg, #ff0060 0, #ff6975);
 }
 
@@ -218,8 +326,6 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 	-webkit-transition: none !important;
 	-ms-transition: none !important;
 	transition: none !important;
-=======
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 }
 
 /* Box Model */
@@ -228,7 +334,27 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
+/*
+ Basic 
+@
+-ms-viewport {
+	width: device-width;
+}
 
+body {
+	-ms-overflow-style: scrollbar;
+}
+
+@media screen and (max-width: 480px) {
+	html, body {
+		min-width: 320px;
+	}
+}
+
+body {
+	background: #4375DB;
+}
+*/
 /* Basic */
 @
 -ms-viewport {
@@ -246,10 +372,21 @@ body {
 }
 
 body {
-	background: #f4f4f4;
+	background-image: linear-gradient(180deg, #ff0060 0, #ff6975);
 }
-<<<<<<< HEAD
 
+body.is-loading *, body.is-loading *:before, body.is-loading *:after {
+	-moz-animation: none !important;
+	-webkit-animation: none !important;
+	-ms-animation: none !important;
+	animation: none !important;
+	-moz-transition: none !important;
+	-webkit-transition: none !important;
+	-ms-transition: none !important;
+	transition: none !important;
+}
+
+/*wrapper*/
 #wrapper {
 	-moz-transition: opacity 0.5s ease;
 	-webkit-transition: opacity 0.5s ease;
@@ -314,8 +451,6 @@ body.is-loading #wrapper.fade-in:before {
 		background-size: auto, auto, auto 175%;
 	}
 }
-=======
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 
 body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 	-moz-animation: none !important;
@@ -329,11 +464,11 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 }
 
 /* Type */
+/*
 body {
-	background-color: #f4f4f4;
+	background-color: #4375DB;
 	color: #666666;
-}
-
+}*/
 body, input, select, textarea {
 	font-family: "Source Sans Pro", Helvetica, sans-serif;
 	font-size: 17pt;
@@ -636,11 +771,8 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 
 input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active,
 	button:active, .button:active {
-<<<<<<< HEAD
 	background-color: rgba(239, 100, 128, 0.15);
-=======
 	background-color: rgba(212, 244, 250, 0.15);
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 }
 
 input[type="submit"].icon:before, input[type="reset"].icon:before, input[type="button"].icon:before,
@@ -973,7 +1105,7 @@ ol li {
 }
 
 ul {
-	list-style: disc;
+	/*list-style: disc;*/
 	margin: 0 0 2em 0;
 	padding-left: 1em;
 }
@@ -1020,11 +1152,8 @@ ul.actions {
 
 ul.actions li {
 	display: inline-block;
-<<<<<<< HEAD
 	padding: 0 2em 0 1em;
-=======
 	padding: 0 1em 0 0;
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 	vertical-align: middle;
 }
 
@@ -1133,7 +1262,7 @@ ul.alt li {
 }
 
 table {
-	margin: 0 0 2em 0;
+	margin: 0 0 0 0;
 	width: 100%;
 }
 
@@ -1335,12 +1464,13 @@ table.alt tbody tr td {
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	width: calc(80% - 15em);
-	margin: -2em 0 0 -2em;
+	margin: 5em 0 0 15em;
 }
 
 .items .item {
-	margin: 2em 0 0 2em;
-	width: calc(45% - 15em);
+	margin: 2em 0 0 1em;
+	width: calc(8% + 9em);
+	border: solid 2px #eeeeee;
 }
 
 @media screen and (max-width: 980px) {
@@ -1356,7 +1486,7 @@ table.alt tbody tr td {
 		-webkit-flex-wrap: nowrap;
 		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap;
-		width: calc(80% - 15em);
+		width: calc(50% - 1em);
 		margin: 0;
 		dispaly: flex;
 	}
@@ -1390,31 +1520,16 @@ table.alt tbody tr td {
 
 /* Wrapper */
 #wrapper {
-	width: 64em;
+	width: calc(100% - 4em);
 	margin: 0 auto;
-	max-width: calc(100% - 4em);
-	padding: 4em 0 2em 0;
-<<<<<<< HEAD
-	-moz-transition: opacity 0.5s ease;
-	-webkit-transition: opacity 0.5s ease;
-	-ms-transition: opacity 0.5s ease;
-	transition: opacity 0.5s ease;
-	position: relative;
-	z-index: 1;
-	overflow: hidden;
-	
-=======
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
+	max-width: 72rem;
+	padding: 0;
 }
 
 #wrapper>.main {
 	margin-bottom: 4em;
-<<<<<<< HEAD
 	width: 100%;
-=======
-	width: 90%;
-	margin: 8%;
->>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
+	margin-left: 10%;
 }
 
 @media screen and (max-width: 980px) {
@@ -1438,7 +1553,7 @@ table.alt tbody tr td {
 
 /* Header */
 #header {
-	background-color: #444;
+	background: transparent;
 	color: rgba(255, 255, 255, 0.75);
 	display: -moz-flex;
 	display: -webkit-flex;
@@ -1457,7 +1572,6 @@ table.alt tbody tr td {
 	-ms-flex-direction: column;
 	flex-direction: column;
 	padding: 8em 0 6em 0;
-	background-image: url("../../images/banner.jpg");
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -1507,8 +1621,7 @@ table.alt tbody tr td {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.25);
-	background-image: url("images/overlay.png");
+	
 }
 
 #header h1 {
@@ -1523,7 +1636,7 @@ table.alt tbody tr td {
 #header.alt {
 	height: 20em;
 	min-height: 20em;
-	min-height: 75vh;
+	text-align: center;
 }
 
 #header.alt:before {
@@ -1595,25 +1708,182 @@ body.is-loading #header.alt .inner {
 }
 
 /* Main */
-#main {
+#container {
 	padding: 4em 4em 2em 4em;
-	background-color: #ffffff;
+	background-color: #F6F6F6;
 	border-radius: 4px;
+	max-width: 72rem;
+    width: calc(100% - 4rem);
+    margin: 0 auto;
 }
 
-#main>header:first-child {
+#main {
+	background-color: #ffffff;
+	position: relative;
+	margin: 0 auto;
+	width: calc(100% - 4rem);
+	max-width: 72rem;
+	z-index: 2;
+}
+
+#main>* {
+	padding: 4rem 4rem 2rem 4rem;
+	border-top: solid 2px #eeeeee;
+	width: 100%;
+	margin: 0;
+}
+
+#main>*:first-child {
+	border-top: 0;
+}
+
+#main>footer {
 	text-align: center;
 }
 
+#main>.post {
+	padding: 8rem 8rem 6rem 8rem;
+}
+
+#main>.post header.major>.date {
+	margin-top: -2rem;
+}
+
+#main>.post header.major>h1, #main>.post header.major h2 {
+	font-size: 4rem;
+	line-height: 1.1;
+	margin: 0 0 2rem 0;
+}
+
+#main>.post.featured {
+	text-align: center;
+}
+
+@media screen and (max-width: 1280px) {
+	#main>.post {
+		padding: 6rem 4rem 4rem 4rem;
+	}
+}
+
 @media screen and (max-width: 736px) {
-	#main {
-		padding: 2em 2em 0.1em 2em;
+	#main>.post {
+		padding: 4rem 2rem 2rem 2rem;
+	}
+	#main>.post header.major>.date {
+		margin-top: -1rem;
+		margin-bottom: 2rem;
+	}
+	#main>.post header.major>h1, #main>.post header.major h2 {
+		font-size: 2.5rem;
+		line-height: 1.2;
+		margin: 0 0 1.5rem 0;
+	}
+}
+
+#main>.posts {
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	-moz-flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-moz-align-items: stretch;
+	-webkit-align-items: stretch;
+	-ms-align-items: stretch;
+	align-items: stretch;
+	text-align: center;
+	width: 100%;
+	padding: 0;
+}
+
+#main>.posts>* {
+	-moz-flex-shrink: 1;
+	-webkit-flex-shrink: 1;
+	-ms-flex-shrink: 1;
+	flex-shrink: 1;
+	-moz-flex-grow: 0;
+	-webkit-flex-grow: 0;
+	-ms-flex-grow: 0;
+	flex-grow: 0;
+}
+
+#main>.posts>* {
+	width: 50%;
+}
+
+#main>.posts>* {
+	padding: 4rem;
+	width: 50%;
+}
+
+#main>.posts>article {
+	border-color: #eeeeee; 
+    border-left-width: 2px;
+    border-style: solid;
+    border-top-width: 2px;
+    text-align: center;
+}
+
+#main>.posts>article>:last-child {
+	margin-bottom: 0;
+}
+
+#main>.posts>article:nth-child(2n - 1) {
+	border-left-width: 0;
+}
+
+#main>.posts>article:nth-child(-n + 2) {
+	border-top-width: 0;
+}
+
+@media screen and (max-width: 980px) {
+	#main>.posts>* {
+		width: 50%;
+	}
+	#main>.posts>* {
+		padding: 2.5rem;
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	#main>.posts>* {
+		width: 100%;
+	}
+	#main>.posts>* {
+		padding: 2rem;
+		width: 100%;
+	}
+	#main>.posts>article:nth-child(2n - 1) {
+		border-left-width: 2px;
+	}
+	#main>.posts>article:nth-child(-n + 2) {
+		border-top-width: 2px;
+	}
+	#main>.posts>article:nth-child(n) {
+		border-left-width: 0;
+	}
+	#main>.posts>article:nth-child(-n + 1) {
+		border-top-width: 0;
+	}
+	#main>.posts>article .image {
+		max-width: 25rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	#main>* {
+		padding: 2rem 2rem 0.1rem 2rem;
 	}
 }
 
 @media screen and (max-width: 480px) {
 	#main {
-		padding: 2em 1em 0.1em 1em;
+		width: 100%;
 	}
 }
 
@@ -1664,7 +1934,7 @@ body.is-loading #header.alt .inner {
 /* Footer */
 #footer {
 	text-align: center;
-	margin-top: 4em;
+	
 }
 
 #footer a {

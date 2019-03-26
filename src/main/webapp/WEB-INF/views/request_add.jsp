@@ -64,7 +64,7 @@
 						
 			<!-- 확인 후 method post로 변경 -->
 			<!-- http://localhost:9090/faceanalysis/requestAddOK.do -->
-			<form action="" method="get" name="frm"  >
+			<form action="" method="post" name="frm"  >
 				<table>
 					<tr>
 						<th>제목</th>

@@ -67,7 +67,8 @@
 						
 			<!-- 확인 후 method post로 변경 -->
 			<!-- http://localhost:9090/faceanalysis/requestAddOK.do -->
-			<form action="" method="get" name="frm"  >
+			<form action="" method="post" name="frm"  >
+			<input type="hidden" name="articleNo" value ="${requestBoardVo.a_no}"/>
 				<table>
 					<tr>
 						<th>제목</th>
