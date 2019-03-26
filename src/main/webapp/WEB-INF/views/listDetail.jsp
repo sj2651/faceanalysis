@@ -29,14 +29,28 @@
 			$(document).ready(function(){
 					var name = '<c:out value="${product.p_brand }"/>';
 					console.log(name);
-
+					var starpoint =null;
+					 var starpoint=0.5;
 					if(name=="aromatica"){
 						$('#wrapper #nino-story').css("background-color","#f5f5f5");
 						$('#wrapper #nino-services').css("background-color","#f5f5f5");
+						$('#footer').css("background-color","#f5f5f5");
+						$('#productComment').css("background-color","#f5f5f5");
 					}
-				 });
-				
+					
+					$('#star span').click(function(){
+						 starpoint=$(this).text();
+						console.log(starpoint);
+					  $(this).parent().children('span').removeClass('on');
+					  $(this).addClass('on').prevAll('span').addClass('on'); 
+					 return false;
+					});	
+					
+					
+					
+			
 			</script>
+			
 </head>
 <body>
 
@@ -289,7 +303,32 @@
 				    		</div>
 				    	</div>
 				    </section><!--/#nino-counting-->
-			
+			 <!-- ==================================댓글 별점주기================== -->
+			  <section id="productComment" style="padding-top:10px ;margin-top: 10px; ">
+			  <div style="background: transparent; border-bottom: solid 2px; width: 140px; font-size: 26px; text-align: center; margin-left: 50px;">사용평</div>
+			  </section>
+			  
+			 <section id="nino-services">
+			    	<div class="container" style="margin-left:50px;">
+						<div class="starRev" id="star">
+						  <span class="starR1 on">0.5</span>
+						  <span class="starR2">1</span>
+						  <span class="starR1">1.5</span>
+						  <span class="starR2">2</span>
+						  <span class="starR1">2.5</span>
+						  <span class="starR2">3</span>
+						  <span class="starR1">3.5</span>
+						  <span class="starR2">4</span>
+						  <span class="starR1">4.5</span>
+						  <span class="starR2">5</span>
+						  
+						</div>
+						<textarea name="demo-message" id="demo-message"  placeholder="Product Use Report" rows="6" style="overflow:hidden;margin-left:20px; width: 572px; height: 40px; float: left;"></textarea>
+			    	<input id="send" type="submit" value="Send" class="special" style=" width:150px;   height: 40px; float: left;margin-left:10px; padding: 0 0 0 4px">
+			    	</div>
+			    	
+			    </section><!--/#nino-services-->
+						
 			<!-- Footer -->
 			<footer id="footer">
 				<ul class="icons">

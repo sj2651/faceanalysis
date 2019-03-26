@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -116,8 +118,18 @@ public class ProductController {
         model.addAttribute("url", "skinList.do");
 		return "list";
 	}
-
-
+	@RequestMapping(value="productComment.do")
+	public String productComment(Model model, Pagination pagination) {
+		List<ProductVO> products = proDao.findBySkincare(pagination);
+		model.addAttribute("products", products);
+		model.addAttribute("orderBy", proDao.orderBy);
+        model.addAttribute("searchBy", proDao.searchByBrand);
+        model.addAttribute("url", "skinList.do");
+		return "productCommentOk";
+	}
+	
+	
+	
 	// 화장품 상세정보
 	@RequestMapping(value="detail.do", method=RequestMethod.GET)
 	public String AromaDetail(Model model, @RequestParam("p_no") int p_no) {
