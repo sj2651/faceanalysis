@@ -76,7 +76,7 @@
 						<h4 style="margin-right: 25%; font-weight: bold; color: #0000CC;">Category</h4>
 						<h4 style="margin-right: 27%;">${product.p_cate}</h4>
 						<ul class="actions">
-							<li style="margin-right: 27%;"><a href="#" class="button">More</a></li>
+							<li style="margin-right: 27%;"><a href="detail.do?p_no=${product.p_no}" class="button">More</a></li>
 						</ul>
 					</article>
 				</c:forEach>
