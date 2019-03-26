@@ -21,4 +21,7 @@ public class CommentDAO {
 	public void insertOne(CommentVO vo){
 		ss.insert("insertOneComment", vo);
 	}
+	public void insertOneRecomment(CommentVO vo){
+		ss.insert("insertOneRecomment", vo);
+	}
 }
