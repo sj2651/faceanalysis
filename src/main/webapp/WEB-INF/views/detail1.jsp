@@ -40,7 +40,7 @@
 			<ul class="links">
 				<li class="active"><a href="detail1.do">Brand</a></li>
 				<li><a href="detail2.do">Category</a></li>
-				<li><a href="detail3.do">Q/A</a></li>
+				<li><a href="requestBoard.do">Q/A</a></li>
 			</ul>
 			<ul class="icons">
 				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -62,7 +62,7 @@
 			<article class="post featured">
 				<header class="major">
 					<span class="date">Brand name</span>
-
+				</header>
 					<!--<h2><a href="#">And this is a<br />
 									massive headline</a></h2>
 									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
