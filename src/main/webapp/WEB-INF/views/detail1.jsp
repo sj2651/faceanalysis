@@ -56,6 +56,7 @@
 		<div id="main">
 			<div>
 				<a href="admin/ProductCreate.do">화장품 추가 등록 </a>
+				<a href="admin/ProductAllList.do" style="margin-left:10%">관리자용 화장품정보 </a>
 			</div>
 			<!-- Featured Post -->
 			<article class="post featured">
