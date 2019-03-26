@@ -100,7 +100,12 @@ public class HomeController {
 		return "dropbar";
 	}
 
+	
+	/*@RequestMapping(value = "/login.do", method = RequestMethod.GET)
+=======
+
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
+>>>>>>> branch 'master' of https://github.com/sj2651/faceanalysis.git
 	public String login(Locale locale, Model model) {
 		// logger.info("Welcome home! The client locale is {}.", locale);
 
@@ -112,7 +117,9 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate);
 
 		return "loginhome";
-	}
+
+	}*/
+	
 
 	@RequestMapping(value = "/productdetail.do", method = RequestMethod.GET)
 	public String productdetail(Locale locale, Model model) {
@@ -157,6 +164,12 @@ public class HomeController {
 	@RequestMapping("signup.do")
 	public String signUp() {
 		return "signUp";
+	}
+	
+	@RequestMapping("navitest.do")
+	public String navitest() {
+		
+		return "naviindex";
 	}
 
 }

@@ -63,9 +63,390 @@
   
 
   <title>Title page</title>  
-
+  <!-- 클릭 스크립트 -->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script type="text/javascript">
+  	$(function(){
+  		$("#inputID").keyup(function(){
+  			var id = $("#inputID").val();
+  			console.log(id);
+  			idDuplication(id);
+  		});
+  		
+		$("#inputPassword").keyup(function(){
+  	   		
+  	   		var pass = $("#inputPassword").val();
+  	   		var confirm = $("#passwordConfirm").val();
+  	   		//console.log($("#passwordConfirm").val().length);
+  	   		/* console.log(pass);
+  	   		console.log(confirm); */
+  	   		var div = $("#checkPass");
+  	   		if($("#inputPassword").val().length > 0){
+	  	   		if(pass == confirm){
+	  	   			div.html("TRUE");
+	  	   			div.css("color","blue");
+	  	   			
+	  	   		}else{
+	  	   			
+	  	   			div.html("FALSE");
+	  	   			div.css("color","red");
+	  	   			
+	  	   			
+	  	   		}	
+  	   		}
+  	   		
+  	   		
+  	   	});	
+  		
+  		$("#passwordConfirm").keyup(function(){
+  	   		
+  	   		var pass = $("#inputPassword").val();
+  	   		var confirm = $("#passwordConfirm").val();
+  	   		/* console.log(pass);
+  	   		console.log(confirm); */
+  	   		var div = $("#checkPass");
+  	   		if($("#passwordConfirm").val().length > 0){
+	  	   		if(pass == confirm){
+	  	   			div.html("TRUE");
+	  	   			div.css("color","blue");
+	  	   			
+	  	   		}else{
+	  	   			
+	  	   			div.html("FALSE");
+	  	   			div.css("color","red");
+	  	   			
+	  	   			
+	  	   		}
+  	   		}
+  	   	});
+  		
+  		function idDuplication(id){
+	  		$.ajax({
+	  			type:'get',
+	  			url: "idDuple.do",
+	  			data:{"m_id": id},
+	  			success: function(data){
+	  				/* console.log("??"); */
+	  				console.log("리턴된 결과값 : "+data);
+	  				if($("#inputID").val().length > 3){
+		  				if(data == 'true'){
+		  					$("#checkID").html("already using ID");
+		  					$("#checkID").css("color","red").css("left","65%");
+		  				}else if($("#inputID").val().length == 0){
+		  					$("#checkID").html("");
+		  				}else{
+		  					$("#checkID").html("possible ID");
+		  					$("#checkID").css("color","blue").css("left","75%");		  					
+		  				}
+	  				}
+	  			},
+	  			fail: function(){
+	  				console.log("ajax 실패.");
+	  			}
+	  		});
+  			
+  		}
+  		
+  		
+  		
+  	});
+   	
+   
+   
+   </script>
   
+   <script type="text/javascript">
+   function signupFunction(){
+	   
+	   var re = /^[a-zA-Z0-9]{4,12}$/ // 아이디와 패스워드가 적합한지 검사할 정규식
+	   var re2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	   // 이메일이 적합한지 검사할 정규식
+	   
+	   var inputName = document.getElementById('inputName');
+	   var m_name = inputName.value;
+	   var inputID = document.getElementById('inputID');
+	   var m_id = inputID.value;
+	   var inputPassword = document.getElementById('inputPassword');
+	   var m_pwd = inputPassword.value;
+	   var passwordConfirm = document.getElementById('passwordConfirm');
+	   var pwd_confirm = passwordConfirm.value;
+	   var inputEmail = document.getElementById('inputEmail');
+	   var m_email = inputEmail.value;
+	   var PHONE_first = document.getElementById('PHONE_first');
+	   var first = PHONE_first.value;
+	   var PHONE_second = document.getElementById('PHONE_second');
+	   var second = PHONE_second.value;
+	   var PHONE_third = document.getElementById('PHONE_third');
+	   var third = PHONE_third.value;
+	   var sample6_address = document.getElementById('sample6_address');
+	   var address = sample6_address.value; 
+	   var sample6_detailAddress = document.getElementById('sample6_detailAddress');
+	   var detailAddress = sample6_detailAddress.value;
+	   var typevalue = document.getElementById('typevalue');
+	   var typeval = typevalue.value;
+	   var gender = document.getElementById('gender');
+	   var gen = gender.value;
+	   
+	   
+	   
+	   function idDuplication(id){
+		   console.log('ajax 실행');
+	  		$.ajax({
+	  			type:'get',
+	  			url: "idDuple.do",
+	  			data:{"m_id": id},
+	  			success: function(data){
+	  				console.log("ajax data : " + data);
+		  				if(data == 'true'){
+		  					idTFcheck();
+		  				}else{
+		  					if(!m_name){
+		  					   alert("이름을 입력하세요");
+		  					   inputName.focus();
+		  					   return false;
+		  				   }
+		  				   
+		  				   if(!check(re,inputID,"아이디는 4~12자의 영문 대소문자와 숫자로만 입력")) {
+		  					   
+		  			           return false;
+		  			       }
+		  				 if(!m_pwd){
+		  				   alert('비밀번호를 입력하세요');
+		  				   inputPassword.focus();
+		  				   return false;
+		  			   }
+		  			   
+		  			   if(!check(re,inputPassword,"패스워드는 4~12자의 영문 대소문자와 숫자로만 입력")) {
+		  		           return false;
+		  		       }
 
+		  		       if(m_pwd != pwd_confirm) {
+		  		           alert("비밀번호가 다릅니다. 다시 확인해 주세요.");
+		  		           /* inputPassword = "";
+		  		           passwordConfirm = ""; */
+		  		           m_pwd = "";
+		  		           pwd_confirm = "";
+		  		           inputPassword.focus();
+		  		           return false;
+		  		       }
+
+		  		       if(m_email=="") {
+		  		           alert("이메일을 입력해 주세요");
+		  		           inputEmail.focus();
+		  		           return false;
+		  		       }
+
+		  		       if(!check(re2, inputEmail, "적합하지 않은 이메일 형식입니다.")) {
+		  		           return false;
+		  		       }
+
+		  		       if(!first || !second || !third){
+		  		    	   alert("전화번호를 입력하세요");
+		  		    	   PHONE_first.focus();
+		  		    	   return false;
+		  		       }
+		  		       
+		  		       if(!address){
+		  		    	   alert("주소를 등록해주세요.");
+		  		    	   return false;
+		  		       }
+		  		       
+		  		       if(!detailAddress){
+		  		    	   alert("상세 주소를 입력해주세요.");
+		  		    	   sample6_detailAddress.focus();
+		  		    	   return false;
+		  		       }
+		  		       
+		  		       if(!typeval){
+		  		    	   alert("피부 타입을 선택해주세요.");
+		  		    	   return false;
+		  		       }
+		  		       
+		  		       if(!gen){
+		  		    	   alert("성별을 선택해주세요.")
+		  		    	   return false;
+		  		       }
+		  					
+		  					sucessSignup();
+		  				}
+	  			},
+	  			fail: function(){
+	  				console.log("ajax 실패.");
+	  			}
+	  		});
+ 			
+ 		}
+	 	   
+	   idDuplication(m_id);
+	   	   
+	   function idTFcheck(){
+		   alert("이미 존재하는 아이디 입니다.")
+		   
+		   inputID.focus();
+		   return false;
+	   }
+	 	
+	   function sucessSignup(){
+		   var form = document.createElement("form");
+
+	       form.setAttribute("charset", "UTF-8");
+	       form.setAttribute("method", "Post");  //Post 방식
+	       form.setAttribute("action", "signupOk.do"); //요청 보낼 주소
+
+	       var hiddenField = document.createElement("input");
+	       hiddenField.setAttribute("type", "hidden");
+	       hiddenField.setAttribute("name", "m_name");
+	       hiddenField.setAttribute("value", m_name);
+	       form.appendChild(hiddenField);
+
+	       hiddenField = document.createElement("input");
+	       hiddenField.setAttribute("type", "hidden");
+	       hiddenField.setAttribute("name", "m_id");
+	       hiddenField.setAttribute("value", m_id);
+	       form.appendChild(hiddenField);
+	       
+	       hiddenField = document.createElement("input");
+	       hiddenField.setAttribute("type", "hidden");
+	       hiddenField.setAttribute("name", "m_pwd");
+	       hiddenField.setAttribute("value", m_pwd);
+	       form.appendChild(hiddenField);
+	       
+		   hiddenField = document.createElement("input");
+	       hiddenField.setAttribute("type", "hidden");
+	       hiddenField.setAttribute("name", "m_email");
+	       hiddenField.setAttribute("value", m_email);
+	       form.appendChild(hiddenField);
+	       
+	       hiddenField = document.createElement("input");
+	       hiddenField.setAttribute("type", "hidden");
+	       hiddenField.setAttribute("name", "m_tel");
+	       hiddenField.setAttribute("value", first+second+third);
+	       form.appendChild(hiddenField);
+	       
+	       hiddenField = document.createElement("input");
+	       hiddenField.setAttribute("type", "hidden");
+	       hiddenField.setAttribute("name", "m_addr1");
+	       hiddenField.setAttribute("value", address);
+	       form.appendChild(hiddenField);
+	       
+	       hiddenField = document.createElement("input");
+	       hiddenField.setAttribute("type", "hidden");
+	       hiddenField.setAttribute("name", "m_addr2");
+	       hiddenField.setAttribute("value", detailAddress);
+	       form.appendChild(hiddenField);
+	       
+	       hiddenField = document.createElement("input");
+	       hiddenField.setAttribute("type", "hidden");
+	       hiddenField.setAttribute("name", "m_type");
+	       hiddenField.setAttribute("value", typeval);
+	       form.appendChild(hiddenField);
+	       
+	       hiddenField = document.createElement("input");
+	       hiddenField.setAttribute("type", "hidden");
+	       hiddenField.setAttribute("name", "m_gender");
+	       hiddenField.setAttribute("value", gen);
+	       form.appendChild(hiddenField);
+
+
+
+	       document.body.appendChild(form);
+	       form.submit();   
+	   }
+	  
+	   
+   } 	
+   
+   function check(re, what, message) {
+       if(re.test(what.value)) {
+           return true;
+       }
+       alert(message);
+       what.value = "";
+       what.focus();
+       //return false;
+   }
+   
+  </script>
+  <!-- 클릭 스크립트 end -->
+  <!-- 다음 카카오 로그인 정보 받기 -->
+  <script type="text/javascript">
+  
+  	$(function(){
+ 	  		
+  		  	//var nickname = encodeURIComponent(nick);
+  		  	/* var nickname = window.location.search.split('?')[1].split['='] */
+  		  	
+  		  	console.log(window.location.search);
+  		  	if(window.location.search != ""){
+	  		  	var nickname = decodeURIComponent(window.location.search.split('?')[1].split('=')[1]);
+	  		  	$("#inputName").val(nickname);
+	  		  	$("#inputID").focus();	
+  		  	}
+  			
+  	  		
+  	  		//var nickname = encodeURIComponent(nick);
+  	  		/* var nickname = window.location.search.split('?')[1].split['='] */
+/*   	  		$("#inputName").val(nickname);
+  	  		$("#inputID").focus(); */	
+  		
+  		
+  		//console.log(nickname);
+  	});
+  	
+  </script>
+  <!-- 다음 카카오 로그인 end -->
+  
+  <!-- 네이버 로그인 정보 받기 -->
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		var naverLogin = new naver.LoginWithNaverId(
+			{
+				clientId: "tWNkNBFwqs68ASroV6HO",
+				callbackUrl: "http://localhost:8080/faceanalysis/main.do",
+				isPopup: false,
+				callbackHandle: false
+			}
+		);
+	
+		naverLogin.init();
+		
+		naverLogin.getLoginStatus(function (status) {
+			if (status) {
+				var name = naverLogin.user.getName();
+				var email = naverLogin.user.getEmail();
+				var profileImage = naverLogin.user.getProfileImage();
+				var birthday = naverLogin.user.getBirthday();			var uniqId = naverLogin.user.getId();
+				var age = naverLogin.user.getAge();
+				
+				inputName = document.getElementById("inputName");
+				inputName.value = name;
+				
+				inputEmail = document.getElementById("inputEmail");
+				inputEmail.value = email;
+				
+				getID = inputEmail.value.split('@')[0];
+				console.log(getID);
+				
+				inputID = document.getElementById("inputID");
+				inputID.value = getID;
+				
+				
+				/* console.log("email : " + email);
+				console.log("name : " + name);
+				console.log("profileImage : " + profileImage);
+				console.log("birthday : " + birthday);
+				console.log("uniqId : " + uniqId);
+				console.log("age : " + age) */
+				
+				document.getElementById("inputPassword").focus();
+			} else {
+				console.log("AccessToken이 올바르지 않습니다.");
+			}
+		});
+	
+	
+	</script>
+  <!-- 네이버 로그인 end -->
 </head>
 
  
@@ -92,7 +473,8 @@
           <div class="card-body">
             <hr class="my-4">
             <h5 class="card-title text-center">Sign Up</h5>
-            <form class="form-signin">
+            <!-- <form class="form-signin"> -->
+            <div class="form-signin">
               <div class="form-label-group">
                 <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
                 <label for="inputName">Name</label>
@@ -100,6 +482,7 @@
               <div class="form-label-group">
                 <input type="text" id="inputID" class="form-control" placeholder="User ID" required autofocus>
                 <label for="inputID">ID</label>
+                <div id="checkID" style="position: absolute; top: 27%; font-weight: bold;"></div>
               </div>
               
               <div class="form-label-group">
@@ -110,6 +493,13 @@
               <div class="form-label-group">
                 <input type="password" id="passwordConfirm" class="form-control" placeholder="Password Confirm" required autofocus>
                 <label for="passwordConfirm">Password confirm</label>
+                <div id="checkPass" style="position: absolute; left: 80%; top: 27%; font-weight: bold;"></div>
+              </div>
+              
+              
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" placeholder="ex@example.com" required>
+                <label for="inputEmail">Email</label>
               </div>
               
               <!-- <hr class="my-4" style="clear: both;">
@@ -117,15 +507,15 @@
               <div class="form-label-group" style="height:28px;">
               	<label style="padding-left: 6px;">Phone Number</label>
               </div> -->
-              <div class="form-label-group" style="width: 31%; float: left;">
-                <input type="text" id="PHONE_first" class="form-control" placeholder="010" required autofocus>
+              <div class="form-label-group" style="width: 31%; float: left;"> 
+                <input type="text" id="PHONE_first" class="form-control" placeholder="010" maxlength="3" required autofocus>
                 <label for="PHONE_first">Phone</label>
               </div>
 			  
 			  <div style="float: left; padding-top: 11px; padding-left: 1px; padding-right: 1px"">-</div>              
               
               <div class="form-label-group" style="width: 31%; float: left;">
-                <input type="text" id="PHONE_second" class="form-control" placeholder="1111" required autofocus>
+                <input type="text" id="PHONE_second" class="form-control" placeholder="1111" maxlength="4" required autofocus>
                 <label for="PHONE_second"></label>
                 
               </div>
@@ -133,7 +523,7 @@
               <div style="float: left; padding-top: 11px; padding-left: 1px; padding-right: 1px">-</div>
               
               <div class="form-label-group" style="width: 31%; float: left;"> 
-                <input type="text" id="PHONE_third" class="form-control" placeholder="2222" required autofocus>
+                <input type="text" id="PHONE_third" class="form-control" placeholder="2222" maxlength="4" required autofocus>
                 <label for="PHONE_third"></label>
               </div>
               
@@ -144,12 +534,12 @@
 	              <input type="text" class="form-control addrmain" id="sample6_postcode" style="height: 42px;" placeholder="우편번호">
 	              <label for="sample6_postcode" style="padding-top: 7px;">Address</label>
 	              
-	          </div>
+	          </div> 
 	          <div style="padding: var(--input-padding-y) var(--input-padding-x); margin-left: 140px; padding-top: 8px;">
 	          	  <input type="button" onclick="sample6_execDaumPostcode()" style="font-size: 14px; width: inherit;" value="우편번호 찾기"><br>
 	          </div>
 			  <div class="form-label-group addr" style="height: 35px; padding: 0; margin-top: 17px">
-				  <input type="text" class="form-control addr" id="sample6_address" style="height: 35px;" placeholder="주소"><br>
+				  <input type="text" class="form-control addr" id="sample6_address" style="height: 35px;" required placeholder="주소"><br>
 			  </div>
 			  <div class="form-label-group">
 				  <input type="text" class="form-control" id="sample6_detailAddress" placeholder="상세주소">
@@ -207,23 +597,16 @@
 			            }
 			        }).open();
 			    }
+			    
+			    
+			    
+			    
 		      </script>
   			  <!-- 주소 js  끝-->
-		  
-			  <!-- 
-						<div class="fleft" style="float: right; width: 33%;">
-							<select id="cd-dropdown" class="cd-select">
-								<option value="-1" selected>피부 타입</option>
-								<option value="1" class="icon-Desert">건성</option>
-								<option value="2" class="icon-facebook">중성</option>
-								<option value="3" class="icon-twitter">지성</option>
-								<option value="4" class="icon-github">복합성</option>
-							</select>
-						</div> -->
 				
-			  <!-- 드롭바 -->
-			  <div class="wrapper-demo" style="margin: 26px 0 0 0;">
-					<div id="dd" class="wrapper-dropdown-1" tabindex="1">
+			  <!-- 피부 타입 드롭바 -->
+			  <div class="wrapper-demo" style="margin: 26px 0 0 0;     margin-bottom: 1rem;">
+					<div id="dd" class="wrapper-dropdown-1" tabindex="1" style="background: #abc; width: 40%; margin-left:5%; float: left">
 						<span>Skin Type</span>
 					    <ul class="dropdown" tabindex="1">
 					        <li value=1><a href="#">건성</a></li>
@@ -231,16 +614,23 @@
 					        <li value=3><a href="#">지성</a></li>
 					        <li value=4><a href="#">복합성</a></li>
 					    </ul>
-					        <input type="text" name="typevalue" id="typevalue" value="" />
+					        <input type="hidden" name="typevalue" id="typevalue" value="" />
+					</div>
+					<div id="gendd" class="wrapper-dropdown-1" tabindex="2" style="background: #abc; width: 40%; margin-left:10%; float: left;">
+						<span>성별</span>
+					    <ul class="dropdown" tabindex="2">
+					        <li value=1><a href="#">남자</a></li>
+					        <li value=2><a href="#">여자</a></li>
+					        
+					    </ul>
+					        <input type="hidden" name="gender" id="gender" value="" />
 					</div>
 				​</div>
-			  
-			  
-		        
-			  <!-- 드롭바 end -->
+			    
+			  <!-- 피부 타입 드롭바 end -->
 			  
 			  <!-- 성별 드롭바 -->
-			  <div class="wrapper-demo" style="margin: 26px 0 0 0;">
+			 <!--  <div class="wrapper-demo" style="margin: 26px 0 0 0;">
 					<div id="gendd" class="wrapper-dropdown-1" tabindex="2">
 						<span>성별</span>
 					    <ul class="dropdown" tabindex="2">
@@ -248,12 +638,13 @@
 					        <li value=2><a href="#">여자</a></li>
 					        
 					    </ul>
-					        <input type="text" name="gender" id="gender" value="" />
+					        <input type="hidden" name="gender" id="gender" value="" />
 					</div>
-				​</div>
-			  
+			  ​</div> -->
+			  <!-- 성별 드롭바 end -->
+			  <!-- 드롭바 스크립트 -->
 			  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-				<script type="text/javascript">
+			  <script type="text/javascript">
 					
 					function DropDown(el) {
 						this.dd = el;
@@ -277,11 +668,15 @@
 								obj.val = opt.text();
 								obj.value = opt.val();
 								obj.index = opt.index();
-								obj.placeholder.text('타입: ' + obj.val+","+obj.value);
-								if($(this) == $('#dd')){
+								console.log(obj.dd.selector);
+								/* obj.placeholder.text('타입: ' + obj.val); */
+								/* obj.placeholder.text('타입: ' + obj.val+","+obj.value); */
+								if(obj.dd.selector == '#dd'){
 									$('#typevalue').val(obj.value);	
+									obj.placeholder.text('타입: ' + obj.val);
 								}else{
 									$('#gender').val(obj.value);
+									obj.placeholder.text('성별: ' + obj.val);
 								}
 								 
 							});
@@ -297,7 +692,7 @@
 					$(function() {
 		
 						var dd = new DropDown( $('#dd') );
-						var dd = new DropDown( $('#gendd') );
+						var gendd = new DropDown( $('#gendd') );
 		
 						$(document).click(function() {
 							// all dropdowns
@@ -307,14 +702,17 @@
 					});
 					
 				</script>
-			  <!-- 성별 드롭바 end -->
+			  <!-- 드롭바 스크립트 end -->
 
               <!-- <div class="custom-control custom-checkbox mb-3">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div> -->
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign up</button>
-            </form>
+              <!-- <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign up</button> -->
+              <div id="confirmSign"></div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" id="signclick" onclick="signupFunction()">Sign up</button>
+            <!-- </form> -->
+            </div>
               <hr class="my-4">
             <div class="form-signin" style="text-align: center;">
              

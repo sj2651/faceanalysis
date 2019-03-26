@@ -70,8 +70,11 @@
 				</c:forEach>
 				
 			</table>
-
 			<div>
+			<!-- 세션에 아이디가 없을시 메인으로 이동 -->
+			<c:if test="${m_id == null }">
+				<c:redirect url="/main.do"></c:redirect>
+			</c:if>
 				<a href="<c:url value="/request_add.do"/>">
 					<div id = "make">
 						글 작성

@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="design/css/detail.css" />
 
 </head>
+<h1>${m_id }</h1>
 <body class="is-loading">
 
 	<!-- Wrapper -->

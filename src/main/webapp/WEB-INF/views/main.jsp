@@ -67,9 +67,9 @@
   <title>Title page</title>  
 
 <link href="./design/css/main.css" rel="stylesheet">
-<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 </head>
 <!-- 네이버 로그인 API -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 <script type="text/javascript">
 	var naverLogin = new naver.LoginWithNaverId(
 		{
@@ -104,29 +104,17 @@
 
 </script>
 <!-- 네이버 로그인 API 끝 -->
+<jsp:include page="./naviindex.jsp"></jsp:include>
 <body class="">
-
 <!-- Add your content of header -->
 <div class="background-color-layer" style="max-width:100%; height:auto; background-image: url('images/img-01.jpg') "></div>
 <main class="content-wrapper">
   <header class="white-text-container section-container">
-	  <header class="clearfix">
-	  		<section class="main clearfix">
-				<div class="fleft" style="float: right; width: 33%;">
-					<select id="cd-dropdown" class="cd-select">
-						<option value="-1" selected>a</option>
-						<option value="1" class="icon-Desert">bb</option>
-						<option value="2" class="icon-facebook">cc</option>
-						<option value="3" class="icon-twitter">dd</option>
-						<option value="4" class="icon-github">ee</option>
-					</select>
-				</div>
-			</section>
-	  </header>
+	  
     <div class="text-center">
       <img src="./images/mainlogo2.png" style="max-width:100%; height:auto;">
       
-      <p>
+      <!-- <p>
         <a class="fa-icon fa-icon-2x" href="https://facebook.com/" title="">
           <i class="fa fa-facebook"></i>
         </a>
@@ -142,7 +130,7 @@
         <a class="fa-icon fa-icon-2x" href="https://vimeo.com/" title="">
           <i class="fa fa-vimeo"></i>
         </a>
-      </p>
+      </p> -->
     </div>
   </header>
 
@@ -165,20 +153,9 @@
               <line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
               <line class="right" x1="300" y1="0" x2="300" y2="1380"/>
             </svg>
-            <h3>J</h3>
-            <span>2012</span>
-            <span>Walnut, Pineapple</span>
-          </div>
-          <div class="box">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-              <line class="top" x1="0" y1="0" x2="900" y2="0"/>
-              <line class="left" x1="0" y1="460" x2="0" y2="-920"/>
-              <line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
-              <line class="right" x1="300" y1="0" x2="300" y2="1380"/>
-            </svg>
-            <h3>I</h3>
-            <span>2013</span>
-            <span>Curry, Beancurd</span>
+            <h3>B</h3>
+            <span style="position: absolute; left: 34%; bottom: 19%; font-family: FANTASY; font-size: xx-large;">BRAND</span>
+            <!-- <span>APRILSKIN, AROMATICA, MILIMAGE, BBIA</span> -->
           </div>
           <div class="box">
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
@@ -188,8 +165,19 @@
               <line class="right" x1="300" y1="0" x2="300" y2="1380"/>
             </svg>
             <h3>C</h3>
-            <span>2014</span>
-            <span>Lettuce, Asparagus</span>
+            <span style="position: absolute; left: 26%; bottom: 19%; font-family: FANTASY; font-size: xx-large;">CATEGORY</span>
+            <!-- <span>BASE, MAKEUP, HAIR&BODY, SKIN CARE</span> --> 
+          </div>
+          <div class="box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+              <line class="top" x1="0" y1="0" x2="900" y2="0"/>
+              <line class="left" x1="0" y1="460" x2="0" y2="-920"/>
+              <line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
+              <line class="right" x1="300" y1="0" x2="300" y2="1380"/>
+            </svg>
+            <h3>Q</h3>
+            <span style="position: absolute; left: 41%; bottom: 19%; font-family: FANTASY; font-size: xx-large;">Q/A</span>
+            <!-- <span>Lettuce, Asparagus</span> -->
           </div>
         </div><!-- /grid -->
       </section>
@@ -203,7 +191,7 @@
         <p><img src="./images/mashup-icon.svg" alt=""></p>
         
         <p>©All right reserved. Design <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template</a>/<a href="https://unsplash.com/" title="Beautiful Free Images">Unsplash</a></p>
-        <p>
+        <!-- <p>
           <a class="fa-icon fa-icon-2x" href="https://facebook.com/" title="">
             <i class="fa fa-facebook"></i>
           </a>
@@ -219,7 +207,7 @@
           <a class="fa-icon fa-icon-2x" href="https://vimeo.com/" title="">
             <i class="fa fa-vimeo"></i>
           </a>
-        </p>
+        </p> -->
       </div>
     </div>
   </div>

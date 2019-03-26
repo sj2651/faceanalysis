@@ -14,7 +14,6 @@ import kr.co.faceanalysis.persistence.Member_imple;
 import kr.co.faceanalysis.vo.MemberVO;
 
 @Controller
-
 public class MemberController {
 	
 	@Autowired

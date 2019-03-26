@@ -38,7 +38,7 @@
 					return;
 				}
 	
-				window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/faceanalysis/main.do");
+				window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/faceanalysis/signup.do");
 			} else {
 				console.log("callback 처리에 실패하였습니다.");
 			}

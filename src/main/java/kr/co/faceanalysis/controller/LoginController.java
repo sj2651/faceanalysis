@@ -1,29 +1,28 @@
 package kr.co.faceanalysis.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.social.MissingAuthorizationException;
-import org.springframework.social.connect.Connection;
-import org.springframework.social.facebook.api.Facebook;
-import org.springframework.social.facebook.api.User;
-import org.springframework.social.facebook.api.UserOperations;
-import org.springframework.social.facebook.api.impl.FacebookTemplate;
-import org.springframework.social.facebook.connect.FacebookConnectionFactory;
-import org.springframework.social.oauth2.AccessGrant;
-import org.springframework.social.oauth2.GrantType;
-import org.springframework.social.oauth2.OAuth2Operations;
-import org.springframework.social.oauth2.OAuth2Parameters;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import kr.co.faceanalysis.persistence.Member_imple;
+import kr.co.faceanalysis.vo.MemberVO;
+import sun.nio.cs.HistoricallyNamedCharset;
 
+@SessionAttributes("m_id")
+@Controller
 public class LoginController {
 	@Autowired
 	Member_imple dao;
@@ -34,85 +33,46 @@ public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	
-	// 페이스북 oAuth 관련
-    @Autowired
-    private FacebookConnectionFactory connectionFactory;
-    @Autowired
-    private OAuth2Parameters oAuth2Parameters;
- 
-    // join  뷰로 매핑
-    @RequestMapping(value = "/join.do", method = { RequestMethod.GET, RequestMethod.POST })
-    public String join(HttpServletResponse response, Model model) {
-        
-        OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
-        String facebook_url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, oAuth2Parameters);
-    
-        model.addAttribute("facebook_url", facebook_url);
-        System.out.println("/facebook" + facebook_url);
- 
-        return "testpage";
-    }
-    
-    // 콜백받을 리퀘스트 매핑
-    
-    //@RequestMapping(value = "/facebookSignInCallback", method = { RequestMethod.GET, RequestMethod.POST })
-    @RequestMapping(value = "/facebookSignInCallback", method = { RequestMethod.GET, RequestMethod.POST })
-    public String facebookSignInCallback(@RequestParam String code) throws Exception {
- 
-        try {
-             String redirectUri = oAuth2Parameters.getRedirectUri();
-            System.out.println("Redirect URI : " + redirectUri);
-            System.out.println("Code : " + code);
- 
-            OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
-            AccessGrant accessGrant = oauthOperations.exchangeForAccess(code, redirectUri, null);
-            String accessToken = accessGrant.getAccessToken();
-            System.out.println("AccessToken: " + accessToken);
-            Long expireTime = accessGrant.getExpireTime();
-        
-            
-            if (expireTime != null && expireTime < System.currentTimeMillis()) {
-                accessToken = accessGrant.getRefreshToken();
-                logger.info("accessToken is expired. refresh token = {}", accessToken);
-            };
-            
-        
-            Connection<Facebook> connection = connectionFactory.createConnection(accessGrant);
-            Facebook facebook = connection == null ? new FacebookTemplate(accessToken) : connection.getApi();
-            UserOperations userOperations = facebook.userOperations();
-            
-            try
- 
-            {            
-                String [] fields = { "id", "email",  "name"};
-                User userProfile = facebook.fetchObject("me", User.class, fields);
-                System.out.println("유저이메일 : " + userProfile.getEmail());
-                System.out.println("유저 id : " + userProfile.getId());
-                System.out.println("유저 name : " + userProfile.getName());
-                
-            } catch (MissingAuthorizationException e) {
-                e.printStackTrace();
-            }
- 
-        
-        } catch (Exception e) {
- 
-            e.printStackTrace();
- 
-        }
-        /*return "redirect:/join";*/
-        return "redirect:/join";
- 
-    }
-	
-	
 	@RequestMapping(value="/login.do")
 	public String login() {
 		return "loginhome";
 	}
 	
+	@RequestMapping("signupOk.do")
+	public String signupOk(@ModelAttribute()MemberVO mvo,Model model) {
+		dao.insertMember(mvo);
+		/*System.out.println(mvo.getM_name());
+		System.out.println(mvo.getM_id());
+		System.out.println(mvo.getM_pwd());
+		System.out.println(mvo.getM_email());
+		System.out.println(mvo.getM_tel());
+		System.out.println(mvo.getM_addr1());
+		System.out.println(mvo.getM_addr2());
+		System.out.println(mvo.getM_type());
+		System.out.println(mvo.getM_gender());*/
+		
+		return "main";
+	}
 	
-	@RequestMapping(value="/member_check.do")
+	 
+	@RequestMapping(value="/signin.do")
+	public String signin(@ModelAttribute()MemberVO mvo, Model model) {
+		if(dao.member_check(mvo) == true) {
+			
+			model.addAttribute("m_id", mvo.getM_id());
+			
+			return "historyback";
+			
+			
+		}else {
+			return "loginhome";
+		}
+	}
+	
+	
+	
+	
+	/*@RequestMapping(value="/member_check.do")
 	public String mCheck(HttpServletRequest request, HttpServletResponse response) {
 		
 		String m_id = request.getParameter("m_id");
@@ -121,12 +81,69 @@ public class LoginController {
 		System.out.println(m_id);		
 		System.out.println(m_pwd);
 		
-		int check = dao.member_check(m_id, m_pwd);
+		int check = dao.member_check(MemberVO mvo);
 		
 		System.out.println(check);
 		
 		return "m_listpage";
 		//return "m_check";
 		
+	}*/
+	
+	@RequestMapping(value="/idDuple.do", method=RequestMethod.GET)
+	public void idDuplicationCheck(@RequestParam("m_id") String m_id, HttpServletResponse resp) {
+		
+		//System.out.println("로그인 컨트롤 아이디 : " + m_id);
+		
+		if(dao.idDuple(m_id)) {
+			boolean result = dao.idDuple(m_id); 
+			try {
+				resp.getWriter().print(result);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//System.out.println("로그인 컨트롤 결과 값 :" + result);
+			
+		}else {
+			//System.out.println("로그인 컨트롤 결과 값 : false");
+		}
+		
+		
 	}
+	
+	
+	@RequestMapping(value="/ajaxMember_check.do", method=RequestMethod.GET)
+	public void ajaxMember_check(@RequestParam("m_id") String m_id, @RequestParam("m_pwd") String m_pwd, HttpServletResponse resp) {
+		MemberVO mvo = new MemberVO();
+		mvo.setM_id(m_id);
+		mvo.setM_pwd(m_pwd);
+		if(dao.member_check(mvo)) {
+			boolean result = dao.member_check(mvo);
+			try {
+				resp.getWriter().print(result);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	@RequestMapping(value="/logout.do", method=RequestMethod.GET)
+	public void logout(HttpServletResponse resp,SessionStatus sessionStatus, Model model) {
+		
+		
+		sessionStatus.setComplete(); 
+			
+		
+		try {
+			resp.getWriter().print(true);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 }
