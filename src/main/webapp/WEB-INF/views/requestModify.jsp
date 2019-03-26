@@ -61,11 +61,10 @@
 			<!-- Post -->
 			<section class="post">
 				<header class="major">
-					<span class="date">요청글추가</span>
+					<span class="date">요청글변경</span>
 				</header>
 			</section>
 						
-			<!-- 확인 후 method post로 변경 -->
 			<!-- http://localhost:9090/faceanalysis/requestAddOK.do -->
 			<form action="" method="post" name="frm"  >
 			<input type="hidden" name="articleNo" value ="${requestBoardVo.a_no}"/>

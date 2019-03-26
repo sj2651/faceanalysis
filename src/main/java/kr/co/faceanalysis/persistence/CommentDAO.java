@@ -24,4 +24,10 @@ public class CommentDAO {
 	public void insertOneRecomment(CommentVO vo){
 		ss.insert("insertOneRecomment", vo);
 	}
+	public void deleteOneComment(int cno) {
+		ss.delete("deleteOneComment", cno);
+	}
+	public void deleteAllCommentForArticle(int ano) {
+		ss.delete("deleteAllCommentForArticle", ano);
+	}
 }

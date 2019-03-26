@@ -172,7 +172,11 @@ public class RequestController {
 	//글삭제
 	@RequestMapping("/requestDeleteOK.do")
 	public String RequestDeleteOK(HttpServletRequest hsr) {
+		
 		int ano = Integer.parseInt( hsr.getParameter("articleNo") );
+		//연결된 댓글 삭제
+		cDao.deleteAllCommentForArticle(ano);
+		//게시글 삭제
 		a_dao.article_deleteOne(ano);
 		
 		return "requestDeleteOK"; 
