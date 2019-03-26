@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.faceanalysis.vo.Option;
 import kr.co.faceanalysis.vo.Pagination;
 import kr.co.faceanalysis.vo.ProductVO;
 
@@ -114,6 +115,14 @@ public class ProductDAO implements Product_impl{
 	public ProductVO findById(int p_no) {
 		// TODO Auto-generated method stub
 		return ss.selectOne("findById", p_no);
+	}
+	
+	public Option[] getOrderByOptions() {
+		return orderBy;
+	}
+	
+	public Option[] getSearchByOptions() {
+		return searchBy;
 	}
 
 }

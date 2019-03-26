@@ -50,6 +50,10 @@
 					<form:select path="sb" class="" itemValue="value" itemLabel="label"
 						items="${ searchBy }" />
 					<form:input path="st" class="" placeholder="검색문자열" />
+					<button type="submit" class="">검색</button>
+					<c:if test="${ pagination.sb > 0 || pagination.ob > 0}">
+						<a href="ProductAllList.do?pg=1"> 검색취소 </a>
+					</c:if>
 				</form:form>
 				<c:forEach var="product" items="${ products }">
 					<article class="item">
