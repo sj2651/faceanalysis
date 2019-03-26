@@ -1686,6 +1686,7 @@
 		transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 		border-bottom: dotted 1px;
 		text-decoration: none;
+		
 	}
 
 		a:hover {
@@ -1819,6 +1820,7 @@
 	a {
 		color: #212931;
 		border-bottom-color: rgba(33, 41, 49, 0.5);
+		margin-left: 10%;
 	}
 
 		a:hover {

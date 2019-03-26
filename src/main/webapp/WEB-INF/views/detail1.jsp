@@ -56,7 +56,7 @@
 		<div id="main">
 			<div>
 				<a href="admin/ProductCreate.do">화장품 추가 등록 </a>
-				<a href="admin/ProductAllList.do" style="margin-left:10%">관리자용 화장품정보 </a>
+				<a href="admin/ProductAllList.do">관리자용 화장품정보 </a>
 			</div>
 			<!-- Featured Post -->
 			<article class="post featured">
@@ -90,8 +90,7 @@
 		<!-- Copyright -->
 		<div id="copyright">
 			<ul>
-				<li>&copy; Untitled</li>
-				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+				<li>Copyright &copy; 2019. DY, DH, SJ, JH. All rights reserved.</li>
 			</ul>
 		</div>
 
