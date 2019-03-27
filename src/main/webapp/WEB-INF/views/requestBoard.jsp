@@ -8,6 +8,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<jsp:include page="./naviindex.jsp" ></jsp:include>
 <head>
 <title>Generic Page - Massively by HTML5 UP</title>
 <meta charset="utf-8" />
@@ -51,8 +52,8 @@
 				<header class="major">
 					<span class="date">요청게시판</span>
 				</header>
-			</section>
-			<table>
+				
+				<table>
 				<tr>
 					<th>게시글 번호</th>
 					<th>제목</th>
@@ -70,15 +71,16 @@
 				</c:forEach>
 				
 			</table>
-			<div>
+			<div style="    margin-left: 35%;">
 			<!-- 세션에 아이디가 없을시 메인으로 이동 -->
 			<c:if test="${m_id == null }">
 				<c:redirect url="/main.do"></c:redirect>
 			</c:if>
 				<a href="<c:url value="/request_add.do"/>">
-					<div id = "make">
+					<!-- <div id = "make">
 						글 작성
-					</div>
+					</div> -->
+						<input type="button" id = "make" value="글작성" style="margin: 0 auto"/>
 				</a>
 			<p>
 				<c:forEach items="${pageList}" var="pageNo">
@@ -87,6 +89,9 @@
 				</c:forEach>
 			</p>
 			</div>
+			</section>
+			
+			
 
 		
 			

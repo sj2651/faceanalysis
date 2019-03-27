@@ -30,6 +30,9 @@
 		SELECT * FROM products
 	</select>
 	
+	<select id="selectmnoFromArticle" parameterType="String" resultType="int">
+		select m_no from member where m_id=#{m_id}
+	</select>
 	
 	<select id="selectMember" parameterType="mvo" resultType="int">
 		SELECT * FROM member WHERE m_id=#{m_id} AND m_pwd=#{m_pwd}

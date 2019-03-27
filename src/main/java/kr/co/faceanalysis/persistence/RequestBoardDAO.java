@@ -36,6 +36,12 @@ public class RequestBoardDAO {
 		int countRow = ss.selectOne("countRowRequest");
 		return countRow; 
 	}
+	
+	public int selectMemberMno(String m_id) {
+		
+		return ss.selectOne("selectmnoFromArticle", m_id);
+		
+	}
 		
 
 }

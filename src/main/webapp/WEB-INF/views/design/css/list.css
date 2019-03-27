@@ -262,7 +262,7 @@ ul.pagination li:hover+a, ul.pagination li:hover+span {
 
 ul.pagination li.active {
 	background-color: #eeeeee;
-	margin-left: 23%;
+	/* margin-left: 0; */
 }
 
 ul.pagination span {

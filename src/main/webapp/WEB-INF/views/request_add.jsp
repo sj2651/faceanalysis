@@ -8,6 +8,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<jsp:include page="./naviindex.jsp" ></jsp:include>
 <head>
 <title>요청글추가</title>
 <meta charset="utf-8" />
@@ -60,9 +61,7 @@
 				<header class="major">
 					<span class="date">요청글추가</span>
 				</header>
-			</section>
-			
-			<!-- http://localhost:9090/faceanalysis/requestAddOK.do -->
+				<!-- http://localhost:9090/faceanalysis/requestAddOK.do -->
 			<form action="" method="post" name="frm"  >
 				<table>
 					<tr>
@@ -71,7 +70,8 @@
 					</tr>
 					<tr>
 						<th>작성자</th>
-						<td> <!-- 로그인한 사람의 이름 --> </td>
+						<td>${m_id } <!-- 로그인한 사람의 이름 --> </td>
+						<input type="hidden" name="m_id" value="${m_id }"/>
 					</tr>
 					<tr>
 						<th>내용</th>
@@ -79,9 +79,12 @@
 					</tr>
 				</table>
 				
-				<input type="button" value="글작성" id="submitbtn"/>
+				<input type="button" value="글작성" id="submitbtn" style="margin: 0 auto"/>
 			</form>
-
+				
+			</section>
+			
+			
 		</div>
 
 		<!-- Footer -->
@@ -101,7 +104,7 @@
 						<textarea name="message" id="message" rows="3"></textarea>
 					</div>
 					<ul class="actions">
-						<li><input type="submit" value="Send Message" /></li>
+						<li><input type="submit" value="Send Message" />f</li>
 					</ul>
 				</form>
 			</section>

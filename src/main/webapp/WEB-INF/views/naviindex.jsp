@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
-
+<!-- 
 
 
   <meta charset="utf-8">
@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  
+   -->
 
   <!-- Bootstrap core CSS -->
   <link href="./design/topnavi/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<jsp:include page="./naviindex.jsp"></jsp:include>
 <title>Epilogue by TEMPLATED</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +20,7 @@
 		$("body").removeClass("is-loading");
 	}, 1000);		
 </script>
-<jsp:include page="./naviindex.jsp"></jsp:include>
+
 </head>
 <body class="is-loading">
 	<div id="wrapper" class="fade-in">
@@ -69,35 +70,28 @@
 						<header>
 							<a href="detail.do?p_no=${product.p_no}"><img
 								src="${product.p_img}" alt="" width=100%; height=100%; /></a>
-							<h3 style="margin: 10%;">${product.p_name}</h3>
+							<h3 style="margin: 10%; font-size: 13pt;">${product.p_name}</h3>
 						</header>
-						<h4 style="margin-right: 25%; font-weight: bold; color: #0000CC;">Brand
+						<h4 style="margin-right: 25%; font-weight: bold; color: #0000CC; font-size: 1em;">Brand
 							Name</h4>
-						<h4 style="margin-right: 27%;">${product.p_brand}</h4>
-						<h4 style="margin-right: 25%; font-weight: bold; color: #0000CC;">Category</h4>
-						<h4 style="margin-right: 27%;">${product.p_cate}</h4>
+						<h4 style="margin-right: 27%; font-size: 1em; font-weight: 400;">${product.p_brand}</h4>
+						<h4 style="margin-right: 25%; font-weight: bold; color: #0000CC; font-size: 1em; ">Category</h4>
+						<h4 style="margin-right: 27%; font-size: 1em; ">${product.p_cate}</h4>
 						<ul class="actions">
-							<li style="margin-right: 27%;"><a href="detail.do?p_no=${product.p_no}" class="button">More</a></li>
+							<li style="margin-right: 27%; font-size: 1em;"><a href="detail.do?p_no=${product.p_no}" class="button">More</a></li>
 						</ul>
 					</article>
 				</c:forEach>
 			</section>
+			<div style="margin-left: 18%; border: 0;">
 			<my:pagination pageSize="${ pagination.sz }"
 				recordCount="${ pagination.recordCount }" />
+			</div>
 
 			<!-- CTA -->
 
-			<section id="cta" class="main special">
-				<h2>Etiam veroeros lorem</h2>
-				<p>
-					Phasellus ac augue ac magna auctor tempus proin<br /> accumsan
-					lacus a nibh commodo in pellentesque dui<br /> in hac habitasse
-					platea dictumst.
-				</p>
-				<ul class="actions">
-					<li><a href="#" class="button big">Get Started</a></li>
-				</ul>
-			</section>
+			
+			
 
 			<!-- Footer -->
 			<footer id="footer">

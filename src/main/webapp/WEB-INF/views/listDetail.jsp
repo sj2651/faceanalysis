@@ -46,9 +46,7 @@
 					  $(this).addClass('on').prevAll('span').addClass('on'); 
 					 return false;
 					});	
-					
-					
-					
+			});		
 			
 			</script>
 			
@@ -70,7 +68,7 @@
 		<ul class="links">
 			<li><a href="detail1.do">Brand</a></li>
 			<li><a href="detail2.do">Category</a></li>
-			<li><a href="detail3.do">Q/A</a></li>
+			<li><a href="requestBoard.do">Q/A</a></li>
 		</ul>
 		<ul class="icons">
 			<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -98,7 +96,7 @@
 								<div class="sectionContent">
 
 									<div class="row nino-hoverEffect">
-									<img alt="" src="${product.p_img }">
+									<img alt="" src="${product.p_img }" style="margin: 0 auto; height: 100%;">
 										
 										
 											

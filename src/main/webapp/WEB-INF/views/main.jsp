@@ -4,7 +4,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
-
+<jsp:include page="./naviindex.jsp" ></jsp:include>
 <head>
   <meta charset="UTF-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -104,7 +104,7 @@
 
 </script>
 <!-- 네이버 로그인 API 끝 -->
-<jsp:include page="./naviindex.jsp"></jsp:include>
+
 <body class="">
 <!-- Add your content of header -->
 <div class="background-color-layer" style="max-width:100%; height:auto; background-image: url('images/img-01.jpg') "></div>

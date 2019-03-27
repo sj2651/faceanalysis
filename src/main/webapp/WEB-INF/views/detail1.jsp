@@ -8,7 +8,9 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<jsp:include page="./naviindex.jsp"></jsp:include>
 <head>
+
 <title>Massively by HTML5 UP</title>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -16,7 +18,7 @@
 <link rel="stylesheet" href="design/css/detail.css" />
 
 </head>
-<jsp:include page="./naviindex.jsp"></jsp:include>
+
 <h1>${m_id }</h1>
 <body class="is-loading">
 

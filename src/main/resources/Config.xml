@@ -17,6 +17,7 @@
  	<mappers>  <!-- 자바 파일이 아닌 파일을 찾아갈 때 -->
   		<mapper resource="kr/co/faceanalysis/mapper/ProductMapper.xml" />
   		<mapper resource="kr/co/faceanalysis/mapper/Mapper.xml" />
+  		<mapper resource="kr/co/faceanalysis/mapper/RequestMapper.xml" />
   		
   	</mappers>
 </configuration>

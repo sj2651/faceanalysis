@@ -318,7 +318,7 @@
 <footer class="footer-container white-text-container text-center">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12" style="margin: 0 auto;">
         <p><img src="./images/mashup-icon.svg" alt=""></p>
         
         <p>©All right reserved. Design <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template</a>/<a href="https://unsplash.com/" title="Beautiful Free Images">Unsplash</a></p>

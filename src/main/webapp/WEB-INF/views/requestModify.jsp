@@ -63,9 +63,7 @@
 				<header class="major">
 					<span class="date">요청글변경</span>
 				</header>
-			</section>
-						
-			<!-- http://localhost:9090/faceanalysis/requestAddOK.do -->
+				<!-- http://localhost:9090/faceanalysis/requestAddOK.do -->
 			<form action="" method="post" name="frm"  >
 			<input type="hidden" name="articleNo" value ="${requestBoardVo.a_no}"/>
 				<table>
@@ -83,8 +81,12 @@
 					</tr>
 				</table>
 				
-				<input type="button" value="글 수정" id="submitbtn"/>
+				<input type="button" value="글 수정" id="submitbtn"  style="margin: 0 auto"/>
 			</form>
+				
+			</section>
+						
+			
 
 		</div>
 

@@ -100,14 +100,19 @@ public class RequestController {
 	@RequestMapping("/requestAddOK.do")
 	public String RequestAddOK(HttpServletRequest hsr) {
 		// 임시로 회원번호를 9999으로 설정
-		int mno = 9999;
+		int mno = RBDao.selectMemberMno(hsr.getParameter("m_id"));
 
 		String title = hsr.getParameter("title");
+		
 		String content = hsr.getParameter("content");
 		
 		//a_no에 시퀀스 필요
-		ArticleVO vo = new ArticleVO(2,mno,5,title,content,"");
-		
+		/*ArticleVO vo = new ArticleVO(mno,5,title,content,"");*/
+		ArticleVO vo = new ArticleVO();
+		vo.setM_no(mno);
+		vo.setA_title(title);
+		vo.setA_content(content);
+		vo.setA_cate(5);
 		System.out.println("vo : "+vo);
 				
 		// a_no, m_no, a_cate, a_title,a_content,a_reg		
@@ -179,7 +184,7 @@ public class RequestController {
 		//게시글 삭제
 		a_dao.article_deleteOne(ano);
 		
-		return "requestDeleteOK"; 
+		return "requestDeleteOk"; 
 	}
 	//글수정
 	@RequestMapping("/requestModify.do")
