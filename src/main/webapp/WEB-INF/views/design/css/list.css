@@ -1524,9 +1524,10 @@ table.alt tbody tr td {
 
 /* Wrapper */
 #wrapper {
-	width: calc(100% - 4em);
+/* 	width: calc(100% - 4em);
+	max-width: 72rem; */
 	margin: 0 auto;
-	max-width: 72rem;
+	
 	padding: 0;
 }
 
@@ -1638,7 +1639,7 @@ table.alt tbody tr td {
 }
 
 #header.alt {
-	height: 20em;
+	/* height: 20em; */
 	min-height: 20em;
 	text-align: center;
 }
@@ -1965,4 +1966,9 @@ body.is-loading #header.alt .inner {
 	#footer:before {
 		margin-bottom: 2em;
 	}
+}
+.commetbox{
+	float: left;
+    height: 50px;
+	
 }
