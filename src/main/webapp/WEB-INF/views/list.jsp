@@ -19,6 +19,7 @@
 		$("body").removeClass("is-loading");
 	}, 1000);		
 </script>
+<jsp:include page="./naviindex.jsp"></jsp:include>
 </head>
 <body class="is-loading">
 	<div id="wrapper" class="fade-in">

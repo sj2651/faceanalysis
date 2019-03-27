@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
-<!DOCTYPE html>
-<html lang="en">
+
 
 
   <meta charset="utf-8">
@@ -68,24 +67,26 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
     <div class="container">
-      <div class="collapse navbar-collapse" id="navbarResponsive" name="frm">
+      <div class="collapse navbar-collapse" id="navbarResponsive" name="frm" style="width:900px; height:45px;">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
           <c:if test="${m_id != null }">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio" style="text-transform: none;">${m_id } 님</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio" style="text-transform: none; margin: 0 auto;">${m_id }</a>
           </c:if>
           <c:if test="${m_id == null }">
-          	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="login.do" style="text-transform: none;">로그인</a>
+          	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="login.do" style="text-transform: none; margin: 0 auto;">LogIn</a>
           </c:if>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
           <c:if test="${m_id != null }">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" onclick="logoutFunction()">로그아웃</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" onclick="logoutFunction()">LogOut</a>
           </c:if>
           </li>
+          <c:if test="${m_id == null }">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="signup.do" style="width: 100%;">Sign Up</a>
           </li>
+          </c:if>
         </ul>
       </div>
     </div>
@@ -109,4 +110,3 @@
 <!-- </body> -->
 </div>
 
-</html>

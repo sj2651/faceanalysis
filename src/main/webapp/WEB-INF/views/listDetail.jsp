@@ -15,6 +15,7 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
+<jsp:include page="./naviindex.jsp"></jsp:include>
 <head>
 <title>Epilogue by TEMPLATED</title>
 <meta charset="utf-8" />

@@ -21,7 +21,7 @@ public class RequestBoardDAO {
 		this.ss = ss;
 	}
 	
-/*	//요청 게시판 번호 = 5(임시)
+	//요청 게시판 번호 = 5(임시)
 	public List<RequestBoardVO> selectAll(int pageNo){
 		return ss.selectList("selectRequstBoardAll",pageNo);
 	}
@@ -29,7 +29,7 @@ public class RequestBoardDAO {
 	public RequestBoardVO selectOne(int ano){
 		return ss.selectOne("selectRequstBoardOne",ano);
 
-	}*/
+	}
 
 	
 	public int countRowOfRequestBoard() {
